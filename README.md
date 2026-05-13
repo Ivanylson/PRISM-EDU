@@ -20,6 +20,11 @@ O projeto está organizado em fases sequenciais para garantir a integridade dos 
 * **Processamento:** Pandas, NumPy (Sugerido)
 * **Inteligência Artificial:** Scikit-learn / OpenAI API (Conforme as fases 3 e 4)
 
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/Ivanylson/PRISM-EDU.git](https://github.com/Ivanylson/PRISM-EDU.git)
+
+
 ## 📁 Diretórios Adicionais
 
 * `preprocessamento/`: Contém os arquivos brutos e dicionários de dados.
@@ -57,7 +62,3 @@ cd PRISM-EDU
     Desenvolvido por: <strong>Ivanylson</strong>
 </div>
 
-
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/Ivanylson/PRISM-EDU.git](https://github.com/Ivanylson/PRISM-EDU.git)
