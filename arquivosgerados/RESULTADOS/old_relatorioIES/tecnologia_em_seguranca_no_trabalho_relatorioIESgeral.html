@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório IES - Tecnologia em Segurança no Trabalho</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 40px; color: #333; background-color: #f4f7f6; }
+        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        .resumo { background-color: #ecf0f1; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 16px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; vertical-align: middle; }
+        th { background-color: #34495e; color: #ffffff; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; position: sticky; top: 0; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f5f8; transition: background-color 0.3s; }
+        .gap-critico { color: #e74c3c; font-weight: bold; font-size: 15px; text-align: center; }
+        .centralizado { text-align: center; }
+        .destaque { font-weight: bold; color: #2c3e50; }
+        .footer { margin-top: 40px; font-size: 13px; color: #7f8c8d; text-align: center; border-top: 1px solid #ddd; padding-top: 15px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏛️ Relatório de Diagnóstico por IES: Tecnologia em Segurança no Trabalho</h1>
+        
+        <div class="resumo">
+            <p><strong>Total de Instituições Analisadas:</strong> 23</p>
+            <p><strong>Total de Alunos Analisados no Curso:</strong> 1058</p>
+        </div>
+        
+        <h2>📋 Tabela Geral de Deficiências Críticas por Instituição</h2>
+        <p>A tabela abaixo destrincha, para <strong>cada Instituição de Ensino Superior (IES)</strong>, o resultado do agrupamento por Inteligência Artificial (K-Means). Ela aponta exatamente quais são as maiores deficiências relativas (GAPs) de cada perfil dentro daquela IES específica, indicando as competências e os objetos de conhecimento que exigem intervenção pedagógica urgente.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="centralizado">Código IES</th>
+                    <th>Perfil de Alunos</th>
+                    <th class="centralizado">Questão Crítica</th>
+                    <th class="centralizado">Erro Absoluto</th>
+                    <th class="centralizado">GAP (vs IES)</th>
+                    <th>Objetos de Conhecimento (OCs)</th>
+                    <th>Competência em Déficit</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="centralizado destaque">375</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(9 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-57.1%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">375</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(9 alunos)</td>
+                    <td class="centralizado destaque">Q11</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-42.9%</td>
+                    <td>II - Ergonomia; + XI - Proteção e controle de máquinas, de equipamentos e de instalações;</td>
+                    <td>IV - Analisar postos de trabalho e propor melhorias que possibilitem a aplicação dos princípios ergonômicos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">375</td>
+                    <td><span class='destaque'>Intermediário</span><br>(19 alunos)</td>
+                    <td class="centralizado destaque">Q17</td>
+                    <td class="centralizado">89.5%</td>
+                    <td class="gap-critico">-38.0%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento; + X - Qualidade de vida do trabalhador;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">375</td>
+                    <td><span class='destaque'>Intermediário</span><br>(19 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-34.3%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">375</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(7 alunos)</td>
+                    <td class="centralizado destaque">Q34</td>
+                    <td class="centralizado">85.7%</td>
+                    <td class="gap-critico">-42.9%</td>
+                    <td>VII - Legislação e normas técnicas; + II - Ergonomia;</td>
+                    <td>IV - Analisar postos de trabalho e propor melhorias que possibilitem a aplicação dos princípios ergonômicos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">375</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(7 alunos)</td>
+                    <td class="centralizado destaque">Q24</td>
+                    <td class="centralizado">71.4%</td>
+                    <td class="gap-critico">-37.1%</td>
+                    <td>XVI - Doenças ocupacionais. + VIII - Psicologia, comunicação e treinamento;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1472</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(196 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">99.5%</td>
+                    <td class="gap-critico">-42.1%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1472</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(196 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">99.5%</td>
+                    <td class="gap-critico">-33.4%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1472</td>
+                    <td><span class='destaque'>Intermediário</span><br>(149 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">97.3%</td>
+                    <td class="gap-critico">-41.8%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1472</td>
+                    <td><span class='destaque'>Intermediário</span><br>(149 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">97.3%</td>
+                    <td class="gap-critico">-40.6%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1472</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(89 alunos)</td>
+                    <td class="centralizado destaque">Q38</td>
+                    <td class="centralizado">89.9%</td>
+                    <td class="gap-critico">-49.3%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento;</td>
+                    <td>VII - Realizar consultoria, auditoria, assessoria e capacitação na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1472</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(89 alunos)</td>
+                    <td class="centralizado destaque">Q37</td>
+                    <td class="centralizado">86.5%</td>
+                    <td class="gap-critico">-35.6%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1166</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(14 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-28.0%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1166</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(14 alunos)</td>
+                    <td class="centralizado destaque">Q30</td>
+                    <td class="centralizado">64.3%</td>
+                    <td class="gap-critico">-20.3%</td>
+                    <td>III - Higiene do trabalho;</td>
+                    <td>V - Identificar, determinar e analisar causas de perdas, estabelecendo planos de ações preventivas e corretivas;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1166</td>
+                    <td><span class='destaque'>Intermediário</span><br>(6 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-72.0%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1166</td>
+                    <td><span class='destaque'>Intermediário</span><br>(6 alunos)</td>
+                    <td class="centralizado destaque">Q13</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-52.0%</td>
+                    <td>IV - Gerenciamento de risco;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1166</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q2</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-60.0%</td>
+                    <td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+                    <td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1166</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q22</td>
+                    <td class="centralizado">80.0%</td>
+                    <td class="gap-critico">-52.0%</td>
+                    <td>III - Higiene do trabalho; + VII - Legislação e normas técnicas;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">298</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(7 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-34.6%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">298</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(7 alunos)</td>
+                    <td class="centralizado destaque">Q19</td>
+                    <td class="centralizado">85.7%</td>
+                    <td class="gap-critico">-31.9%</td>
+                    <td>XII - Sistema de gestão integrada;</td>
+                    <td>VI - Gerenciar o cumprimento de normas e de legislações em vigor;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">298</td>
+                    <td><span class='destaque'>Intermediário</span><br>(10 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-57.7%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">298</td>
+                    <td><span class='destaque'>Intermediário</span><br>(10 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-38.5%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">298</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(9 alunos)</td>
+                    <td class="centralizado destaque">Q12</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-38.5%</td>
+                    <td>IV - Gerenciamento de risco; + VI - Prevenção e combate a incêndio;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">298</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(9 alunos)</td>
+                    <td class="centralizado destaque">Q27</td>
+                    <td class="centralizado">77.8%</td>
+                    <td class="gap-critico">-35.5%</td>
+                    <td>XVI - Doenças ocupacionais. + IX - Toxicologia;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">322</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(43 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-34.1%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">322</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(43 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-26.8%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">322</td>
+                    <td><span class='destaque'>Intermediário</span><br>(20 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-58.5%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">322</td>
+                    <td><span class='destaque'>Intermediário</span><br>(20 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-56.1%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">322</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(19 alunos)</td>
+                    <td class="centralizado destaque">Q38</td>
+                    <td class="centralizado">89.5%</td>
+                    <td class="gap-critico">-52.9%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento;</td>
+                    <td>VII - Realizar consultoria, auditoria, assessoria e capacitação na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">322</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(19 alunos)</td>
+                    <td class="centralizado destaque">Q27</td>
+                    <td class="centralizado">78.9%</td>
+                    <td class="gap-critico">-46.0%</td>
+                    <td>XVI - Doenças ocupacionais. + IX - Toxicologia;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1196</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(113 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">99.1%</td>
+                    <td class="gap-critico">-41.6%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1196</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(113 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">97.3%</td>
+                    <td class="gap-critico">-30.0%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1196</td>
+                    <td><span class='destaque'>Intermediário</span><br>(90 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">95.6%</td>
+                    <td class="gap-critico">-39.3%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1196</td>
+                    <td><span class='destaque'>Intermediário</span><br>(90 alunos)</td>
+                    <td class="centralizado destaque">Q17</td>
+                    <td class="centralizado">87.8%</td>
+                    <td class="gap-critico">-37.4%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento; + X - Qualidade de vida do trabalhador;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1196</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(51 alunos)</td>
+                    <td class="centralizado destaque">Q31</td>
+                    <td class="centralizado">64.7%</td>
+                    <td class="gap-critico">-41.9%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1196</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(51 alunos)</td>
+                    <td class="centralizado destaque">Q38</td>
+                    <td class="centralizado">86.3%</td>
+                    <td class="gap-critico">-41.8%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento;</td>
+                    <td>VII - Realizar consultoria, auditoria, assessoria e capacitação na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">417</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(17 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-31.2%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">417</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(17 alunos)</td>
+                    <td class="centralizado destaque">Q23</td>
+                    <td class="centralizado">82.4%</td>
+                    <td class="gap-critico">-29.2%</td>
+                    <td>XIII - Empreendedorismo e fundamentos da Administração; + XII - Sistema de gestão integrada;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">417</td>
+                    <td><span class='destaque'>Intermediário</span><br>(10 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-59.4%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">417</td>
+                    <td><span class='destaque'>Intermediário</span><br>(10 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-53.1%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">417</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q36</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-62.5%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>VI - Gerenciar o cumprimento de normas e de legislações em vigor;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">417</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q17</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-56.2%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento; + X - Qualidade de vida do trabalhador;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">221</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">93.3%</td>
+                    <td class="gap-critico">-41.2%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">221</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-31.2%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">221</td>
+                    <td><span class='destaque'>Intermediário</span><br>(18 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-33.3%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">221</td>
+                    <td><span class='destaque'>Intermediário</span><br>(18 alunos)</td>
+                    <td class="centralizado destaque">Q17</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-31.2%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento; + X - Qualidade de vida do trabalhador;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">221</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q30</td>
+                    <td class="centralizado">86.7%</td>
+                    <td class="gap-critico">-42.9%</td>
+                    <td>III - Higiene do trabalho;</td>
+                    <td>V - Identificar, determinar e analisar causas de perdas, estabelecendo planos de ações preventivas e corretivas;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">221</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q16</td>
+                    <td class="centralizado">66.7%</td>
+                    <td class="gap-critico">-37.5%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>XII - Identificar, registrar e analisar dados referentes à segurança do trabalho para subsidiar tomada de decisão.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">496</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q11</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-45.7%</td>
+                    <td>II - Ergonomia; + XI - Proteção e controle de máquinas, de equipamentos e de instalações;</td>
+                    <td>IV - Analisar postos de trabalho e propor melhorias que possibilitem a aplicação dos princípios ergonômicos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">496</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">93.3%</td>
+                    <td class="gap-critico">-41.9%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">496</td>
+                    <td><span class='destaque'>Intermediário</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-45.7%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">496</td>
+                    <td><span class='destaque'>Intermediário</span><br>(15 alunos)</td>
+                    <td class="centralizado destaque">Q17</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-42.9%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento; + X - Qualidade de vida do trabalhador;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">496</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q31</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-77.1%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">496</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q16</td>
+                    <td class="centralizado">80.0%</td>
+                    <td class="gap-critico">-57.1%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>XII - Identificar, registrar e analisar dados referentes à segurança do trabalho para subsidiar tomada de decisão.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">3876</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">66.7%</td>
+                    <td class="gap-critico">-36.7%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">3876</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q38</td>
+                    <td class="centralizado">66.7%</td>
+                    <td class="gap-critico">-36.7%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento;</td>
+                    <td>VII - Realizar consultoria, auditoria, assessoria e capacitação na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">3876</td>
+                    <td><span class='destaque'>Intermediário</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q37</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-40.0%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">3876</td>
+                    <td><span class='destaque'>Intermediário</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q7</td>
+                    <td class="centralizado">75.0%</td>
+                    <td class="gap-critico">-35.0%</td>
+                    <td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+                    <td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">3876</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q16</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-60.0%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>XII - Identificar, registrar e analisar dados referentes à segurança do trabalho para subsidiar tomada de decisão.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">3876</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q21</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-60.0%</td>
+                    <td>XIV - Ética profissional; + XV - Biossegurança;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">32</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(2 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-71.4%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">32</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(2 alunos)</td>
+                    <td class="centralizado destaque">Q34</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-64.3%</td>
+                    <td>VII - Legislação e normas técnicas; + II - Ergonomia;</td>
+                    <td>IV - Analisar postos de trabalho e propor melhorias que possibilitem a aplicação dos princípios ergonômicos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">32</td>
+                    <td><span class='destaque'>Intermediário</span><br>(9 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">88.9%</td>
+                    <td class="gap-critico">-24.6%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">32</td>
+                    <td><span class='destaque'>Intermediário</span><br>(9 alunos)</td>
+                    <td class="centralizado destaque">Q11</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-21.4%</td>
+                    <td>II - Ergonomia; + XI - Proteção e controle de máquinas, de equipamentos e de instalações;</td>
+                    <td>IV - Analisar postos de trabalho e propor melhorias que possibilitem a aplicação dos princípios ergonômicos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">32</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q28</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-78.6%</td>
+                    <td>XIII - Empreendedorismo e fundamentos da Administração; + XII - Sistema de gestão integrada;</td>
+                    <td>XII - Identificar, registrar e analisar dados referentes à segurança do trabalho para subsidiar tomada de decisão.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">32</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q36</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-64.3%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>VI - Gerenciar o cumprimento de normas e de legislações em vigor;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">15450</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q20</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-28.6%</td>
+                    <td>XI - Proteção e controle de máquinas, de equipamentos e de instalações; + I - Estatística aplicada;</td>
+                    <td>XII - Identificar, registrar e analisar dados referentes à segurança do trabalho para subsidiar tomada de decisão.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">15450</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(5 alunos)</td>
+                    <td class="centralizado destaque">Q22</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-28.6%</td>
+                    <td>III - Higiene do trabalho; + VII - Legislação e normas técnicas;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">15450</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(2 alunos)</td>
+                    <td class="centralizado destaque">Q6</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-57.1%</td>
+                    <td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+                    <td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">15450</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(2 alunos)</td>
+                    <td class="centralizado destaque">Q7</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-57.1%</td>
+                    <td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+                    <td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">163</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(14 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">92.9%</td>
+                    <td class="gap-critico">-30.4%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">163</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(14 alunos)</td>
+                    <td class="centralizado destaque">Q26</td>
+                    <td class="centralizado">92.9%</td>
+                    <td class="gap-critico">-26.2%</td>
+                    <td>XV - Biossegurança; + III - Higiene do trabalho;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">163</td>
+                    <td><span class='destaque'>Intermediário</span><br>(7 alunos)</td>
+                    <td class="centralizado destaque">Q13</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-50.0%</td>
+                    <td>IV - Gerenciamento de risco;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">163</td>
+                    <td><span class='destaque'>Intermediário</span><br>(7 alunos)</td>
+                    <td class="centralizado destaque">Q32</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-45.8%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">163</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q19</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-79.2%</td>
+                    <td>XII - Sistema de gestão integrada;</td>
+                    <td>VI - Gerenciar o cumprimento de normas e de legislações em vigor;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">163</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q2</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-70.8%</td>
+                    <td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+                    <td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1510</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q29</td>
+                    <td class="centralizado">66.7%</td>
+                    <td class="gap-critico">-33.3%</td>
+                    <td>IV - Gerenciamento de risco;</td>
+                    <td>VI - Gerenciar o cumprimento de normas e de legislações em vigor;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1510</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q19</td>
+                    <td class="centralizado">33.3%</td>
+                    <td class="gap-critico">-16.7%</td>
+                    <td>XII - Sistema de gestão integrada;</td>
+                    <td>VI - Gerenciar o cumprimento de normas e de legislações em vigor;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1510</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q8</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-50.0%</td>
+                    <td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1510</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q2</td>
+                    <td class="centralizado">66.7%</td>
+                    <td class="gap-critico">-33.3%</td>
+                    <td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+                    <td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1270</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q21</td>
+                    <td class="centralizado">75.0%</td>
+                    <td class="gap-critico">-25.0%</td>
+                    <td>XIV - Ética profissional; + XV - Biossegurança;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1270</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q23</td>
+                    <td class="centralizado">50.0%</td>
+                    <td class="gap-critico">-25.0%</td>
+                    <td>XIII - Empreendedorismo e fundamentos da Administração; + XII - Sistema de gestão integrada;</td>
+                    <td>X - Elaborar e interpretar relatórios e pareceres técnicos na área de segurança do trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1270</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q5</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-50.0%</td>
+                    <td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+                    <td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1270</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q37</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-50.0%</td>
+                    <td>VII - Legislação e normas técnicas;</td>
+                    <td>I - Identificar e prevenir doenças ocupacionais, levando em consideração o indivíduo e seu ambiente de trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1042</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q15</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-42.9%</td>
+                    <td>V - Atendimento pré- hospitalar;</td>
+                    <td>VIII - Identificar e intervir no suporte básico à vida em situações emergenciais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1042</td>
+                    <td><span class='destaque'>Alto Desempenho</span><br>(4 alunos)</td>
+                    <td class="centralizado destaque">Q18</td>
+                    <td class="centralizado">75.0%</td>
+                    <td class="gap-critico">-32.1%</td>
+                    <td>VIII - Psicologia, comunicação e treinamento; + X - Qualidade de vida do trabalhador;</td>
+                    <td>III - Planejar e organizar campanhas de saúde e de segurança no trabalho;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1042</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q21</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-57.1%</td>
+                    <td>XIV - Ética profissional; + XV - Biossegurança;</td>
+                    <td>XI - Identificar, analisar, intervir e monitorar riscos ambientais relacionados às atividades laborais;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado destaque">1042</td>
+                    <td><span class='destaque'>Risco Crítico</span><br>(3 alunos)</td>
+                    <td class="centralizado destaque">Q25</td>
+                    <td class="centralizado">100.0%</td>
+                    <td class="gap-critico">-42.9%</td>
+                    <td>VI - Prevenção e combate a incêndio; + XIV - Ética profissional;</td>
+                    <td>IX - Gerenciar planos de prevenção e de combate a incêndio e a sinistros;</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            Relatório gerado automaticamente por motor de Inteligência Artificial Educacional com base no algoritmo K-Means.
+        </div>
+    </div>
+</body>
+</html>

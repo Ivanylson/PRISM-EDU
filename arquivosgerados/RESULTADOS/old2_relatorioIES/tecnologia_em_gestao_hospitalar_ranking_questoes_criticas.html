@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking Crítico - Tecnologia em Gestão Hospitalar</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 40px; color: #333; background-color: #f4f7f6; }
+        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #c0392b; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; }
+        h2 { color: #2c3e50; margin-top: 30px; }
+        .resumo { background-color: #fdf2e9; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 16px; border-left: 5px solid #e67e22; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; vertical-align: middle; }
+        th { background-color: #2c3e50; color: #ffffff; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; position: sticky; top: 0; }
+        .linha-ies { background-color: #ecf0f1; font-weight: bold; font-size: 16px; text-align: center; color: #2c3e50; }
+        tr:hover { background-color: #f1f5f8; transition: background-color 0.3s; }
+        .erro-critico { color: #c0392b; font-weight: bold; font-size: 15px; text-align: center; }
+        .centralizado { text-align: center; }
+        .posicao { font-weight: bold; color: #e67e22; }
+        .footer { margin-top: 40px; font-size: 13px; color: #7f8c8d; text-align: center; border-top: 1px solid #ddd; padding-top: 15px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Ranking das Piores Questões por IES: Tecnologia em Gestão Hospitalar</h1>
+        
+        <div class="resumo">
+            <p><strong>Objetivo:</strong> Este relatório consolida o desempenho geral de todos os alunos (agrupando todos os perfis) para identificar os <strong>3 maiores gargalos absolutos</strong> de cada Instituição de Ensino Superior.</p>
+            <p><strong>Total de Instituições Analisadas:</strong> 73 | <strong>Total de Alunos:</strong> 2185</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="centralizado" style="width: 10%;">Código IES</th>
+                    <th class="centralizado" style="width: 15%;">Posição / Questão</th>
+                    <th class="centralizado" style="width: 10%;">Erro Geral (%)</th>
+                    <th style="width: 30%;">Objetos de Conhecimento (Matérias)</th>
+                    <th style="width: 35%;">Competência Exigida</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td rowspan="3" class="linha-ies">3162<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(35 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">88.6%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">88.6%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">13897<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(16 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q32</b></td>
+                    <td class="erro-critico">93.8%</td>
+                    <td>XIX - Modelos de gestão em saúde. + XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">87.5%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">671<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(11 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q5</b></td>
+                    <td class="erro-critico">90.9%</td>
+                    <td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+                    <td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">90.9%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">90.9%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">570<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(62 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">98.4%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">88.7%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">87.1%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">298<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(408 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">98.5%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">89.5%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">87.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">374<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(45 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">95.6%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">84.4%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">17400<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">163<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(114 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">94.7%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">93.9%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">86.8%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1472<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(153 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">98.7%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">90.2%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">88.2%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1294<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(13 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">32<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(89 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">95.5%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">87.6%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">86.5%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">224<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(10 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">90.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">90.0%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">737<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(24 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">91.7%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">87.5%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">322<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(69 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">97.1%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">88.4%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">85.5%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">417<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(75 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">98.7%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">89.3%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">86.7%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1491<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(81 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">95.1%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">88.9%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">85.2%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1270<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(37 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">94.6%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">91.9%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">86.5%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">21088<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">87.5%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q27</b></td>
+                    <td class="erro-critico">87.5%</td>
+                    <td>XII - Política e legislação aplicadas ao sistema de saúde;</td>
+                    <td>II - Gerenciar pessoas, estimulando o trabalho em equipe, a comunicação assertiva e mediando conflitos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1196<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(214 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">93.5%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">90.7%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">85.0%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">221<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(72 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">95.8%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">86.1%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">86.1%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">496<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(17 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">94.1%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">2835<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(22 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">90.9%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">90.9%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">718<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+                    <td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">21877<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">466<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(57 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">96.5%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q32</b></td>
+                    <td class="erro-critico">86.0%</td>
+                    <td>XIX - Modelos de gestão em saúde. + XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">84.2%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">385<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(13 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q28</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XIX - Modelos de gestão em saúde.</td>
+                    <td>I - Planejar e avaliar estratégias para a viabilidade e para desenvolvimento institucional;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1510<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(32 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">90.6%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">90.6%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">20053<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q16</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">22090<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q28</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XIX - Modelos de gestão em saúde.</td>
+                    <td>I - Planejar e avaliar estratégias para a viabilidade e para desenvolvimento institucional;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">22103<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q14</b></td>
+                    <td class="erro-critico">88.9%</td>
+                    <td>I - Planejamento e gestão estratégica em saúde; + II - Gestão de pessoas;</td>
+                    <td>II - Gerenciar pessoas, estimulando o trabalho em equipe, a comunicação assertiva e mediando conflitos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1232<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q12</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos; + X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q17</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>V - Auditoria em saúde; + VII - Sistemas de informação e de documentação médico-hospitalar;</td>
+                    <td>VII - Desenvolver e acompanhar as mudanças de mercado e as relações com prestadores de serviços, usuários e demais partes interessadas.</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">383<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(13 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">92.3%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">92.3%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">92.3%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">17355<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(10 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1775<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(26 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">96.2%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q32</b></td>
+                    <td class="erro-critico">92.3%</td>
+                    <td>XIX - Modelos de gestão em saúde. + XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1205<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(59 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">94.9%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">86.4%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q6</b></td>
+                    <td class="erro-critico">81.4%</td>
+                    <td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+                    <td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1813<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(17 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q36</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>VIII - Marketing em saúde;</td>
+                    <td>VII - Desenvolver e acompanhar as mudanças de mercado e as relações com prestadores de serviços, usuários e demais partes interessadas.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">94.1%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">88.2%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">952<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q32</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XIX - Modelos de gestão em saúde. + XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">93.3%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">86.7%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">670<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">88.9%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">88.9%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1060<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(18 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">94.4%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q17</b></td>
+                    <td class="erro-critico">94.4%</td>
+                    <td>V - Auditoria em saúde; + VII - Sistemas de informação e de documentação médico-hospitalar;</td>
+                    <td>VII - Desenvolver e acompanhar as mudanças de mercado e as relações com prestadores de serviços, usuários e demais partes interessadas.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">88.9%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">3649<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(84 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">96.4%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">92.9%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">85.7%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">375<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(16 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">93.8%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q8</b></td>
+                    <td class="erro-critico">87.5%</td>
+                    <td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">420<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(23 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">95.7%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">95.7%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q28</b></td>
+                    <td class="erro-critico">87.0%</td>
+                    <td>XIX - Modelos de gestão em saúde.</td>
+                    <td>I - Planejar e avaliar estratégias para a viabilidade e para desenvolvimento institucional;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">527<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q32</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XIX - Modelos de gestão em saúde. + XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1388<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q32</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XIX - Modelos de gestão em saúde. + XI - Gestão da qualidade em saúde;</td>
+                    <td>VI - Gerenciar a qualidade dos serviços de saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">1487<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q3</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q13</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>IV - Gestão de serviços assistenciais; + XVIII - Tecnologias em saúde;</td>
+                    <td>I - Planejar e avaliar estratégias para a viabilidade e para desenvolvimento institucional;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">316<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(48 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">97.9%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q36</b></td>
+                    <td class="erro-critico">93.8%</td>
+                    <td>VIII - Marketing em saúde;</td>
+                    <td>VII - Desenvolver e acompanhar as mudanças de mercado e as relações com prestadores de serviços, usuários e demais partes interessadas.</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q18</b></td>
+                    <td class="erro-critico">91.7%</td>
+                    <td>IX - Hotelaria hospitalar; + XI - Gestão da qualidade em saúde;</td>
+                    <td>III - Gerenciar os processos logísticos, otimizando materiais, estruturas e equipamentos;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">712<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q8</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+                    <td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">100.0%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="linha-ies">3876<br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(34 alunos)</span></td>
+                    <td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q10</b></td>
+                    <td class="erro-critico">97.1%</td>
+                    <td>III - Gestão financeira, orçamentária e de custos;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+                    <td class="erro-critico">88.2%</td>
+                    <td>X - Gestão de contratos, de convênios e de faturamento;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+                <tr>
+                    <td class="centralizado"><span class="posicao">3º Pior</span><br><b>Q33</b></td>
+                    <td class="erro-critico">85.3%</td>
+                    <td>XVIII - Tecnologias em saúde;</td>
+                    <td>IV - Gerenciar recursos tecnológicos relacionados à gestão em saúde;</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">Relatório de Diagnóstico Macro gerado automaticamente.</div>
+    </div>
+</body>
+</html>

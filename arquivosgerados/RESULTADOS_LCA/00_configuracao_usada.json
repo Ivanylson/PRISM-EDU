@@ -1,0 +1,10 @@
+{
+  "min_alunos_ies": 50,
+  "k_min": 2,
+  "k_max": 6,
+  "min_n_classe": 10,
+  "min_pct_classe": 0.05,
+  "n_bootstrap": 100,
+  "seed": 42,
+  "entropia_minima_aceitavel": 0.8
+}

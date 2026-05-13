@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking K-Means - Engenharia Florestal</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 40px; color: #333; background-color: #f4f7f6; }
+        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2c3e50; margin-top: 30px; }
+        .resumo { background-color: #e8f4f8; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 16px; border-left: 5px solid #3498db; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; vertical-align: middle; }
+        th { background-color: #2c3e50; color: #ffffff; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; position: sticky; top: 0; }
+        .linha-ies { background-color: #ecf0f1; font-weight: bold; font-size: 18px; text-align: center; color: #2c3e50; }
+        .linha-perfil { font-weight: bold; text-align: center; background-color: #fcfcfc; }
+        .perfil-0 { color: #27ae60; } /* Alto Desempenho (Verde) */
+        .perfil-1 { color: #f39c12; } /* Intermediário (Laranja) */
+        .perfil-2 { color: #c0392b; } /* Risco Crítico (Vermelho) */
+        tr:hover { background-color: #f1f5f8; transition: background-color 0.3s; }
+        .erro-critico { color: #c0392b; font-weight: bold; font-size: 15px; text-align: center; }
+        .centralizado { text-align: center; }
+        .posicao { font-weight: bold; color: #34495e; }
+        .footer { margin-top: 40px; font-size: 13px; color: #7f8c8d; text-align: center; border-top: 1px solid #ddd; padding-top: 15px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Ranking de Deficiências por Grupos (IA): Engenharia Florestal</h1>
+        
+        <div class="resumo">
+            <p><strong>Objetivo:</strong> Este relatório utiliza Inteligência Artificial (K-Means) para dividir os alunos de cada IES em perfis de desempenho e identifica os <strong>2 maiores GAPs (deficiências relativas)</strong> exclusivos de cada grupo.</p>
+            <p><strong>Total de Instituições Analisadas:</strong> 53 | <strong>Total de Alunos:</strong> 1461</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="centralizado" style="width: 8%;">Código IES</th>
+                    <th class="centralizado" style="width: 14%;">Perfil IA</th>
+                    <th class="centralizado" style="width: 10%;">Posição / Questão</th>
+                    <th class="centralizado" style="width: 8%;">Erro (%)</th>
+                    <th class="centralizado" style="width: 8%;">GAP (%)</th>
+                    <th style="width: 26%;">Objetos de Conhecimento (Matérias)</th>
+                    <th style="width: 26%;">Competência Exigida</th>
+                </tr>
+            </thead>
+            <tbody>
+<tr>
+<td rowspan="6" class="linha-ies">1</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-25.8%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-20.8%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">88.9%</td>
+<td class="erro-critico">-38.9%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">77.8%</td>
+<td class="erro-critico">-36.1%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(10 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-38.3%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-30.0%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">2</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(25 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-21.7%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">72.0%</td>
+<td class="erro-critico">-16.9%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">86.7%</td>
+<td class="erro-critico">-63.5%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q29</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-47.8%</td>
+<td>XVI - Morfologia, sistemática e dendrologia;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(29 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q19</b></td>
+<td class="centralizado">55.2%</td>
+<td class="erro-critico">-27.6%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>III - Realizar e avaliar vistorias, perícias e laudos técnicos;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q17</b></td>
+<td class="centralizado">93.1%</td>
+<td class="erro-critico">-26.4%</td>
+<td>VIII - Experimentação florestal;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">4</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-24.2%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q24</b></td>
+<td class="centralizado">62.5%</td>
+<td class="erro-critico">-20.1%</td>
+<td>XII - Manejo de bacias hidrográficas;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">77.8%</td>
+<td class="erro-critico">-32.3%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">77.8%</td>
+<td class="erro-critico">-26.3%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(16 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q4</b></td>
+<td class="centralizado">81.2%</td>
+<td class="erro-critico">-41.9%</td>
+<td>II - Estado, sociedade e trabalho + V - Ciência, tecnologia e inovação</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q38</b></td>
+<td class="centralizado">62.5%</td>
+<td class="erro-critico">-23.1%</td>
+<td>II - Comunicação e extensão rural;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">8</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(17 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-36.6%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-31.7%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q29</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-34.1%</td>
+<td>XVI - Morfologia, sistemática e dendrologia;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-30.1%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q14</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-63.4%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-48.8%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">56</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(20 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-19.5%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">40.0%</td>
+<td class="erro-critico">-13.2%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(12 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">91.7%</td>
+<td class="erro-critico">-52.6%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-39.4%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-41.5%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-32.5%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="4" class="linha-ies">76</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-33.3%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q27</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-33.3%</td>
+<td>XIII - Manejo florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">571</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-31.2%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q17</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-29.5%</td>
+<td>VIII - Experimentação florestal;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(25 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-29.5%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-25.0%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(12 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-46.2%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-43.9%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">574</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(17 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-27.9%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.5%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(28 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-27.9%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.5%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(23 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">87.0%</td>
+<td class="erro-critico">-45.8%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">69.6%</td>
+<td class="erro-critico">-44.6%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">2564</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-36.4%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-30.3%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q21</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-54.5%</td>
+<td>XIX - Proteção florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-45.5%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q37</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-54.5%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q14</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-36.4%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">582</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(21 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-15.9%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-13.6%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-59.1%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-42.0%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-39.1%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">73.3%</td>
+<td class="erro-critico">-32.4%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">587</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(20 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-16.7%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">65.0%</td>
+<td class="erro-critico">-15.0%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(13 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">76.9%</td>
+<td class="erro-critico">-49.8%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">61.5%</td>
+<td class="erro-critico">-38.6%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">86.7%</td>
+<td class="erro-critico">-30.4%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-29.2%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">590</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(31 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-25.9%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">58.1%</td>
+<td class="erro-critico">-17.9%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(42 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">95.2%</td>
+<td class="erro-critico">-36.3%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-26.2%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(39 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">89.7%</td>
+<td class="erro-critico">-24.6%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">69.2%</td>
+<td class="erro-critico">-21.9%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">592</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(37 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-28.4%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-23.2%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(36 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-42.3%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q17</b></td>
+<td class="centralizado">88.9%</td>
+<td class="erro-critico">-31.0%</td>
+<td>VIII - Experimentação florestal;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(22 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q14</b></td>
+<td class="centralizado">81.8%</td>
+<td class="erro-critico">-36.6%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q37</b></td>
+<td class="centralizado">95.5%</td>
+<td class="erro-critico">-32.3%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">1126</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q19</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-58.9%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>III - Realizar e avaliar vistorias, perícias e laudos técnicos;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-57.9%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-40.1%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">75.0%</td>
+<td class="erro-critico">-27.6%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-47.4%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q24</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-30.7%</td>
+<td>XII - Manejo de bacias hidrográficas;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">573</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q16</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-27.8%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.1%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-59.6%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-52.2%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(11 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.4%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q38</b></td>
+<td class="centralizado">90.9%</td>
+<td class="erro-critico">-30.0%</td>
+<td>II - Comunicação e extensão rural;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">549</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(21 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">95.2%</td>
+<td class="erro-critico">-21.8%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-17.2%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(17 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">94.1%</td>
+<td class="erro-critico">-42.6%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">70.6%</td>
+<td class="erro-critico">-30.0%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(26 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q32</b></td>
+<td class="centralizado">84.6%</td>
+<td class="erro-critico">-34.6%</td>
+<td>XV - Meteorologia e climatologia;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">88.5%</td>
+<td class="erro-critico">-27.5%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">596</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-19.5%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-17.1%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">88.9%</td>
+<td class="erro-critico">-52.3%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q32</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-46.3%</td>
+<td>XV - Meteorologia e climatologia;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(17 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-34.1%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">82.4%</td>
+<td class="erro-critico">-33.6%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="4" class="linha-ies">3</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-60.0%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-60.0%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q28</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-40.0%</td>
+<td>VII - Estradas, colheita e transporte florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q37</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-40.0%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td rowspan="4" class="linha-ies">719</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q36</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>III - Realizar e avaliar vistorias, perícias e laudos técnicos;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-37.5%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-37.5%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">2035</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.0%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q27</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.0%</td>
+<td>XIII - Manejo florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-60.0%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-70.0%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-40.0%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">3172</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(10 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">90.0%</td>
+<td class="erro-critico">-33.5%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.1%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-39.1%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.4%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-44.2%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-39.1%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">43</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-44.4%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q32</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-43.0%</td>
+<td>XV - Meteorologia e climatologia;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-48.1%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-40.7%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(16 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q28</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-29.6%</td>
+<td>VII - Estradas, colheita e transporte florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">93.8%</td>
+<td class="erro-critico">-27.1%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">4503</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-40.3%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-25.0%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(12 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-33.3%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q37</b></td>
+<td class="centralizado">91.7%</td>
+<td class="erro-critico">-19.4%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(16 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-34.7%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q29</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-33.3%</td>
+<td>XVI - Morfologia, sistemática e dendrologia;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="4" class="linha-ies">688</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-37.5%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-37.5%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">5077</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.5%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q4</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.8%</td>
+<td>II - Estado, sociedade e trabalho + V - Ciência, tecnologia e inovação</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-46.2%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.5%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-69.2%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q33</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-53.8%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">5</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(18 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-19.4%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-16.7%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.9%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-33.3%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(10 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-61.1%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-41.1%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">5322</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-71.4%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q19</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-42.9%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>III - Realizar e avaliar vistorias, perícias e laudos técnicos;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q4</b></td>
+<td class="centralizado">57.1%</td>
+<td class="erro-critico">-21.4%</td>
+<td>II - Estado, sociedade e trabalho + V - Ciência, tecnologia e inovação</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-21.4%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-64.3%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-30.0%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">3849</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q29</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-18.2%</td>
+<td>XVI - Morfologia, sistemática e dendrologia;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q21</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-13.6%</td>
+<td>XIX - Proteção florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-46.6%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">62.5%</td>
+<td class="erro-critico">-35.2%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-63.6%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q33</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-51.5%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">588</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-17.9%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q24</b></td>
+<td class="centralizado">75.0%</td>
+<td class="erro-critico">-10.7%</td>
+<td>XII - Manejo de bacias hidrográficas;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-60.7%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q29</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-42.9%</td>
+<td>XVI - Morfologia, sistemática e dendrologia;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">86.7%</td>
+<td class="erro-critico">-26.0%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">73.3%</td>
+<td class="erro-critico">-23.3%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">569</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">75.0%</td>
+<td class="erro-critico">-23.1%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-22.2%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-48.1%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-46.3%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(13 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q32</b></td>
+<td class="centralizado">84.6%</td>
+<td class="erro-critico">-25.4%</td>
+<td>XV - Meteorologia e climatologia;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">69.2%</td>
+<td class="erro-critico">-24.8%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">699</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-40.0%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.0%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q32</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-40.0%</td>
+<td>XV - Meteorologia e climatologia;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-30.0%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-40.0%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-35.0%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">570</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q14</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-45.5%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q24</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-22.7%</td>
+<td>XII - Manejo de bacias hidrográficas;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(12 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-24.2%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-24.2%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-51.5%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-47.0%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">575</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q24</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-35.7%</td>
+<td>XII - Manejo de bacias hidrográficas;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q19</b></td>
+<td class="centralizado">57.1%</td>
+<td class="erro-critico">-32.1%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>III - Realizar e avaliar vistorias, perícias e laudos técnicos;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-35.7%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-27.4%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(12 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q4</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-27.4%</td>
+<td>II - Estado, sociedade e trabalho + V - Ciência, tecnologia e inovação</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">50.0%</td>
+<td class="erro-critico">-25.0%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">584</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(15 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-31.0%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-27.6%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-58.6%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-49.0%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-51.7%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">77.8%</td>
+<td class="erro-critico">-46.7%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">1028</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q14</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-19.1%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-13.8%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-33.1%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q17</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-21.1%</td>
+<td>VIII - Experimentação florestal;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-63.2%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-63.2%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">3188</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-43.5%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.1%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-35.3%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-34.8%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-56.5%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q32</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-40.6%</td>
+<td>XV - Meteorologia e climatologia;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="4" class="linha-ies">25282</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-33.3%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-22.2%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-22.2%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-22.2%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">694</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q38</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-53.8%</td>
+<td>II - Comunicação e extensão rural;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q4</b></td>
+<td class="centralizado">75.0%</td>
+<td class="erro-critico">-21.2%</td>
+<td>II - Estado, sociedade e trabalho + V - Ciência, tecnologia e inovação</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-53.8%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q33</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.5%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-46.2%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.5%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">589</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q37</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-23.1%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-15.4%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-61.5%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q33</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-46.2%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-39.6%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q4</b></td>
+<td class="centralizado">71.4%</td>
+<td class="erro-critico">-33.0%</td>
+<td>II - Estado, sociedade e trabalho + V - Ciência, tecnologia e inovação</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">5701</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q33</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-39.4%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-36.4%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q2</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-28.8%</td>
+<td>VIII - Meio ambiente, biodiversidade e sustentabilidade + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-28.8%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-81.8%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-63.6%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">3164</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-37.5%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-31.2%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(2 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q29</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-43.8%</td>
+<td>XVI - Morfologia, sistemática e dendrologia;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-43.8%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(12 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-18.8%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">91.7%</td>
+<td class="erro-critico">-16.7%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">585</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q21</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-27.5%</td>
+<td>XIX - Proteção florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-24.0%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(11 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q28</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-32.0%</td>
+<td>VII - Estradas, colheita e transporte florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-24.0%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-60.0%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-52.0%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">15059</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">71.4%</td>
+<td class="erro-critico">-38.1%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q7</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-31.2%</td>
+<td>II - Estado, sociedade e trabalho + XIII - Acessibilidade e inclusão social</td>
+<td>VIII - Propor soluções inovadoras comprometidas com os princípios de sustentabilidade e equidade na resolução de situações-problema</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(18 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-24.2%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-21.2%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-39.0%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">75.0%</td>
+<td class="erro-critico">-38.6%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">23410</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.3%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-26.3%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-57.9%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-57.9%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">88.9%</td>
+<td class="erro-critico">-36.3%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q21</b></td>
+<td class="centralizado">88.9%</td>
+<td class="erro-critico">-20.5%</td>
+<td>XIX - Proteção florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">107</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q12</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-20.8%</td>
+<td>XXII - Sementes e viveiros florestais;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q17</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-20.8%</td>
+<td>VIII - Experimentação florestal;</td>
+<td>X - Interpretar e expressar resultados de estudos de modo claro e eficiente, nas formas escrita e gráfica;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q38</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-61.1%</td>
+<td>II - Comunicação e extensão rural;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.9%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-52.4%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q24</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-35.7%</td>
+<td>XII - Manejo de bacias hidrográficas;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">17</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q9</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-13.6%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-13.6%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q33</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-45.5%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q27</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-40.9%</td>
+<td>XIII - Manejo florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(9 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">66.7%</td>
+<td class="erro-critico">-34.8%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q23</b></td>
+<td class="centralizado">77.8%</td>
+<td class="erro-critico">-32.3%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal;</td>
+<td>II - Realizar assistência, assessoria e consultoria;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">577</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-21.9%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-21.9%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(14 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q37</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-37.5%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>VI - Atuar em atividades de ensino, pesquisa, análise, experimentação, divulgação técnica e extensão;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-21.9%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(10 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">90.0%</td>
+<td class="erro-critico">-36.9%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q26</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-31.2%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">3189</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q25</b></td>
+<td class="centralizado">87.5%</td>
+<td class="erro-critico">-31.0%</td>
+<td>IV - Dendrometria e inventário florestal;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q30</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-13.0%</td>
+<td>VI - Economia, administração e marketing florestal;</td>
+<td>VII - Gerenciar os fatores de produção, buscando eficiência técnica, econômica e ambiental;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q5</b></td>
+<td class="centralizado">75.0%</td>
+<td class="erro-critico">-35.9%</td>
+<td>XIII - Acessibilidade e inclusão social + IX - Desenvolvimento urbano, rural e populações vulnerabilizadas</td>
+<td>IV - Planejar, elaborar e implementar projetos de ação e intervenção a partir da análise de necessidades em contextos diversos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-34.8%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(7 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q13</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-37.9%</td>
+<td>XX - Recuperação de ecossistemas florestais degradados;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q35</b></td>
+<td class="centralizado">85.7%</td>
+<td class="erro-critico">-37.9%</td>
+<td>XXI - Recursos energéticos florestais;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">4785</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(6 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">83.3%</td>
+<td class="erro-critico">-27.8%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q22</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-27.8%</td>
+<td>IX - Geoprocessamento aplicado à Engenharia Florestal; + XIX - Proteção florestal;</td>
+<td>IV - Administrar instituições públicas e privadas e organizações comunitárias;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-33.3%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-27.8%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(4 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q34</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-50.0%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q18</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-44.4%</td>
+<td>XIV - Melhoramento e biotecnologia florestal;</td>
+<td>VIII - Avaliar o impacto das atividades do setor florestal nos contextos social, ambiental e econômico;</td>
+</tr>
+<tr>
+<td rowspan="4" class="linha-ies">18812</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(1 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q6</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-88.9%</td>
+<td>IV - Cultura, arte e comunicação + III - Educação e desenvolvimento humano e social</td>
+<td>I - Promover diálogo e práticas de convivência, compartilhando saberes e conhecimentos</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q31</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-66.7%</td>
+<td>XXV - Solos e nutrição florestal;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(8 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q11</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-11.1%</td>
+<td>X - Gestão de recursos naturais renováveis;</td>
+<td>IX - Manejar os recursos naturais de forma preservacionista ou conservacionista, considerando as características dos biomas;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q16</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-11.1%</td>
+<td>XXIV - Sistemas e técnicas silviculturais;</td>
+<td>I - Planejar, elaborar, coordenar e executar projetos, processos e sistemas;</td>
+</tr>
+<tr>
+<td rowspan="6" class="linha-ies">18440</td>
+<td rowspan="2" class="linha-perfil"><span class="perfil-0">Alto Desempenho</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q8</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-26.2%</td>
+<td>XII - Desigualdades estruturais econômicas, étnico-raciais e de gênero + III - Educação e desenvolvimento humano e social</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q9</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-23.1%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>II - Identificar, compreender e analisar situações-problema a partir de uma abordagem sistêmica da realidade</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-1">Intermediário</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(5 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q19</b></td>
+<td class="centralizado">80.0%</td>
+<td class="erro-critico">-49.2%</td>
+<td>I - Anatomia e propriedades físicas, químicas e mecânicas da madeira;</td>
+<td>III - Realizar e avaliar vistorias, perícias e laudos técnicos;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q15</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-38.5%</td>
+<td>XXIV - Sistemas e técnicas silviculturais; + XXIV - Sistemas e técnicas silviculturais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td rowspan="2" class="linha-perfil"><span class="perfil-2">Risco Crítico</span><br><span style="font-size: 12px; font-weight: normal; color: #7f8c8d;">(3 alunos)</span></td>
+<td class="centralizado"><span class="posicao">1º Pior</span><br><b>Q20</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-76.9%</td>
+<td>XI - Industrialização de produtos florestais;</td>
+<td>V - Controlar a qualidade de produtos, processos e serviços;</td>
+</tr>
+<tr>
+<td class="centralizado"><span class="posicao">2º Pior</span><br><b>Q3</b></td>
+<td class="centralizado">100.0%</td>
+<td class="erro-critico">-46.2%</td>
+<td>II - Estado, sociedade e trabalho + VI - Promoção da saúde e prevenção de doenças</td>
+<td>V - Compreender, analisar e interpretar as diferentes linguagens, suas formas de representação e suas respectivas variações (verbal, não verbal, gráfica, numérica)</td>
+</tr>
+
+            </tbody>
+        </table>
+        <div class="footer">Relatório de Prescrição Educacional gerado automaticamente por motor de IA (K-Means).</div>
+    </div>
+</body>
+</html>
