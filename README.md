@@ -59,11 +59,7 @@ cd PRISM-EDU
 </ul>
 
 <div class="footer">
-Ivanylson Honorio Gonçalves, Regina Braga, José Maria David, Victor Stroele
-
-Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF)
-Caixa Postal 20.010 – 36.016-970 – Juiz de Fora – MG - Brazil
-ivanylson.honorio@estudante.ufjf.br,regina.braga@ufjf.br, jose.david@ufjf.br, victor.stroele@ufjf.br
+Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF) Caixa Postal 20.010 – 36.016-970 – Juiz de Fora – MG - Brazil
 
 Abstract. ENADE microdata are underutilized, and the aggregate score does not indicate areas requiring intervention. PRISM-EDU (Prescriptive Insight System for Mining Educational Data) analyzes, item-by-item, responses from each higher education institution using LCA to identify student profiles, which are validated via bootstrap. The profiles are cross-referenced against INEP’s official item-object-of-knowledge, and XGBoost classifies deficiencies by segment. When applied to ENADE 2023 (230,088 students, 1,880 HEIs, 28 programs), it reveals profiles with complementary areas of knowledge that align with national archetypes and highlights chronically deficient areas of knowledge, offering an actionable diagnosis that the aggregate score misses. 
 </div>
