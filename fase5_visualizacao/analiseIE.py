@@ -49,7 +49,7 @@ pasta_relatorios_ies = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS' / 'rela
 pasta_relatorios_ies.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n❌ ERRO: Base de dados principal não encontrada em:\n{caminho_microdados}")
+    print(f"\n ERRO: Base de dados principal não encontrada em:\n{caminho_microdados}")
     print("Por favor, execute a Fase 1 primeiro.")
     exit()
 
@@ -122,7 +122,7 @@ for co_grupo in grupos_disponiveis:
 </head>
 <body>
     <div class="container">
-        <h1>🎯 Ranking de Deficiências por Grupos (IA): {nome_curso}</h1>
+        <h1> Ranking de Deficiências por Grupos (IA): {nome_curso}</h1>
         
         <div class="resumo">
             <p><strong>Objetivo:</strong> Este relatório utiliza Inteligência Artificial (K-Means) para dividir os alunos de cada IES em perfis de desempenho e identifica os <strong>2 maiores GAPs (deficiências relativas)</strong> exclusivos de cada grupo.</p>
@@ -279,8 +279,8 @@ for co_grupo in grupos_disponiveis:
     with open(caminho_html, 'w', encoding='utf-8') as file:
         file.write(html_content)
         
-    print(f"✅ Ranking HTML gerado: {nome_ficheiro_html}")
+    print(f" Ranking HTML gerado: {nome_ficheiro_html}")
 
 print(f"\n{'='*75}")
-print(f"🚀 PROCESSO CONCLUÍDO! Todos os relatórios HTML foram salvos em:\n{pasta_relatorios_ies}")
+print(f" PROCESSO CONCLUÍDO! Todos os relatórios HTML foram salvos em:\n{pasta_relatorios_ies}")
 print(f"{'='*75}")

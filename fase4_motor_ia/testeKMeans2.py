@@ -44,7 +44,7 @@ pasta_dashboards = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS' / 'Dashboar
 pasta_dashboards.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n❌ ERRO: Base de dados principal não encontrada em:\n{caminho_microdados}")
+    print(f"\n ERRO: Base de dados principal não encontrada em:\n{caminho_microdados}")
     print("Por favor, execute a Fase 1 primeiro.")
     exit()
 
@@ -60,7 +60,7 @@ print(f"Encontrados {len(grupos_disponiveis)} cursos diferentes na base. A gerar
 texto_teoria_agrupamento = """
 ---
 
-## 📚 Anexo Técnico: Como Avaliamos a Qualidade do Agrupamento (Clustering)?
+##  Anexo Técnico: Como Avaliamos a Qualidade do Agrupamento (Clustering)?
 
 A técnica utilizada neste relatório foi o **K-Means Clustering**, um algoritmo de Aprendizado de Máquina Não-Supervisionado. Para garantir que os perfis gerados refletem a realidade e não apenas divisões aleatórias, adotamos as melhores práticas de Ciência de Dados Educacional:
 
@@ -135,10 +135,10 @@ for co_grupo in grupos_disponiveis:
     # -------------------------------------------------------------------------
     # CONSTRUÇÃO DO FICHEIRO MARKDOWN (.md) PARA ESTE CURSO
     # -------------------------------------------------------------------------
-    md_content = f"# 📊 Relatório Prescritivo de Inteligência Artificial: {nome_curso}\n\n"
+    md_content = f"# Relatório Prescritivo de Inteligência Artificial: {nome_curso}\n\n"
     md_content += f"**Total de Alunos Analisados no Curso:** {len(df_curso)}\n"
     md_content += f"**Média Geral de Acertos do Curso:** {nota_media_geral}/38 questões\n\n"
-    md_content += "---\n\n## 🧠 Mapeamento de Perfis de Aprendizagem\n"
+    md_content += "---\n\n## Mapeamento de Perfis de Aprendizagem\n"
     md_content += "O algoritmo de IA analisou o padrão de respostas e separou os alunos em 3 grupos distintos. Abaixo, detalhamos o significado de cada grupo e as ações pedagógicas recomendadas focadas nas deficiências exclusivas de cada um (onde erraram mais que a média).\n\n"
     
     titulos_perfis = ["Perfil de Alto Desempenho", "Perfil Intermediário", "Perfil com Dificuldades Críticas"]
@@ -147,7 +147,7 @@ for co_grupo in grupos_disponiveis:
         qtd_alunos = len(alunos_grupo)
         percentual = round((qtd_alunos / len(df_curso)) * 100, 1)
         
-        md_content += f"### 📌 {titulos_perfis[rank]} ({percentual}% dos alunos da área)\n"
+        md_content += f"### {titulos_perfis[rank]} ({percentual}% dos alunos da área)\n"
         md_content += f"- **Quantidade de Alunos no Grupo:** {qtd_alunos}\n"
         md_content += f"- **Média de Acertos deste Grupo:** {round(nota_media, 1)} de 38\n\n"
         
@@ -158,7 +158,7 @@ for co_grupo in grupos_disponiveis:
         else:
             md_content += "**O que este grupo significa?** São alunos em situação de risco académico. Este grupo apresenta falhas estruturais severas. Não dominam os conceitos fundamentais do componente específico e frequentemente têm dificuldades na Formação Geral (leitura, lógica e interpretação de texto).\n\n"
             
-        md_content += "**⚠️ Maiores GAPs (Onde este grupo está pior que a média da turma):**\n\n"
+        md_content += "** Maiores GAPs (Onde este grupo está pior que a média da turma):**\n\n"
         
         taxa_acertos_grupo = alunos_grupo[cols_questoes].mean()
         diferenca_para_media = taxa_acertos_grupo - media_geral_questoes
@@ -202,8 +202,8 @@ for co_grupo in grupos_disponiveis:
     with open(caminho_md, 'w', encoding='utf-8') as file:
         file.write(md_content)
         
-    print(f"✅ Documento gerado com sucesso: {nome_ficheiro_md}")
+    print(f" Documento gerado com sucesso: {nome_ficheiro_md}")
 
 print(f"\n{'='*75}")
-print(f"🚀 PROCESSO CONCLUÍDO! Os relatórios em Markdown de todos os cursos estão na pasta:\n{pasta_dashboards}")
+print(f" PROCESSO CONCLUÍDO! Os relatórios em Markdown de todos os cursos estão na pasta:\n{pasta_dashboards}")
 print(f"{'='*75}")

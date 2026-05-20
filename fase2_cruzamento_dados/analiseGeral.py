@@ -37,7 +37,7 @@ caminho_saida = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS'/ 'analise_por_
 caminho_saida.parent.mkdir(parents=True, exist_ok=True)
 
 if not caminho_relatorio_final.exists():
-    print(f"\n❌ ERRO: O ficheiro de microdados não foi encontrado em:\n{caminho_relatorio_final}")
+    print(f"\n ERRO: O ficheiro de microdados não foi encontrado em:\n{caminho_relatorio_final}")
     print("Por favor, execute a Fase 1 (preprocessamentoMicrodados.py) primeiro.")
     exit()
 
@@ -54,7 +54,7 @@ colunas_agrupamento = ['NU_ANO', 'CO_CURSO', 'CO_IES', 'CO_GRUPO', 'CO_UF_CURSO'
 # Verifica se todas as colunas necessárias existem no CSV
 for col in colunas_agrupamento:
     if col not in df_enade.columns:
-        print(f"❌ ERRO: A coluna {col} não foi encontrada no relatório final.")
+        print(f" ERRO: A coluna {col} não foi encontrada no relatório final.")
         exit()
 
 print("A calcular totais de alunos e deficiências por IES/Curso e por Questão...")
@@ -145,7 +145,7 @@ df_final = df_final.sort_values(by=['CO_IES', 'CO_CURSO', 'TAXA_DEFICIENCIA_%'],
 if not df_final.empty:
     df_final.to_csv(caminho_saida, sep=';', index=False, encoding='utf-8-sig')
     print(f"\n{'='*60}")
-    print(f"✅ SUCESSO! Banco de Dados Consolidado gerado em:\n{caminho_saida}")
+    print(f" SUCESSO! Banco de Dados Consolidado gerado em:\n{caminho_saida}")
     print(f"{'='*60}")
 else:
-    print("\n⚠️ AVISO: Nenhum dado foi cruzado. Verifique os códigos dos grupos e ficheiros de síntese.")
+    print("\n AVISO: Nenhum dado foi cruzado. Verifique os códigos dos grupos e ficheiros de síntese.")

@@ -18,7 +18,7 @@ caminho_relatorio = pasta_resultados / 'relatorio_triplo_silhueta_grupos.csv'
 pasta_sintese = DIRETORIO_RAIZ / 'arquivosgerados' / 'resultadofinal_relatoriosintese' / 'csv'
 
 if not caminho_relatorio.exists():
-    print(f"\n❌ ERRO: Ficheiro de agrupamento não encontrado em:\n{caminho_relatorio}")
+    print(f"\n ERRO: Ficheiro de agrupamento não encontrado em:\n{caminho_relatorio}")
     print("Por favor, execute o 'motor_agrupamento_triplo.py' primeiro.")
     exit()
 
@@ -111,5 +111,5 @@ df_grupos.insert(indice_coluna + 1, 'COMPETENCIAS_A_DESENVOLVER', lista_deficien
 caminho_final = pasta_resultados / 'relatorio_diagnostico_pedagogico.csv'
 df_grupos.to_csv(caminho_final, sep=';', index=False, encoding='utf-8-sig', decimal=',')
 
-print(f"\n✅ SUCESSO! Diagnóstico Pedagógico finalizado com sucesso!")
-print(f"📁 Ficheiro guardado em: {caminho_final}")
+print(f"\n SUCESSO! Diagnóstico Pedagógico finalizado com sucesso!")
+print(f" Ficheiro guardado em: {caminho_final}")

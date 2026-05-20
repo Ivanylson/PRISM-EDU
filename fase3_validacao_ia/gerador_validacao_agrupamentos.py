@@ -46,7 +46,7 @@ pasta_analises_agrupamentos = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS' 
 pasta_analises_agrupamentos.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n❌ ERRO: Base de dados não encontrada em:\n{caminho_microdados}")
+    print(f"\n ERRO: Base de dados não encontrada em:\n{caminho_microdados}")
     print("Por favor, execute a Fase 1 primeiro.")
     exit()
 
@@ -170,5 +170,5 @@ for co_grupo in grupos_disponiveis:
     plt.close() # Fecha a imagem para não estourar a memória RAM
 
 print(f"\n{'='*75}")
-print(f"✅ PROCESSO CONCLUÍDO! Validações e Gráficos salvos em:\n{pasta_analises_agrupamentos}")
+print(f" PROCESSO CONCLUÍDO! Validações e Gráficos salvos em:\n{pasta_analises_agrupamentos}")
 print(f"{'='*75}")

@@ -68,7 +68,7 @@ for p in [pasta_pdfs_originais, pasta_pdfs_simplificados, pasta_csv_final]:
 
 # Verifica se o arquivo base CSV existe antes de continuar
 if not csv_input.exists():
-    print(f"\n❌ ERRO: O arquivo base não foi encontrado em:\n{csv_input}")
+    print(f"\n ERRO: O arquivo base não foi encontrado em:\n{csv_input}")
     print("Certifique-se de que a pasta 'levantamento_relatorio_sintese' existe na raiz do projeto.")
     exit()
 
@@ -78,7 +78,7 @@ if not csv_input.exists():
 converter = DocumentConverter()
 df_lista = pd.read_csv(csv_input)
 
-print(f"\n📂 Iniciando processamento em lote de {len(df_lista)} cursos mapeados...\n")
+print(f"\n Iniciando processamento em lote de {len(df_lista)} cursos mapeados...\n")
 
 for index, row in df_lista.iterrows():
     if pd.isna(row['curso']) or str(row['paginaInicial_anexoIX']).strip() == '-': 
@@ -94,12 +94,12 @@ for index, row in df_lista.iterrows():
     # --- Passo A: Download e Recorte ---
     try:
         if not pdf_ori.exists():
-            print(f"⬇️ Baixando PDF completo para: {row['curso']}")
+            print(f" Baixando PDF completo para: {row['curso']}")
             r = requests.get(row['Link do PDF'], timeout=60)
             with open(pdf_ori, 'wb') as f: f.write(r.content)
             
         if not pdf_simp.exists():
-            print(f"✂️ Recortando Anexo IX (Páginas {row['paginaInicial_anexoIX']} a {row['paginaFinal_anexoIX']})")
+            print(f" Recortando Anexo IX (Páginas {row['paginaInicial_anexoIX']} a {row['paginaFinal_anexoIX']})")
             p_ini, p_fim = int(row['paginaInicial_anexoIX']), int(row['paginaFinal_anexoIX'])
             doc_ori = fitz.open(str(pdf_ori))
             doc_simp = fitz.open()
@@ -107,18 +107,18 @@ for index, row in df_lista.iterrows():
             doc_simp.save(str(pdf_simp))
             doc_ori.close(); doc_simp.close()
     except Exception as e:
-        print(f"❌ Erro ao baixar ou recortar os arquivos de {row['curso']}: {e}")
+        print(f" Erro ao baixar ou recortar os arquivos de {row['curso']}: {e}")
         continue
 
     # --- Passo B: Extração com Docling ---
     if not csv_final.exists():
-        print(f"🤖 Lendo tabela com IA (Docling) para: {row['curso']}...")
+        print(f" Lendo tabela com IA (Docling) para: {row['curso']}...")
         try:
             result = converter.convert(str(pdf_simp.absolute()))
             df_list = [table.export_to_dataframe(result.document) for table in result.document.tables]
             
             if not df_list: 
-                print(f"⚠️ Nenhuma tabela detectada no PDF de {row['curso']}.")
+                print(f" Nenhuma tabela detectada no PDF de {row['curso']}.")
                 continue
 
             df_temp = pd.concat(df_list, ignore_index=True)
@@ -154,11 +154,11 @@ for index, row in df_lista.iterrows():
 
             # Salva o arquivo Final!
             df_temp.to_csv(csv_final, index=False, sep=';', encoding='utf-8-sig')
-            print(f"✅ Sucesso: Tabela extraída -> {nome_arquivo}_conteudo.csv")
+            print(f" Sucesso: Tabela extraída -> {nome_arquivo}_conteudo.csv")
 
         except Exception as e:
-            print(f"❌ Erro Crítico durante extração docling em {row['curso']}: {e}")
+            print(f" Erro Crítico durante extração docling em {row['curso']}: {e}")
     else:
-        print(f"⏭️ CSV já existe para {row['curso']}. Pulando...")
+        print(f" CSV já existe para {row['curso']}. Pulando...")
 
-print(f"\n🚀 FIM DO PROCESSAMENTO DA FASE 1 (EXTRAÇÃO SÍNTESE)!")
+print(f"\n FIM DO PROCESSAMENTO DA FASE 1 (EXTRAÇÃO SÍNTESE)!")

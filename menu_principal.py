@@ -11,19 +11,19 @@ def executar_script(pasta, nome_arquivo):
     caminho_script = BASE_DIR / pasta / nome_arquivo
     
     print(f"\n{'='*60}")
-    print(f"🚀 INICIANDO: {nome_arquivo} (na pasta {pasta})")
+    print(f"INICIANDO: {nome_arquivo} (na pasta {pasta})")
     print(f"{'='*60}")
     
     if not caminho_script.exists():
-        print(f"\n❌ ERRO: O arquivo '{nome_arquivo}' não foi encontrado na pasta '{pasta}'.")
+        print(f"\nERRO: O arquivo '{nome_arquivo}' não foi encontrado na pasta '{pasta}'.")
         input("Pressione ENTER para continuar...")
         return
 
     try:
         subprocess.run([sys.executable, str(caminho_script)], check=True)
-        print(f"\n✅ SUCESSO: {nome_arquivo} finalizado.")
+        print(f"\n SUCESSO: {nome_arquivo} finalizado.")
     except subprocess.CalledProcessError:
-        print(f"\n❌ ERRO: Falha ao executar {nome_arquivo}.")
+        print(f"\nERRO: Falha ao executar {nome_arquivo}.")
         input("Pressione ENTER para continuar...")
 
 def abrir_dashboard(pasta="fase5_visualizacao", nome_arquivo="dashboard_completo.py"):
@@ -31,36 +31,36 @@ def abrir_dashboard(pasta="fase5_visualizacao", nome_arquivo="dashboard_completo
     caminho_script = BASE_DIR / pasta / nome_arquivo
     
     print(f"\n{'='*60}")
-    print(f"📊 ABRINDO DASHBOARD: {nome_arquivo}")
+    print(f"ABRINDO DASHBOARD: {nome_arquivo}")
     print(f"{'='*60}")
     
     if not caminho_script.exists():
-        print(f"\n❌ ERRO: Dashboard não encontrado em {caminho_script}.")
+        print(f"\n ERRO: Dashboard não encontrado em {caminho_script}.")
         input("Pressione ENTER para continuar...")
         return
         
     try:
         subprocess.run([sys.executable, "-m", "streamlit", "run", str(caminho_script)])
     except Exception as e:
-        print(f"\n❌ ERRO ao abrir o dashboard: {e}")
+        print(f"\n ERRO ao abrir o dashboard: {e}")
         input("Pressione ENTER para continuar...")
 
 def menu():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("\n🎓 SISTEMA DE IA EDUCACIONAL - ENADE 🎓")
+        print("\n SISTEMA DE IA EDUCACIONAL - ENADE 🎓")
         print("-" * 50)
-        print("1. 🛠️ Fase 1: Pré-processamento (Microdados e PDFs)")
-        print("2. 🔗 Fase 2: Cruzamento de Dados (Geral e Benchmarks)")
-        print("3. 🧠 Fase 3: Validação de IA (Batalha de Modelos)")
-        print("4. ⚙️ Fase 4: Motor de IA (Agrupamento, Prescrição e LCA)")
-        print("5. 🌐 Fase 5: Gerar Relatórios HTML (Análise IE)")
-        print("6. 🚀 RODA TUDO: Pipeline K-Means + LCA Completo")
+        print("1. Fase 1: Pré-processamento (Microdados e PDFs)")
+        print("2. Fase 2: Cruzamento de Dados (Geral e Benchmarks)")
+        print("3. Fase 3: Validação de IA (Batalha de Modelos)")
+        print("4. Fase 4: Motor de IA (Agrupamento, Prescrição e LCA)")
+        print("5. Fase 5: Gerar Relatórios HTML (Análise IE)")
+        print("6. RODA TUDO: Pipeline K-Means + LCA Completo")
         print("-" * 50)
-        print("7. 📊 ABRIR DASHBOARD INTERATIVO (completo)")
-        print("8. 🧠 EXECUTAR LCA (Classes Latentes - SBIE)")
-        print("9. 🤖 ABRIR OPCODE + IA EXPLICATIVA DIRETO")
-        print("10. ⚡ GERAR .md HEADLESS (OpenCode em lote para todos CSVs do curso)")
+        print("7. ABRIR DASHBOARD INTERATIVO (completo)")
+        print("8. EXECUTAR LCA (Classes Latentes - SBIE)")
+        print("9. ABRIR OPCODE + IA EXPLICATIVA DIRETO")
+        print("10.GERAR .md HEADLESS (OpenCode em lote para todos CSVs do curso)")
         print("0. Sair")
         print("-" * 50)
         
@@ -94,9 +94,9 @@ def menu():
             # LCA
             lca_script = BASE_DIR / "fase4_motor_ia" / "LCA" / "0_pipeline_principal_LCA.py"
             if lca_script.exists():
-                print("\n🧠 Executando LCA...")
+                print("\n Executando LCA...")
                 subprocess.run([sys.executable, str(lca_script)])
-            print("\n🎉 PIPELINE COMPLETO FINALIZADO!")
+            print("\n PIPELINE COMPLETO FINALIZADO!")
             input("Pressione ENTER para voltar ao menu...")
         elif escolha == '7':
             abrir_dashboard()
@@ -105,21 +105,21 @@ def menu():
             lca_path = BASE_DIR / "fase4_motor_ia" / "LCA" / "0_pipeline_principal_LCA.py"
             if lca_path.exists():
                 subprocess.run([sys.executable, str(lca_path)])
-                print("\n✅ LCA finalizado! Resultados em: arquivosgerados/RESULTADOS_LCA/")
+                print("\n LCA finalizado! Resultados em: arquivosgerados/RESULTADOS_LCA/")
             else:
-                print(f"\n❌ Script LCA não encontrado em: {lca_path}")
+                print(f"\n Script LCA não encontrado em: {lca_path}")
             input("Pressione ENTER para continuar...")
         elif escolha == '9':
-            print("\n📊 Abrindo dashboard direto na aba OpenCode...")
+            print("\n Abrindo dashboard direto na aba OpenCode...")
             caminho_dash = BASE_DIR / "fase5_visualizacao" / "dashboard_completo.py"
             if caminho_dash.exists():
                 subprocess.run([sys.executable, "-m", "streamlit", "run", str(caminho_dash),
                     "--", "--tab", "opencode"])
             else:
-                print(f"\n❌ Dashboard não encontrado.")
+                print(f"\n Dashboard não encontrado.")
             input("Pressione ENTER para continuar...")
         elif escolha == '10':
-            print("\n⚡ GERADOR HEADLESS OPENCODE")
+            print("\n GERADOR HEADLESS OPENCODE")
             print("-" * 50)
             print("Este script executa o OpenCode por trás dos panos para gerar")
             print("um arquivo .md explicativo a partir de um CSV.")
@@ -129,9 +129,9 @@ def menu():
                 caminho_csv = str(BASE_DIR / "arquivosgerados" / "RESULTADOS" / "analise_por_ies_curso_enade.csv")
             caminho_resolvido = Path(caminho_csv)
             if not caminho_resolvido.exists():
-                print(f"\n❌ Caminho não encontrado: {caminho_csv}")
+                print(f"\n Caminho não encontrado: {caminho_csv}")
             elif caminho_resolvido.is_dir():
-                print(f"\n❌ O caminho informado é um DIRETÓRIO, não um arquivo CSV.")
+                print(f"\n O caminho informado é um DIRETÓRIO, não um arquivo CSV.")
                 print(f"   Forneça o caminho completo para um arquivo .csv, ex:")
                 csvs = sorted(caminho_resolvido.rglob("*.csv"))
                 if csvs:
@@ -155,13 +155,13 @@ def menu():
                 pasta_md = BASE_DIR / "arquivosgerados" / "RESULTADOS" / "Dashboards_Markdown"
                 nome_output = f"explicacao_opencode_{caminho_resolvido.stem}.md"
                 caminho_output = pasta_md / nome_output
-                print(f"\n🚀 Gerando explicação...")
+                print(f"\n Gerando explicação...")
                 print(f"   CSV : {caminho_resolvido}")
                 print(f"   TOM : {tom}")
                 print(f"   SAÍDA: {caminho_output}")
                 script = BASE_DIR / "fase4_motor_ia" / "gerar_explicacao_opencode.py"
                 if not script.exists():
-                    print(f"\n❌ Script não encontrado: {script}")
+                    print(f"\n Script não encontrado: {script}")
                 else:
                     cmd = [sys.executable, str(script),
                         "--csv", str(caminho_resolvido),
@@ -173,9 +173,9 @@ def menu():
                         cmd += ["--opencode-password", senha]
                     try:
                         subprocess.run(cmd, check=True)
-                        print(f"\n✅ Relatório gerado! Abra o dashboard na aba OpenCode para visualizar o .md.")
+                        print(f"\n Relatório gerado! Abra o dashboard na aba OpenCode para visualizar o .md.")
                     except subprocess.CalledProcessError:
-                        print(f"\n❌ Falha ao executar o script.")
+                        print(f"\n Falha ao executar o script.")
             input("Pressione ENTER para continuar...")
         elif escolha == '0':
             print("Encerrando o sistema...")

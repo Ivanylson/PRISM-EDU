@@ -20,7 +20,7 @@ pasta_resultados = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS'
 pasta_resultados.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists() or not caminho_base_ies.exists():
-    print("\n❌ ERRO: Um dos ficheiros base não foi encontrado.")
+    print("\n ERRO: Um dos ficheiros base não foi encontrado.")
     print(f"Verifique se os ficheiros existem nos caminhos:\n1. {caminho_microdados}\n2. {caminho_base_ies}")
     print("Dica: Certifique-se de executar as Fases 1 e 2.1 primeiro!")
     exit()
@@ -140,5 +140,5 @@ df_benchmark = df_benchmark.sort_values(by=['NOME_CURSO', 'DIFERENCA_PARA_O_ESTA
 df_benchmark.to_csv(pasta_resultados / 'analise_5_benchmark_regional.csv', sep=';', index=False, encoding='utf-8-sig')
 
 print(f"\n{'='*60}")
-print(f"✅ SUCESSO ABSOLUTO! Os 5 relatórios foram salvos na pasta:\n{pasta_resultados}")
+print(f" SUCESSO ABSOLUTO! Os 5 relatórios foram salvos na pasta:\n{pasta_resultados}")
 print(f"{'='*60}")

@@ -47,7 +47,7 @@ pasta_analises_preditivas = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS' / 
 pasta_analises_preditivas.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n❌ ERRO: Base de dados não encontrada em:\n{caminho_microdados}")
+    print(f"\n ERRO: Base de dados não encontrada em:\n{caminho_microdados}")
     exit()
 
 print("A carregar a base de dados principal (Isto pode demorar um pouco)...")
@@ -190,5 +190,5 @@ for co_grupo in grupos_disponiveis:
     df_pesos_finais.to_csv(caminho_pesos, sep=';', index=False, encoding='utf-8-sig')
 
 print(f"\n{'='*75}")
-print(f"🚀 PROCESSO CONCLUÍDO! Todas as análises preditivas foram guardadas em:\n{pasta_analises_preditivas}")
+print(f" PROCESSO CONCLUÍDO! Todas as análises preditivas foram guardadas em:\n{pasta_analises_preditivas}")
 print(f"{'='*75}")

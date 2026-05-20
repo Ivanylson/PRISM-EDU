@@ -130,8 +130,8 @@ try:
     print(f"A guardar ficheiro final na pasta '{gerados_dir.name}'...")
     output[cabecalho].to_csv(arquivo_saida, index=False, sep=';', encoding='utf-8')
     
-    print(f"\n✅ PROCESSO CONCLUÍDO COM SUCESSO!")
-    print(f"📁 Relatório guardado em: {arquivo_saida}")
+    print(f"\n PROCESSO CONCLUÍDO COM SUCESSO!")
+    print(f" Relatório guardado em: {arquivo_saida}")
 
 except Exception as e:
     print(f"\n❌ ERRO DURANTE A EXECUÇÃO: {e}")

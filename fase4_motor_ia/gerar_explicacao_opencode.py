@@ -174,7 +174,7 @@ Exemplos de uso:
 
     caminho_csv = Path(args.csv)
     if not caminho_csv.exists():
-        print(f"❌ ERRO: CSV não encontrado: {caminho_csv}")
+        print(f" ERRO: CSV não encontrado: {caminho_csv}")
         sys.exit(1)
 
     senha = args.opencode_password or os.environ.get("OPENCODE_SERVER_PASSWORD", "")
@@ -182,36 +182,36 @@ Exemplos de uso:
     # ------------------------------------------------------------------
     # 1. Procura OpenCode
     # ------------------------------------------------------------------
-    print("🔍 Procurando OpenCode...")
+    print(" Procurando OpenCode...")
     exe = procurar_opencode()
     if not exe:
-        print("❌ OpenCode não encontrado. Instale com: npm install -g opencode-ai")
+        print(" OpenCode não encontrado. Instale com: npm install -g opencode-ai")
         sys.exit(1)
-    print(f"   ✅ Encontrado: {exe}")
+    print(f" Encontrado: {exe}")
 
     # ------------------------------------------------------------------
     # 2. Constrói o prompt
     # ------------------------------------------------------------------
-    print(f"📄 Lendo CSV: {caminho_csv}")
-    print(f"🎯 Tom: {args.tom}")
+    print(f" Lendo CSV: {caminho_csv}")
+    print(f" Tom: {args.tom}")
     if args.foco:
-        print(f"🎯 Foco: {args.foco}")
+        print(f" Foco: {args.foco}")
     prompt = construir_prompt(caminho_csv, args.tom, args.foco)
 
     # ------------------------------------------------------------------
     # 3. Inicia servidor OpenCode
     # ------------------------------------------------------------------
-    print(f"🌐 Iniciando servidor OpenCode na porta {args.porta}...")
+    print(f" Iniciando servidor OpenCode na porta {args.porta}...")
     server_ok = iniciar_servidor(exe, args.porta, senha)
     if not server_ok:
-        print("❌ Falha ao iniciar o servidor OpenCode.")
+        print(" Falha ao iniciar o servidor OpenCode.")
         sys.exit(1)
-    print("   ✅ Servidor pronto!")
+    print(" Servidor pronto!")
 
     # ------------------------------------------------------------------
     # 4. Executa OpenCode run
     # ------------------------------------------------------------------
-    print("🤖 Gerando explicação com OpenCode...")
+    print(" Gerando explicação com OpenCode...")
     servidor_proc = None  # We don't have a reference to the Popen object here
     # Re-get the server proc from subprocess internals (we didn't store it)
     # For simplicity, we just run the command
@@ -228,14 +228,14 @@ Exemplos de uso:
         )
         resposta = result.stdout if result.stdout else result.stderr
         if not resposta or len(resposta.strip()) < 20:
-            print("⚠️  O OpenCode não produziu uma resposta válida.")
+            print("  O OpenCode não produziu uma resposta válida.")
             print("   STDERR:", result.stderr[:500] if result.stderr else "vazio")
             resposta = None
     except subprocess.TimeoutExpired:
-        print("❌ OpenCode excedeu o tempo limite (5 min).")
+        print(" OpenCode excedeu o tempo limite (5 min).")
         resposta = None
     except Exception as e:
-        print(f"❌ Erro ao executar OpenCode: {e}")
+        print(f" Erro ao executar OpenCode: {e}")
         resposta = None
 
     # ------------------------------------------------------------------
@@ -245,7 +245,7 @@ Exemplos de uso:
         caminho_output = Path(args.output)
         caminho_output.parent.mkdir(parents=True, exist_ok=True)
 
-        cabecalho = f"""# 🤖 Explicação OpenCode — {caminho_csv.name}
+        cabecalho = f"""# Explicação OpenCode — {caminho_csv.name}
 
 **Data:** {time.strftime('%Y-%m-%d %H:%M')}
 **Arquivo:** `{caminho_csv.name}`
@@ -259,16 +259,16 @@ Exemplos de uso:
         with open(caminho_output, 'w', encoding='utf-8') as f:
             f.write(cabecalho + resposta)
 
-        print(f"\n✅ Explicação salva em: {caminho_output.resolve()}")
+        print(f"\n Explicação salva em: {caminho_output.resolve()}")
     else:
-        print("\n❌ Nenhuma explicação foi gerada.")
+        print("\n Nenhuma explicação foi gerada.")
         sys.exit(1)
 
     # ------------------------------------------------------------------
     # 6. Para o servidor (a menos que --keep-server)
     # ------------------------------------------------------------------
     if not args.keep_server:
-        print("🛑 Parando servidor OpenCode...")
+        print(" Parando servidor OpenCode...")
         try:
             import requests
             requests.post(f"http://localhost:{args.porta}/global/shutdown", timeout=5)
@@ -280,7 +280,7 @@ Exemplos de uso:
         except:
             pass
 
-    print("\n🎉 Processo concluído com sucesso!")
+    print("\n Processo concluído com sucesso!")
 
 
 if __name__ == "__main__":

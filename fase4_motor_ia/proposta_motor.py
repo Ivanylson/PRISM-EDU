@@ -31,7 +31,7 @@ def carregar_mapa(caminho):
     except: return None
 
 # =============================================================================
-# 🚀 MOTOR DE INTELIGÊNCIA ARTIFICIAL
+#  MOTOR DE INTELIGÊNCIA ARTIFICIAL
 # =============================================================================
 print("Lendo microdados e aplicando filtros...")
 df_micro = pd.read_csv(caminho_microdados, sep=';', dtype=str)
@@ -114,4 +114,4 @@ if df_mapa is not None:
     # Salvamento
     df_salvar = pd.DataFrame(relatorio_final)
     df_salvar.to_csv(pasta_resultados / 'relatorio_final_computacao.csv', sep=';', index=False, encoding='utf-8-sig')
-    print(f"✅ Relatório gerado com sucesso em: {pasta_resultados}")
+    print(f" Relatório gerado com sucesso em: {pasta_resultados}")

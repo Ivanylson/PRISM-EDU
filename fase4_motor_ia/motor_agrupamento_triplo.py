@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =============================================================================
-# ⚙️ PARAMETRIZAÇÃO DO NEGÓCIO
+#  PARAMETRIZAÇÃO DO NEGÓCIO
 # =============================================================================
 MIN_ALUNOS_POR_GRUPO = 5   # Impede a criação de grupos sem valor pedagógico
 TOP_N_QUESTOES_DEFAULT = 5 # Baliza o limite de questões no alerta de falha sistémica
@@ -64,7 +64,7 @@ pasta_resultados = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS'
 pasta_resultados.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n❌ ERRO: Ficheiro de microdados não encontrado em:\n{caminho_microdados}")
+    print(f"\n ERRO: Ficheiro de microdados não encontrado em:\n{caminho_microdados}")
     print("Por favor, execute a Fase 1 (Pré-processamento) primeiro.")
     exit()
 
@@ -229,5 +229,5 @@ caminho_csv = pasta_resultados / 'relatorio_triplo_silhueta_grupos.csv'
 
 df_relatorio_final.to_csv(caminho_csv, sep=';', index=False, encoding='utf-8-sig', decimal=',')
 
-print(f"\n✅ ANÁLISE TRIPLA (K-MEANS) CONCLUÍDA COM SUCESSO!")
-print(f"📁 Relatório guardado e corrigido para o Excel em:\n{caminho_csv}")
+print(f"\n ANÁLISE TRIPLA (K-MEANS) CONCLUÍDA COM SUCESSO!")
+print(f" Relatório guardado e corrigido para o Excel em:\n{caminho_csv}")

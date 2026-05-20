@@ -179,7 +179,7 @@ df_lca_geral = carregar_lca_geral()
 df_lca_classes = carregar_lca_classes()
 df_lca_crit = carregar_lca_criterios()
 
-st.title("🎓 Painel de IA Educacional - ENADE 2023")
+st.title(" Painel de IA Educacional - ENADE 2023")
 st.markdown("**K-Means + LCA + OpenCode** — Análise de Perfis de Aprendizagem com Explicação em Linguagem Natural")
 st.markdown("---")
 
@@ -205,7 +205,7 @@ with st.sidebar:
         df_curso_nacional = df_base[df_base['CO_GRUPO'] == grupo_selecionado].copy()
 
     st.markdown("---")
-    st.markdown("### 🔑 OpenCode")
+    st.markdown("### OpenCode")
     senha_opencode = st.text_input(
         "Senha (opcional):",
         type="password",
@@ -215,7 +215,7 @@ with st.sidebar:
     if senha_opencode:
         os.environ["OPENCODE_SERVER_PASSWORD"] = senha_opencode
     st.markdown("---")
-    if st.button("🚪 Sair e Fechar", use_container_width=True):
+    if st.button(" Sair e Fechar", use_container_width=True):
         st.success("A encerrar... Pode fechar a janela.")
         os._exit(0)
 
@@ -223,12 +223,12 @@ with st.sidebar:
 # 3. NAVEGAÇÃO PRINCIPAL (radio horizontal substitui st.tabs)
 # =============================================================================
 TABS = [
-    "📊 Diagnóstico e Prescrição",
-    "🎯 Fatores de Sucesso (Preditivo)",
-    "🧪 Validação + Clustering",
-    "🤖 Plano de Ação por Perfil",
-    "🧠 LCA - Classes Latentes",
-    "🤖 OpenCode + IA Explicativa"
+    "Diagnóstico e Prescrição",
+    "Fatores de Sucesso (Preditivo)",
+    "Validação + Clustering",
+    "Plano de Ação por Perfil",
+    "LCA - Classes Latentes",
+    "OpenCode + IA Explicativa"
 ]
 
 tab_default = 0
@@ -265,7 +265,7 @@ if tab_selector == TABS[0]:
                 if pd.notna(linha.get(col)) and str(linha.get(col)).strip() != "" and str(linha.get(col)).lower() != "nan"]
             return " + ".join(lista_ocs) if lista_ocs else "Não especificado"
 
-        st.subheader(f"📍 Top 5 Questões Críticas - IES {ies_selecionada}")
+        st.subheader(f" Top 5 Questões Críticas - IES {ies_selecionada}")
         if 'QUESTAO' in df_final.columns and 'TAXA_DEFICIENCIA_%' in df_final.columns:
             agg_dict_ies = {'TAXA_DEFICIENCIA_%': 'mean'}
             for col in colunas_oc: agg_dict_ies[col] = 'first'
@@ -327,10 +327,10 @@ elif tab_selector == TABS[1]:
             df_metricas_pred = pd.read_csv(caminho_metricas_pred, sep=';')
             col_m1, col_m2 = st.columns([1, 2.5])
             with col_m1:
-                st.markdown("#### 🏆 Qualidade da Predição")
+                st.markdown("#### Qualidade da Predição")
                 st.dataframe(df_metricas_pred[['Modelo', 'Acuracia', 'F1_Score']].set_index('Modelo'), use_container_width=True)
             with col_m2:
-                st.markdown("#### 🚀 Top 10 Matérias que mais impactam")
+                st.markdown("#### Top 10 Matérias que mais impactam")
                 df_top_pesos = df_pesos.head(10).copy()
                 df_top_pesos['OC_CURTO'] = df_top_pesos['TODOS_OS_OCs'].str.wrap(50)
                 fig_pesos = px.bar(df_top_pesos, x='PESO_IMPORTANCIA_%', y='OC_CURTO',
@@ -371,11 +371,11 @@ elif tab_selector == TABS[3]:
     else:
         col_titulo, col_param = st.columns([2, 1])
         with col_titulo:
-            st.header(f"🤖 Plano de Ação: {nome_curso_final}")
+            st.header(f" Plano de Ação: {nome_curso_final}")
         with col_param:
             limite_top_n = st.slider("Top N problemas:", 1, 38, 5, key="top_n_tab4")
 
-        with st.expander("🔬 Explicação dos Algoritmos e Metodologia"):
+        with st.expander(" Explicação dos Algoritmos e Metodologia"):
             st.markdown("""
             ### K-Means + Gap Analysis + Interseção de Falhas
 
@@ -426,7 +426,7 @@ elif tab_selector == TABS[3]:
 # ABA 5: LCA - CLASSES LATENTES
 # =============================================================================
 elif tab_selector == TABS[4]:
-    st.header("🧠 Análise de Classes Latentes (LCA)")
+    st.header("Análise de Classes Latentes (LCA)")
     st.markdown("Identificação de perfis de aprendizagem via **Latent Class Analysis** — abordagem estatística robusta para dados categóricos binários.")
 
     if df_lca_geral is None:
@@ -459,9 +459,9 @@ elif tab_selector == TABS[4]:
                 ies_lca_sel = st.selectbox("IES (código):", ies_lca_list, index=ies_idx, key="lca_ies")
 
             if ies_default:
-                st.caption(f"🔗 Sincronizado com o filtro global: {nome_curso_final} / IES {ies_selecionada}")
+                st.caption(f" Sincronizado com o filtro global: {nome_curso_final} / IES {ies_selecionada}")
             else:
-                st.caption("💡 Selecione um curso e IES no filtro lateral (sidebar) para sincronizar automaticamente.")
+                st.caption(" Selecione um curso e IES no filtro lateral (sidebar) para sincronizar automaticamente.")
 
             st.markdown("---")
 
@@ -485,7 +485,7 @@ elif tab_selector == TABS[4]:
                 st.markdown("---")
 
                 if not df_cls_ies.empty:
-                    st.subheader("📊 Perfis Identificados pela LCA")
+                    st.subheader(" Perfis Identificados pela LCA")
 
                     prob_cols = [f'PROB_Q{i}' for i in range(1, 39)]
                     gap_cols = [f'GAP_Q{i}' for i in range(1, 39)]
@@ -525,7 +525,7 @@ elif tab_selector == TABS[4]:
                         layer="below", line_width=0)
                     st.plotly_chart(fig_gap, use_container_width=True)
 
-                    st.subheader("📋 Detalhamento das Classes")
+                    st.subheader(" Detalhamento das Classes")
                     cols_show = ['classe_id', 'n_alunos', 'pct_alunos', 'taxa_acerto_media',
                         'taxa_acerto_media_ies', 'itens_diferencialmente_fortes', 'itens_diferencialmente_fracos']
                     cols_show = [c for c in cols_show if c in df_cls_ies.columns]
@@ -538,7 +538,7 @@ elif tab_selector == TABS[4]:
                     }), use_container_width=True)
 
                 st.markdown("---")
-                st.subheader("🏛️ Distribuição de k no Curso (todas as IES)")
+                st.subheader(" Distribuição de k no Curso (todas as IES)")
                 df_curso_k = df_lca_curso_filtro['k_escolhido'].value_counts().sort_index().reset_index()
                 df_curso_k.columns = ['k', 'quantidade']
                 fig_k = px.bar(df_curso_k, x='k', y='quantidade', text='quantidade',
@@ -557,7 +557,7 @@ elif tab_selector == TABS[4]:
                         st.dataframe(df_crit_ies[cols_crit].set_index('k').round(3), use_container_width=True)
 
                 st.markdown("---")
-                st.subheader("🖼️ Figuras da Análise (Artigo SBIE)")
+                st.subheader("Figuras da Análise (Artigo SBIE)")
                 st.caption("Figuras referentes aos cursos de **Medicina**, **Engenharia Civil** e **Enfermagem** — artigos publicados no SBIE.")
                 cursos_artigo = ['medicina', 'engenharia_civil', 'enfermagem']
                 figuras_exibidas = 0
@@ -585,7 +585,7 @@ elif tab_selector == TABS[4]:
 # ABA 6: OPENCODE + IA EXPLICATIVA
 # =============================================================================
 elif tab_selector == TABS[5]:
-    st.header("🤖 OpenCode + IA Explicativa")
+    st.header(" OpenCode + IA Explicativa")
     st.markdown("""
     Selecione um arquivo CSV de resultados para gerar uma **explicação em linguagem natural**,
     acessível para não-especialistas. O dashboard chama o **OpenCode.ai** via linha de comando
@@ -643,9 +643,9 @@ elif tab_selector == TABS[5]:
         caminho_csv = csv_labels[csv_selecionado]
 
         if km_disponivel and 'nome_curso_final' in dir():
-            st.caption(f"🔗 Filtrado pelo curso: {nome_curso_final} / IES {ies_selecionada}")
+            st.caption(f" Filtrado pelo curso: {nome_curso_final} / IES {ies_selecionada}")
             if len(csvs_filtrados) < len(csvs_validos):
-                st.caption(f"📁 Mostrando {len(csvs_filtrados)} de {len(csvs_validos)} CSVs disponíveis (filtro ativo — apenas CSVs do curso)")
+                st.caption(f" Mostrando {len(csvs_filtrados)} de {len(csvs_validos)} CSVs disponíveis (filtro ativo — apenas CSVs do curso)")
 
         st.subheader("2. Prévia dos Dados")
         try:
@@ -674,7 +674,7 @@ elif tab_selector == TABS[5]:
         st.subheader("4. Gerar Explicação")
         col_btn, col_status = st.columns([1.5, 2])
         with col_btn:
-            gerar = st.button("🚀 Gerar Explicação com OpenCode", type="primary", use_container_width=True)
+            gerar = st.button(" Gerar Explicação com OpenCode", type="primary", use_container_width=True)
 
         if gerar:
             with st.status("Chamando OpenCode.ai para analisar os dados...", expanded=True) as status:
@@ -776,11 +776,11 @@ Formate a resposta em MARKDOWN, com seções claras e linguagem didática.
                             status.update(label="OpenCode não produziu resposta.", state="error")
                         else:
                             status.update(label="OpenCode indisponível.", state="complete")
-                        st.markdown("### 📊 Análise Estatística Automática")
+                        st.markdown("### Análise Estatística Automática")
                         st.markdown("---")
                         st.markdown(f"""
-                        **📁 Arquivo:** `{caminho_csv.name}`
-                        **📏 Dimensões:** {resumo['linhas']} linhas × {len(resumo['colunas'])} colunas
+                        **Arquivo:** `{caminho_csv.name}`
+                        **Dimensões:** {resumo['linhas']} linhas × {len(resumo['colunas'])} colunas
                         ---
                         **🔢 Colunas numéricas analisadas:**
                         """)
@@ -788,7 +788,7 @@ Formate a resposta em MARKDOWN, com seções claras e linguagem didática.
                             st.markdown(f"- **{col}**: média={stats['media']}, min={stats['min']}, max={stats['max']}")
                         st.markdown("---")
                         st.markdown("""
-                        **💡 Para uma explicação mais rica e contextualizada:**
+                        ** Para uma explicação mais rica e contextualizada:**
                         Certifique-se de que o **OpenCode CLI** está instalado e acessível no PATH.
                         """)
 
@@ -796,13 +796,13 @@ Formate a resposta em MARKDOWN, com seções claras e linguagem didática.
                     status.update(label="Erro na geração.", state="error")
                     st.error(f"Erro ao gerar explicação: {e}")
         else:
-            st.info("👆 Selecione um CSV, personalize o tom e clique no botão para gerar a explicação com IA.")
+            st.info("Selecione um CSV, personalize o tom e clique no botão para gerar a explicação com IA.")
 
         # =============================================================================
         # SEÇÃO 5: LEITOR DE RELATÓRIOS .md GERADOS
         # =============================================================================
         st.markdown("---")
-        st.subheader("5. 📂 Relatórios .md Gerados")
+        st.subheader("5. Relatórios .md Gerados")
         st.markdown("Visualize relatórios gerados pelo **K-Means (Fase 4)** ou pelo **script OpenCode headless**.")
 
         pasta_md = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS' / 'Dashboards_Markdown'

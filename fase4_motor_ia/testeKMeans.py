@@ -44,7 +44,7 @@ pasta_resultados = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS' / 'prescric
 pasta_resultados.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n❌ ERRO: Base de dados principal não encontrada em:\n{caminho_microdados}")
+    print(f"\n ERRO: Base de dados principal não encontrada em:\n{caminho_microdados}")
     exit()
 
 print("Carregando a base de dados principal (isso pode levar alguns segundos)...")
@@ -75,7 +75,7 @@ for co_grupo in grupos_disponiveis:
     # 2. Carrega o arquivo de síntese deste curso
     caminho_sintese = pasta_sintese / f"{nome_formatado}.csv"
     if not caminho_sintese.exists():
-        print(f"⚠️ Aviso: Arquivo de síntese '{nome_formatado}.csv' não encontrado. Pulando {nome_curso}...")
+        print(f" Aviso: Arquivo de síntese '{nome_formatado}.csv' não encontrado. Pulando {nome_curso}...")
         continue
         
     # CORREÇÃO: Lê o ficheiro de síntese com sep=';' para evitar quebra de colunas
@@ -164,7 +164,7 @@ for co_grupo in grupos_disponiveis:
             df_prescricao.to_csv(caminho_saida, sep=';', index=False, encoding='utf-8-sig')
 
 print(f"\n{'='*70}")
-print("✅ PROCESSAMENTO EM MASSA (K-MEANS BÁSICO) CONCLUÍDO!")
+print(" PROCESSAMENTO EM MASSA (K-MEANS BÁSICO) CONCLUÍDO!")
 print(f"Todas as análises foram organizadas por curso na pasta:\n{pasta_resultados}")
 print(f"{'='*70}")
 
