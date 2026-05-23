@@ -1,8 +1,8 @@
-# PRISM-EDU 📊🧠
+# PRISM-EDU
 
 PRISM-EDU is an intelligent educational data analysis platform focused on processing, cross-referencing, and visualizing academic performance indicators (such as ENADE Microdata). The project uses AI techniques for validation and generation of strategic insights.
 
-## 🚀 Project Structure
+## Project Structure
 
 The project is organized into sequential phases to ensure data integrity and analysis accuracy:
 
@@ -16,14 +16,14 @@ The project is organized into sequential phases to ensure data integrity and ana
 
 * **`fase5_visualizacao`**: Generation of graphs, dashboards, and user interface output.
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 * **Language:** Python 3.x
-* **Interface:** `main_menu.py` (System entry point)
+* **Interface:** `menu_principal.py` (System entry point)
 * **Processing:** Pandas, NumPy (Suggested)
 * **Artificial Intelligence:** Scikit-learn / OpenAI API (As per phases 3 and 4)
 
-## 📁 Additional Directories
+##  Additional Directories
 
 * `preprocessing/`: Contains the raw files and data dictionaries.
 
@@ -31,7 +31,7 @@ The project is organized into sequential phases to ensure data integrity and ana
 
 * `attempts/`: Test scripts and experimental versions.
 
-## 🔧 How to Run
+## How to Run
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/Ivanylson/PRISM-EDU.git](https://github.com/Ivanylson/PRISM-EDU.git)
@@ -50,7 +50,7 @@ cd PRISM-EDU
 <p>Run the main menu to coordinate all phases of the project:</p>
 <pre>python menu_principal.py</pre>
 
-<h3>📁 Folder Organization</h3>
+<h3> Folder Organization</h3>
 <ul>
 <li><strong>preprocessing/</strong>: Raw input files.</li>
 <li><strong>generated_files/</strong>: CSV outputs and reports.</li>
@@ -58,8 +58,4 @@ cd PRISM-EDU
 <li><strong>attempts/</strong>: Test scripts and installers.</li>
 </ul>
 
-<div class="footer">
-Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF) Caixa Postal 20.010 – 36.016-970 – Juiz de Fora – MG - Brazil
-
 Abstract. ENADE microdata are underutilized, and the aggregate score does not indicate areas requiring intervention. PRISM-EDU (Prescriptive Insight System for Mining Educational Data) analyzes, item-by-item, responses from each higher education institution using LCA to identify student profiles, which are validated via bootstrap. The profiles are cross-referenced against INEP’s official item-object-of-knowledge, and XGBoost classifies deficiencies by segment. When applied to ENADE 2023 (230,088 students, 1,880 HEIs, 28 programs), it reveals profiles with complementary areas of knowledge that align with national archetypes and highlights chronically deficient areas of knowledge, offering an actionable diagnosis that the aggregate score misses. 
-</div>
