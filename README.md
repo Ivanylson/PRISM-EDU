@@ -16,12 +16,15 @@ The project is organized into sequential phases to ensure data integrity and ana
 
 * **`fase5_visualizacao`**: Generation of graphs, dashboards, and user interface output.
 
-##  Technologies Used
+## Technologies Used
 
-* **Language:** Python 3.x
-* **Interface:** `menu_principal.py` (System entry point)
-* **Processing:** Pandas, NumPy (Suggested)
-* **Artificial Intelligence:** Scikit-learn / OpenAI API (As per phases 3 and 4)
+* **Language:** Python 3.x (Standard libraries: `os`, `sys`, `pathlib`, `json`, `re`, `threading`, `subprocess`, etc.)
+* **Interface & Dashboards:** `menu_principal.py` (System entry point), **Streamlit**
+* **Data Processing & Math:** **Pandas**, **NumPy**, **SciPy**
+* **Artificial Intelligence & ML:** **Scikit-learn**, **XGBoost**, **OpenCode** 
+* **Data Visualization:** **Matplotlib**, **Seaborn**, **Plotly**
+* **Document Processing:** **PyMuPDF** (`fitz`), **Docling**
+* **Web & Requests:** **Requests**, `urllib`
 
 ##  Additional Directories
 
@@ -32,28 +35,9 @@ The project is organized into sequential phases to ensure data integrity and ana
 * `attempts/`: Test scripts and experimental versions.
 
 ## How to Run
-### 1. Clone the Repository
+### Clone the Repository
 ```bash
 git clone [https://github.com/Ivanylson/PRISM-EDU.git](https://github.com/Ivanylson/PRISM-EDU.git)
 cd PRISM-EDU
 ```
 
-<h3>2. Configure the Virtual Environment</h3>
-<p>Using a virtual environment is recommended to isolate dependencies:</p>
-<pre># Create the environment\npython -m venv venv\n\n# Activate the environment (On Windows - Git Bash/Mingw):\nsource venv/Scripts/activate</pre>
-
-<h3>3. Install Dependencies</h3>
-<p>Install all necessary libraries listed in the requirements file:</p>
-<pre>pip install -r requirements.txt</pre>
-
-<h3>4. Start the Application</h3>
-<p>Run the main menu to coordinate all phases of the project:</p>
-<pre>python menu_principal.py</pre>
-
-<h3> Folder Organization</h3>
-<ul>
-<li><strong>preprocessing/</strong>: Raw input files.</li>
-<li><strong>generated_files/</strong>: CSV outputs and reports.</li>
-<li><strong>survey_report_summary/</strong>: Consolidated final documents.</li>
-<li><strong>attempts/</strong>: Test scripts and installers.</li>
-</ul>
