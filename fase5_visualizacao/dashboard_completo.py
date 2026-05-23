@@ -639,12 +639,12 @@ elif tab_selector == TABS[3]:
                 k_livre = df_ia_filtrado.get('K_MATEMATICO_LIVRE', pd.Series(['N/A'])).iloc[0]
                 silhueta = df_ia_filtrado.get('SILHUETA_LIVRE', pd.Series(['N/A'])).iloc[0]
                 k_aplicado = df_ia_filtrado.get('K_APLICADO_PEDAGOGICO (Max 6)', pd.Series([0])).iloc[0]
-                st.info(f"📊 K-Livre: {k_livre} (Silhueta: {silhueta}) | K-Aplicado: {k_aplicado}")
+                st.info(f" K-Livre: {k_livre} (Silhueta: {silhueta}) | K-Aplicado: {k_aplicado}")
 
                 if 'FALHA_SISTEMICA_IES' in df_ia_filtrado.columns:
                     falha = df_ia_filtrado['FALHA_SISTEMICA_IES'].iloc[0]
                     if pd.notna(falha) and str(falha).strip() not in ["Nenhuma", "nan", ""]:
-                        st.error(f"🚨 Falha Institucional (interseção em todos os perfis): {falha}")
+                        st.error(f" Falha Institucional (interseção em todos os perfis): {falha}")
 
                 for _, row in df_ia_filtrado.iterrows():
                     nome_grupo = str(row.get('NOME_DO_GRUPO', 'Grupo'))
@@ -848,7 +848,7 @@ elif tab_selector == TABS[5]:
     if rate_info.get("limited"):
         reset_at = rate_info.get("reset_at", "desconhecido")
         st.error(f" **Limite de uso gratuito Zen excedido** — Reset previsto para **{reset_at}**. [Adicionar créditos](https://opencode.ai/zen)")
-        status_text += " (⚠️ limite excedido)"
+        status_text += " (limite excedido)"
     
     st.caption(f"{status_color} Servidor OpenCode: {status_text} — {OPENCODE_SERVER_URL}")
 
@@ -947,13 +947,13 @@ elif tab_selector == TABS[5]:
         
         if not server_online:
             st.warning(" Servidor OpenCode não está ativo. Clique no botão abaixo para iniciar.")
-            if st.button("🔌 Iniciar Servidor OpenCode", use_container_width=True):
+            if st.button(" Iniciar Servidor OpenCode", use_container_width=True):
                 with st.spinner("Iniciando servidor OpenCode..."):
                     if iniciar_servidor_opencode():
                         st.success(" Servidor iniciado!")
                         st.rerun()
                     else:
-                        st.error("❌ Falha ao iniciar servidor. Verifique se o OpenCode está instalado.")
+                        st.error(" Falha ao iniciar servidor. Verifique se o OpenCode está instalado.")
 
         if gerar:
             # Pré-processa dados
