@@ -15,7 +15,7 @@ def executar_script(pasta, nome_arquivo):
     print(f"{'='*60}")
     
     if not caminho_script.exists():
-        print(f"\nERRO: O arquivo '{nome_arquivo}' não foi encontrado na pasta '{pasta}'.")
+        print(f"\n ERRO: O arquivo '{nome_arquivo}' não foi encontrado na pasta '{pasta}'.")
         input("Pressione ENTER para continuar...")
         return
 
@@ -23,7 +23,7 @@ def executar_script(pasta, nome_arquivo):
         subprocess.run([sys.executable, str(caminho_script)], check=True)
         print(f"\n SUCESSO: {nome_arquivo} finalizado.")
     except subprocess.CalledProcessError:
-        print(f"\nERRO: Falha ao executar {nome_arquivo}.")
+        print(f"\n ERRO: Falha ao executar {nome_arquivo}.")
         input("Pressione ENTER para continuar...")
 
 def abrir_dashboard(pasta="fase5_visualizacao", nome_arquivo="dashboard_completo.py"):
@@ -31,7 +31,7 @@ def abrir_dashboard(pasta="fase5_visualizacao", nome_arquivo="dashboard_completo
     caminho_script = BASE_DIR / pasta / nome_arquivo
     
     print(f"\n{'='*60}")
-    print(f"ABRINDO DASHBOARD: {nome_arquivo}")
+    print(f" ABRINDO DASHBOARD: {nome_arquivo}")
     print(f"{'='*60}")
     
     if not caminho_script.exists():
@@ -60,7 +60,7 @@ def menu():
         print("7. ABRIR DASHBOARD INTERATIVO (completo)")
         print("8. EXECUTAR LCA (Classes Latentes - SBIE)")
         print("9. ABRIR OPCODE + IA EXPLICATIVA DIRETO")
-        print("10.GERAR .md HEADLESS (OpenCode em lote para todos CSVs do curso)")
+        print("10. GERAR .md HEADLESS (OpenCode em lote para todos CSVs do curso)")
         print("0. Sair")
         print("-" * 50)
         

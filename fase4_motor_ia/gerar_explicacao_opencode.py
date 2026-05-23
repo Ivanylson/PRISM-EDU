@@ -174,7 +174,7 @@ Exemplos de uso:
 
     caminho_csv = Path(args.csv)
     if not caminho_csv.exists():
-        print(f" ERRO: CSV não encontrado: {caminho_csv}")
+        print(f"❌ ERRO: CSV não encontrado: {caminho_csv}")
         sys.exit(1)
 
     senha = args.opencode_password or os.environ.get("OPENCODE_SERVER_PASSWORD", "")
@@ -187,7 +187,7 @@ Exemplos de uso:
     if not exe:
         print(" OpenCode não encontrado. Instale com: npm install -g opencode-ai")
         sys.exit(1)
-    print(f" Encontrado: {exe}")
+    print(f"    Encontrado: {exe}")
 
     # ------------------------------------------------------------------
     # 2. Constrói o prompt
@@ -206,7 +206,7 @@ Exemplos de uso:
     if not server_ok:
         print(" Falha ao iniciar o servidor OpenCode.")
         sys.exit(1)
-    print(" Servidor pronto!")
+    print("    Servidor pronto!")
 
     # ------------------------------------------------------------------
     # 4. Executa OpenCode run
@@ -268,7 +268,7 @@ Exemplos de uso:
     # 6. Para o servidor (a menos que --keep-server)
     # ------------------------------------------------------------------
     if not args.keep_server:
-        print(" Parando servidor OpenCode...")
+        print("Parando servidor OpenCode...")
         try:
             import requests
             requests.post(f"http://localhost:{args.porta}/global/shutdown", timeout=5)

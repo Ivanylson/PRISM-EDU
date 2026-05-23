@@ -102,7 +102,7 @@ for index, row in df_lista.iterrows():
                     df_list.append(df_t)
             
             if not df_list:
-                print(f"⚠️ Nenhuma tabela encontrada no intervalo {p_ini}-{p_fim} para {row['curso']}")
+                print(f"Nenhuma tabela encontrada no intervalo {p_ini}-{p_fim} para {row['curso']}")
                 continue
 
             df_extraido = pd.concat(df_list, ignore_index=True)
@@ -130,11 +130,11 @@ for index, row in df_lista.iterrows():
             df_final['OC_unificado'] = df_final.apply(aplicar_regra_oc, axis=1)
             
             df_final.to_csv(csv_final, index=False, sep=';', encoding='utf-8-sig')
-            print(f"✅ Sucesso: {nome_arquivo}_conteudo.csv")
+            print(f"Sucesso: {nome_arquivo}_conteudo.csv")
 
         except Exception as e:
-            print(f"❌ Erro Docling em {row['curso']}: {e}")
+            print(f"Erro Docling em {row['curso']}: {e}")
     else:
-        print(f"⏩ Pulando {row['curso']}, CSV já existe.")
+        print(f"Pulando {row['curso']}, CSV já existe.")
 
-print(f"\n🚀 PROCESSO FINALIZADO!")
+print(f"\n PROCESSO FINALIZADO!")

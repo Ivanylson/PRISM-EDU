@@ -24,7 +24,7 @@ def carregar_dados_resumidos():
 df_base = carregar_dados_resumidos()
 
 # Títulos da Interface
-st.title("📊 Painel Executivo de Acompanhamento ENADE")
+st.title("Painel Executivo de Acompanhamento ENADE")
 st.markdown("---")
 
 if df_base is None:

@@ -71,7 +71,7 @@ for p in [pasta_pdfs_originais, pasta_pdfs_simplificados, pasta_csv_final]:
 converter = DocumentConverter()
 df_lista = pd.read_csv(csv_input)
 
-print(f"📂 Processando {len(df_lista)} cursos...")
+print(f" Processando {len(df_lista)} cursos...")
 
 for index, row in df_lista.iterrows():
     if pd.isna(row['curso']) or str(row['paginaInicial_anexoIX']) == '-': continue
@@ -97,11 +97,11 @@ for index, row in df_lista.iterrows():
             doc_simp.save(str(pdf_simp))
             doc_ori.close(); doc_simp.close()
     except Exception as e:
-        print(f"❌ Erro nos arquivos de {row['curso']}: {e}"); continue
+        print(f" Erro nos arquivos de {row['curso']}: {e}"); continue
 
     # 3. Extração com Docling (Ajustada para robustez)
     if not csv_final.exists():
-        print(f"🤖 Extraindo: {row['curso']}...")
+        print(f" Extraindo: {row['curso']}...")
         try:
             result = converter.convert(str(pdf_simp.absolute()))
             df_list = [table.export_to_dataframe(result.document) for table in result.document.tables]
@@ -140,9 +140,9 @@ for index, row in df_lista.iterrows():
             df_temp['OC_unificado'] = df_temp.apply(aplicar_regra_oc, axis=1)
 
             df_temp.to_csv(csv_final, index=False, sep=';', encoding='utf-8-sig')
-            print(f"✅ Sucesso: {nome_arquivo}")
+            print(f" Sucesso: {nome_arquivo}")
 
         except Exception as e:
-            print(f"❌ Erro Crítico em {row['curso']}: {e}")
+            print(f" Erro Crítico em {row['curso']}: {e}")
 
-print("\n🚀 FIM DO PROCESSAMENTO!")
+print("\n FIM DO PROCESSAMENTO!")

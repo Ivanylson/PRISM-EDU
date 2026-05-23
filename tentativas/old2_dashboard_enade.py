@@ -36,7 +36,7 @@ st.title("🎓 Painel Executivo de IA Educacional - ENADE")
 st.markdown("---")
 
 if df_base is None:
-    st.error(f"❌ ERRO: Base de dados consolidada não encontrada em: {caminho_base_consolidada}")
+    st.error(f"ERRO: Base de dados consolidada não encontrada em: {caminho_base_consolidada}")
     st.warning("Execute as Fases 1 e 2 do pipeline antes de abrir o Dashboard.")
     st.stop()
 
@@ -78,7 +78,7 @@ with st.sidebar:
 
     # --- NOVO: BOTÃO DE SAIR ---
     st.markdown("---")
-    if st.button("🚪 Sair e Fechar Dashboard", use_container_width=True):
+    if st.button("Sair e Fechar Dashboard", use_container_width=True):
         st.success("A encerrar o sistema... Pode fechar esta janela do navegador e voltar ao seu terminal.")
         os._exit(0) # Mata o processo do Streamlit, voltando ao menu_principal.py
 
@@ -93,10 +93,10 @@ if df_final.empty:
 # 3. CRIAÇÃO DAS ABAS (TABS)
 # =============================================================================
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📊 Diagnóstico e Prescrição", 
-    "🎯 Fatores de Sucesso (Preditivo)", 
-    "🧪 Validação Científica (Algoritmos)",
-    "🤖 Clustering Pedagógico e Plano de Ação"
+    "Diagnóstico e Prescrição", 
+    "Fatores de Sucesso (Preditivo)", 
+    "Validação Científica (Algoritmos)",
+    "Clustering Pedagógico e Plano de Ação"
 ])
 
 # -----------------------------------------------------------------------------
@@ -160,7 +160,7 @@ with tab1:
 # ABA 2: INTELIGÊNCIA PREDITIVA
 # -----------------------------------------------------------------------------
 with tab2:
-    st.header(f"🧠 Fatores Determinantes de Sucesso em {nome_curso_final}")
+    st.header(f"Fatores Determinantes de Sucesso em {nome_curso_final}")
     st.markdown("Esta seção utiliza Machine Learning (**XGBoost** e **Random Forest**) para descobrir quais competências determinam se um aluno será classificado como 'Alto Desempenho' a nível nacional.")
     
     caminho_pesos = pasta_preditivos / f"importancia_variaveis_{nome_curso_arquivo}.csv"
@@ -173,13 +173,13 @@ with tab2:
         col_m1, col_m2 = st.columns([1, 2.5])
         
         with col_m1:
-            st.markdown("#### 🏆 Batalha de Modelos")
+            st.markdown("#### Batalha de Modelos")
             st.markdown("Qualidade da predição da IA:")
             st.dataframe(df_metricas_pred[['Modelo', 'Acuracia', 'F1_Score']].set_index('Modelo'), use_container_width=True)
             st.info("Quanto mais próximo de 1.0, mais exata é a IA em prever a nota final do aluno baseada nas matérias que ele domina.")
             
         with col_m2:
-            st.markdown("#### 🚀 Top 10 Matérias que mais impactam a Nota (Feature Importance)")
+            st.markdown("#### Top 10 Matérias que mais impactam a Nota (Feature Importance)")
             df_top_pesos = df_pesos.head(10).copy()
             df_top_pesos['OC_CURTO'] = df_top_pesos['TODOS_OS_OCs'].str.wrap(50)
             
@@ -191,16 +191,16 @@ with tab2:
             fig_pesos.update_layout(yaxis={'categoryorder':'total ascending'}, margin=dict(l=0, r=0, t=0, b=0), height=350)
             st.plotly_chart(fig_pesos, use_container_width=True)
             
-        st.markdown("#### 📋 Detalhamento das Competências-Chave")
+        st.markdown("#### Detalhamento das Competências-Chave")
         st.dataframe(df_pesos.head(10), use_container_width=True)
     else:
-        st.warning("⚠️ Os arquivos de Inteligência Preditiva ainda não foram gerados para este curso. Execute a Fase 3 do pipeline.")
+        st.warning("Os arquivos de Inteligência Preditiva ainda não foram gerados para este curso. Execute a Fase 3 do pipeline.")
 
 # -----------------------------------------------------------------------------
 # ABA 3: VALIDAÇÃO CIENTÍFICA
 # -----------------------------------------------------------------------------
 with tab3:
-    st.header(f"🔬 Rigor Científico dos Agrupamentos: {nome_curso_final}")
+    st.header(f"Rigor Científico dos Agrupamentos: {nome_curso_final}")
     st.markdown("Justificativa matemática da escolha do algoritmo (K-Means) e do número ideal de grupos de alunos.")
     
     caminho_img_val = pasta_agrupamentos / f"graficos_validacao_{nome_curso_arquivo}.png"
@@ -209,19 +209,19 @@ with tab3:
     if caminho_img_val.exists() and caminho_metricas_agrup.exists():
         st.image(str(caminho_img_val), caption="Batalha de Algoritmos Não-Supervisionados (K-Means vs GMM vs Hierárquico)", use_column_width=True)
         
-        st.markdown("#### 📊 Tabela de Métricas Internas")
+        st.markdown("#### Tabela de Métricas Internas")
         df_metricas_agrup = pd.read_csv(caminho_metricas_agrup, sep=';')
         st.dataframe(df_metricas_agrup.set_index('K_Grupos'), use_container_width=True)
         
         st.success("**Conclusão Acadêmica:** O modelo **K-Means** foi selecionado para os painéis principais por garantir alta coerência (Davies-Bouldin baixo) e bom isolamento de grupos (Silhouette aceitável), aliado ao menor custo computacional, permitindo a identificação clara do aluno mediano.")
     else:
-        st.warning("⚠️ Os arquivos de Validação Científica ainda não foram gerados para este curso. Execute a Fase 3 do pipeline.")
+        st.warning("Os arquivos de Validação Científica ainda não foram gerados para este curso. Execute a Fase 3 do pipeline.")
 
 # -----------------------------------------------------------------------------
 # ABA 4: CLUSTERING E PLANO DE AÇÃO
 # -----------------------------------------------------------------------------
 with tab4:
-    st.header(f"🤖 Clustering Pedagógico e Plano de Ação: {nome_curso_final}")
+    st.header(f"Clustering Pedagógico e Plano de Ação: {nome_curso_final}")
     st.markdown("""
     Nesta secção, o nosso motor de Inteligência Artificial analisou os padrões de acertos e erros dos alunos, 
     dividiu-os em **grupos de proficiência** e cruzou as deficiências com a Matriz Curricular do MEC.
@@ -238,7 +238,7 @@ with tab4:
             silhueta_livre = df_ia_filtrado['SILHUETA_LIVRE'].iloc[0]
             k_aplicado = df_ia_filtrado['K_APLICADO_PEDAGOGICO (Max 6)'].iloc[0]
             
-            st.info("📊 **Justificativa do Algoritmo:**")
+            st.info("**Justificativa do Algoritmo:**")
             col1, col2 = st.columns(2)
             col1.metric("K Matemático (Puro)", f"{k_livre} grupos", f"Silhueta: {silhueta_livre}")
             col2.metric("K Pedagógico (Aplicado)", f"{k_aplicado} grupos", "Adaptado para a rotina docente")
@@ -256,17 +256,17 @@ with tab4:
                 
                 with st.expander(f"{cor_status} {row['NOME_DO_GRUPO']} — {row['QTD_ALUNOS_GRUPO']} alunos (Média do Grupo: {row['NOTA_MEDIA_GERAL_GRUPO']})", expanded=True):
                     
-                    st.error(f"**📉 Piores Questões do Grupo (GAPs Nacionais):** `{row['QUESTOES_MAIS_IMPACTANTES']}`")
+                    st.error(f"**Piores Questões do Grupo (GAPs Nacionais):** `{row['QUESTOES_MAIS_IMPACTANTES']}`")
                     
                     c1, c2 = st.columns(2)
                     with c1:
-                        st.warning("**📘 Objetos de Conhecimento a Revisar:**\n\n" + str(row['MATERIAS_DEFICIENTES']).replace(" | ", "\n\n"))
+                        st.warning("** Objetos de Conhecimento a Revisar:**\n\n" + str(row['MATERIAS_DEFICIENTES']).replace(" | ", "\n\n"))
                     with c2:
-                        st.info("**🎯 Competências a Desenvolver:**\n\n" + str(row['COMPETENCIAS_A_DESENVOLVER']).replace(" | ", "\n\n"))
+                        st.info("** Competências a Desenvolver:**\n\n" + str(row['COMPETENCIAS_A_DESENVOLVER']).replace(" | ", "\n\n"))
         else:
             st.warning(f"Não há dados suficientes nesta IES ({ies_filtro}) para o algoritmo de IA realizar um agrupamento seguro.")
     else:
-        st.error("⚠️ Ficheiro relatorio_diagnostico_pedagogico.csv não encontrado. Execute a Fase 4 do pipeline.")
+        st.error(" Ficheiro relatorio_diagnostico_pedagogico.csv não encontrado. Execute a Fase 4 do pipeline.")
 
 st.markdown("---")
 st.caption(f"Sistema desenvolvido com base nos microdados ENADE 2023. | Diretório de Dados: {DIRETORIO_RAIZ}")

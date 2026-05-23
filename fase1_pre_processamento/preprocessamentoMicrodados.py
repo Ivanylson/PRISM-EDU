@@ -134,4 +134,4 @@ try:
     print(f" Relatório guardado em: {arquivo_saida}")
 
 except Exception as e:
-    print(f"\n❌ ERRO DURANTE A EXECUÇÃO: {e}")
+    print(f"\n ERRO DURANTE A EXECUÇÃO: {e}")

@@ -73,7 +73,7 @@ GABARITO_FIXO = ['D1'] + [str(i) for i in range(1, 10)] + ['D2'] + [str(i) for i
 converter = DocumentConverter()
 df_lista = pd.read_csv(csv_input)
 
-print(f"📂 Iniciando processamento de {len(df_lista)} cursos...")
+print(f"Iniciando processamento de {len(df_lista)} cursos...")
 
 for index, row in df_lista.iterrows():
     if pd.isna(row['curso']) or str(row['paginaInicial_anexoIX']) == '-': continue
@@ -102,7 +102,7 @@ for index, row in df_lista.iterrows():
 
     # 3. EXTRAÇÃO E MAPEAMENTO LÉXICO
     if not csv_final.exists():
-        print(f"🤖 Extraindo: {row['curso']}...")
+        print(f"extraindo: {row['curso']}...")
         try:
             result = converter.convert(str(pdf_simp.absolute()))
             
@@ -145,9 +145,9 @@ for index, row in df_lista.iterrows():
                 encoding='utf-8-sig',
                 quoting=csv.QUOTE_ALL
             )
-            print(f"✅ Gerado: {nome_arquivo}_conteudo.csv")
+            print(f"Gerado: {nome_arquivo}_conteudo.csv")
 
         except Exception as e:
-            print(f"❌ Erro Crítico em {row['curso']}: {e}")
+            print(f"Erro Crítico em {row['curso']}: {e}")
 
 print("\n🚀 PROCESSO FINALIZADO COM SUCESSO!")

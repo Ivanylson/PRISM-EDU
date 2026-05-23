@@ -153,7 +153,7 @@ with st.sidebar:
         df_curso_nacional = df_base[df_base['CO_GRUPO'] == grupo_selecionado].copy()
 
     st.markdown("---")
-    if st.button("🚪 Sair e Fechar", use_container_width=True):
+    if st.button("Sair e Fechar", use_container_width=True):
         st.success("A encerrar... Pode fechar a janela.")
         os._exit(0)
 
@@ -161,12 +161,12 @@ with st.sidebar:
 # 3. NAVEGAÇÃO PRINCIPAL (radio horizontal substitui st.tabs)
 # =============================================================================
 TABS = [
-    "📊 Diagnóstico e Prescrição",
-    "🎯 Fatores de Sucesso (Preditivo)",
-    "🧪 Validação + Clustering",
-    "🤖 Plano de Ação por Perfil",
-    "🧠 LCA - Classes Latentes",
-    "🤖 OpenCode + IA Explicativa"
+    "Diagnóstico e Prescrição",
+    "Fatores de Sucesso (Preditivo)",
+    "Validação + Clustering",
+    "Plano de Ação por Perfil",
+    "LCA - Classes Latentes",
+    "OpenCode + IA Explicativa"
 ]
 
 tab_default = 0
@@ -203,7 +203,7 @@ if tab_selector == TABS[0]:
                 if pd.notna(linha.get(col)) and str(linha.get(col)).strip() != "" and str(linha.get(col)).lower() != "nan"]
             return " + ".join(lista_ocs) if lista_ocs else "Não especificado"
 
-        st.subheader(f"📍 Top 5 Questões Críticas - IES {ies_selecionada}")
+        st.subheader(f" Top 5 Questões Críticas - IES {ies_selecionada}")
         if 'QUESTAO' in df_final.columns and 'TAXA_DEFICIENCIA_%' in df_final.columns:
             agg_dict_ies = {'TAXA_DEFICIENCIA_%': 'mean'}
             for col in colunas_oc: agg_dict_ies[col] = 'first'
@@ -265,10 +265,10 @@ elif tab_selector == TABS[1]:
             df_metricas_pred = pd.read_csv(caminho_metricas_pred, sep=';')
             col_m1, col_m2 = st.columns([1, 2.5])
             with col_m1:
-                st.markdown("#### 🏆 Qualidade da Predição")
+                st.markdown("#### Qualidade da Predição")
                 st.dataframe(df_metricas_pred[['Modelo', 'Acuracia', 'F1_Score']].set_index('Modelo'), use_container_width=True)
             with col_m2:
-                st.markdown("#### 🚀 Top 10 Matérias que mais impactam")
+                st.markdown("#### Top 10 Matérias que mais impactam")
                 df_top_pesos = df_pesos.head(10).copy()
                 df_top_pesos['OC_CURTO'] = df_top_pesos['TODOS_OS_OCs'].str.wrap(50)
                 fig_pesos = px.bar(df_top_pesos, x='PESO_IMPORTANCIA_%', y='OC_CURTO',
@@ -287,7 +287,7 @@ elif tab_selector == TABS[2]:
     elif nome_curso_arquivo == "":
         st.warning("Selecione IES/Curso no filtro lateral.")
     else:
-        st.header("🔬 Validação dos Agrupamentos (K-Means)")
+        st.header("Validação dos Agrupamentos (K-Means)")
         caminho_img_val = pasta_agrupamentos / f"graficos_validacao_{nome_curso_arquivo}.png"
         caminho_metricas_agrup = pasta_agrupamentos / f"metricas_agrupamento_{nome_curso_arquivo}.csv"
         if caminho_img_val.exists():
@@ -309,11 +309,11 @@ elif tab_selector == TABS[3]:
     else:
         col_titulo, col_param = st.columns([2, 1])
         with col_titulo:
-            st.header(f"🤖 Plano de Ação: {nome_curso_final}")
+            st.header(f"Plano de Ação: {nome_curso_final}")
         with col_param:
             limite_top_n = st.slider("Top N problemas:", 1, 38, 5, key="top_n_tab4")
 
-        with st.expander("🔬 Explicação dos Algoritmos e Metodologia"):
+        with st.expander("Explicação dos Algoritmos e Metodologia"):
             st.markdown("""
             ### K-Means + Gap Analysis + Interseção de Falhas
 
@@ -330,12 +330,12 @@ elif tab_selector == TABS[3]:
                 k_livre = df_ia_filtrado.get('K_MATEMATICO_LIVRE', pd.Series(['N/A'])).iloc[0]
                 silhueta = df_ia_filtrado.get('SILHUETA_LIVRE', pd.Series(['N/A'])).iloc[0]
                 k_aplicado = df_ia_filtrado.get('K_APLICADO_PEDAGOGICO (Max 6)', pd.Series([0])).iloc[0]
-                st.info(f"📊 K-Livre: {k_livre} (Silhueta: {silhueta}) | K-Aplicado: {k_aplicado}")
+                st.info(f"K-Livre: {k_livre} (Silhueta: {silhueta}) | K-Aplicado: {k_aplicado}")
 
                 if 'FALHA_SISTEMICA_IES' in df_ia_filtrado.columns:
                     falha = df_ia_filtrado['FALHA_SISTEMICA_IES'].iloc[0]
                     if pd.notna(falha) and str(falha).strip() not in ["Nenhuma", "nan", ""]:
-                        st.error(f"🚨 Falha Institucional (interseção em todos os perfis): {falha}")
+                        st.error(f"Falha Institucional (interseção em todos os perfis): {falha}")
 
                 for _, row in df_ia_filtrado.iterrows():
                     nome_grupo = str(row.get('NOME_DO_GRUPO', 'Grupo'))
@@ -364,7 +364,7 @@ elif tab_selector == TABS[3]:
 # ABA 5: LCA - CLASSES LATENTES
 # =============================================================================
 elif tab_selector == TABS[4]:
-    st.header("🧠 Análise de Classes Latentes (LCA)")
+    st.header("Análise de Classes Latentes (LCA)")
     st.markdown("Identificação de perfis de aprendizagem via **Latent Class Analysis** — abordagem estatística robusta para dados categóricos binários.")
 
     if df_lca_geral is None:
@@ -396,7 +396,7 @@ elif tab_selector == TABS[4]:
                 ies_lca_sel = st.selectbox("IES (código):", ies_lca_list, index=ies_idx, key="lca_ies")
 
             if ies_default:
-                st.caption(f"🔗 Sincronizado com o filtro global: {nome_curso_final} / IES {ies_selecionada}")
+                st.caption(f"Sincronizado com o filtro global: {nome_curso_final} / IES {ies_selecionada}")
 
             st.markdown("---")
 
@@ -413,13 +413,13 @@ elif tab_selector == TABS[4]:
                 col_m4.metric("ARI (LCA vs K-Means)", f"{row['ari_lca_vs_kmeans_mca']:.3f}")
                 col_m5.metric("N alunos", str(int(row['n_alunos'])))
 
-                with st.expander("📋 Justificativa da seleção de k"):
+                with st.expander("Justificativa da seleção de k"):
                     st.info(row['justificativa_k'])
 
                 st.markdown("---")
 
                 if not df_cls_ies.empty:
-                    st.subheader("📊 Perfis Identificados pela LCA")
+                    st.subheader("Perfis Identificados pela LCA")
 
                     prob_cols = [f'PROB_Q{i}' for i in range(1, 39)]
                     gap_cols = [f'GAP_Q{i}' for i in range(1, 39)]
@@ -434,13 +434,13 @@ elif tab_selector == TABS[4]:
                     fig.update_layout(title="Probabilidade de Acerto por Questão", yaxis_range=[0, 1.05], height=400)
                     st.plotly_chart(fig, use_container_width=True)
 
-                    st.subheader("📋 Detalhamento das Classes")
+                    st.subheader("Detalhamento das Classes")
                     cols_show = ['classe_id', 'n_alunos', 'taxa_acerto_media', 'itens_diferencialmente_fortes', 'itens_diferencialmente_fracos']
                     cols_show = [c for c in cols_show if c in df_cls_ies.columns]
                     st.dataframe(df_cls_ies[cols_show], use_container_width=True)
 
                 st.markdown("---")
-                st.subheader("🖼️ Figuras da Análise (Artigo SBIE)")
+                st.subheader("Figuras da Análise (Artigo SBIE)")
                 imagens = list(PASTA_LCA_FIGURAS.glob("fig*.png")) + list(PASTA_LCA_FIGURAS.glob("*.png"))
                 if imagens:
                     cols_img = st.columns(3)
@@ -454,7 +454,7 @@ elif tab_selector == TABS[4]:
 # ABA 6: OPENCODE + IA EXPLICATIVA (AUTOMÁTICA E SEM TERMINAL)
 # =============================================================================
 elif tab_selector == TABS[5]:
-    st.header("🤖 OpenCode + IA Explicativa (Integração Web Automática)")
+    st.header("OpenCode + IA Explicativa (Integração Web Automática)")
     st.markdown("""
     O painel se conectará **automaticamente** ao OpenCode Web para analisar os dados e produzir
     uma explicação em linguagem natural sem a necessidade de comandos manuais no terminal.
@@ -504,7 +504,7 @@ elif tab_selector == TABS[5]:
             foco = st.text_input("Foco adicional (opcional):", placeholder="Ex: 'Destaque as principais deficiências'")
 
         st.subheader("4. Gerar Explicação")
-        if st.button("🚀 Gerar Explicação com IA", type="primary", use_container_width=True):
+        if st.button("Gerar Explicação com IA", type="primary", use_container_width=True):
             
             with st.status("Iniciando IA Explicativa...", expanded=True) as status:
                 try:
@@ -548,9 +548,9 @@ elif tab_selector == TABS[5]:
                         resposta_final = str(res_msg.json())
 
                     # Exibindo resultado
-                    status.update(label="✅ Explicação gerada com sucesso!", state="complete")
+                    status.update(label="Explicação gerada com sucesso!", state="complete")
                     st.success("Análise Finalizada!")
-                    st.markdown("### 🧠 Parecer da Inteligência Artificial")
+                    st.markdown("### Parecer da Inteligência Artificial")
                     st.markdown("---")
                     st.write(resposta_final)
 
@@ -562,6 +562,6 @@ elif tab_selector == TABS[5]:
                     status.update(label="Erro no Processamento", state="error")
                     st.error(f"Ocorreu um erro: {e}")
                     
-                    st.markdown("### 📊 Análise Estatística Automática (Fallback)")
+                    st.markdown("### Análise Estatística Automática (Fallback)")
                     for col, stats in resumo_estatistico.items():
                         st.markdown(f"- **{col}**: média={stats['media']}, max={stats['max']}")

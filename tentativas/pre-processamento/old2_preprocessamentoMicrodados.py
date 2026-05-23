@@ -130,8 +130,8 @@ try:
     # Salva na nova pasta arquivosgerados
     output[cabecalho].to_csv(arquivo_saida, index=False, sep=';', encoding='utf-8')
     
-    print(f"\n✅ PROCESSO CONCLUÍDO!")
-    print(f"📁 Relatório disponível em: {arquivo_saida}")
+    print(f"\n PROCESSO CONCLUÍDO!")
+    print(f" Relatório disponível em: {arquivo_saida}")
 
 except Exception as e:
-    print(f"\n❌ ERRO: {e}")
+    print(f"\n ERRO: {e}")

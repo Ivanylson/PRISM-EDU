@@ -17,6 +17,12 @@ Hipóteses:
     H4: IES "mistas" têm MENOR ESTABILIDADE de bootstrap
     H5: IES "mistas" se concentram em CURSOS específicos
     H6: IES "mistas" têm DESEMPENHO geral diferente (alta ou baixa)
+
+Decisão prática:
+    Com base nos achados, recomendar uma das três opções para a dissertação:
+    (a) Manter as 144 IES como categoria separada de análise
+    (b) Excluí-las com justificativa estatística
+    (c) Reanalisá-las com k=1 (perfil único) ou método alternativo
 ================================================================================
 """
 

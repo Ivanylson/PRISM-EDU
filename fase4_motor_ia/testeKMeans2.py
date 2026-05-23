@@ -135,7 +135,7 @@ for co_grupo in grupos_disponiveis:
     # -------------------------------------------------------------------------
     # CONSTRUÇÃO DO FICHEIRO MARKDOWN (.md) PARA ESTE CURSO
     # -------------------------------------------------------------------------
-    md_content = f"# Relatório Prescritivo de Inteligência Artificial: {nome_curso}\n\n"
+    md_content = f"#  Relatório Prescritivo de Inteligência Artificial: {nome_curso}\n\n"
     md_content += f"**Total de Alunos Analisados no Curso:** {len(df_curso)}\n"
     md_content += f"**Média Geral de Acertos do Curso:** {nota_media_geral}/38 questões\n\n"
     md_content += "---\n\n## Mapeamento de Perfis de Aprendizagem\n"
@@ -202,7 +202,7 @@ for co_grupo in grupos_disponiveis:
     with open(caminho_md, 'w', encoding='utf-8') as file:
         file.write(md_content)
         
-    print(f" Documento gerado com sucesso: {nome_ficheiro_md}")
+    print(f"Documento gerado com sucesso: {nome_ficheiro_md}")
 
 print(f"\n{'='*75}")
 print(f" PROCESSO CONCLUÍDO! Os relatórios em Markdown de todos os cursos estão na pasta:\n{pasta_dashboards}")

@@ -61,7 +61,7 @@ def tratar_linhas_grudadas(df):
 caminho_pdf = selecionar_arquivo_pdf()
 if not caminho_pdf: exit()
 
-print(f"🤖 Analisando minuciosamente: {Path(caminho_pdf).name}...")
+print(f"Analisando minuciosamente: {Path(caminho_pdf).name}...")
 
 try:
     converter = DocumentConverter()
@@ -76,7 +76,7 @@ try:
         lista_dfs.append(df_parcial)
 
     if not lista_dfs:
-        print("❌ Nenhuma tabela detectada."); exit()
+        print("Nenhuma tabela detectada."); exit()
 
     # Une todas as partes da tabela
     df_bruto = pd.concat(lista_dfs, ignore_index=True, sort=False)
@@ -115,10 +115,10 @@ try:
     output_path = Path(caminho_pdf).parent / (Path(caminho_pdf).stem + "_LIMPO.csv")
     df_final[cols_base].to_csv(output_path, index=False, sep=';', encoding='utf-8-sig')
 
-    print(f"\n✅ SUCESSO NA LIMPEZA!")
-    print(f"📊 Total de Questões: {len(df_final)} de 40")
-    print(f"📐 Estrutura: {len(cols_base)} colunas (OC3 detectado: {'Sim' if tem_oc3 else 'Não'})")
-    print(f"📂 Arquivo gerado: {output_path.name}")
+    print(f"\nSUCESSO NA LIMPEZA!")
+    print(f"Total de Questões: {len(df_final)} de 40")
+    print(f"Estrutura: {len(cols_base)} colunas (OC3 detectado: {'Sim' if tem_oc3 else 'Não'})")
+    print(f" Arquivo gerado: {output_path.name}")
 
 except Exception as e:
     print(f"❌ Erro: {e}")

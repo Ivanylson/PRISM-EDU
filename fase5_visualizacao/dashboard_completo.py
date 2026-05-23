@@ -13,11 +13,15 @@ import tempfile
 import time
 import urllib.request
 import atexit
+import requests
+import base64
+import logging
+import threading
 
 # =============================================================================
 # 1. CONFIGURAÇÕES E FUNÇÕES ÚTEIS
 # =============================================================================
-st.set_page_config(page_title="Dashboard IA Educacional + LCA + OpenCode", layout="wide", page_icon="🎓")
+st.set_page_config(page_title="PRISM-EDU Dashboard IA Educacional + LCA + OpenCode", layout="wide")
 
 def formatar_nome(nome):
     nome = ''.join(ch for ch in unicodedata.normalize('NFKD', nome) if not unicodedata.combining(ch))
@@ -61,6 +65,23 @@ cursos_reverso = {v: k for k, v in cursos_map.items()}
 # GERENCIAMENTO DO SERVIDOR OPENCODE
 # =============================================================================
 
+OPENCODE_SERVER_URL = "http://localhost:4096"
+OPENCODE_USERNAME = "opencode"
+
+def _get_logger():
+    """Get a logger that doesn't duplicate output on Streamlit reruns."""
+    logger = logging.getLogger("opencode_integration")
+    if not logger.handlers:
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        logger.setLevel(logging.INFO)
+        logger.propagate = False
+    return logger
+
+logger = _get_logger()
+
 def procurar_opencode():
     """Procura o executável do OpenCode no PATH e locais comuns."""
     try:
@@ -89,29 +110,54 @@ def procurar_opencode():
     return None
 
 
-def servidor_opencode_ativo():
-    """Verifica se o servidor OpenCode está rodando em http://localhost:4096."""
-    try:
-        req = urllib.request.Request("http://localhost:4096/global/health")
-        resp = urllib.request.urlopen(req, timeout=3)
-        return resp.status == 200
-    except:
-        return False
-
-
-def obter_senha_opencode():
-    """Retorna a senha OpenCode fornecida pelo usuário (se houver)."""
+def _senha_efetiva():
+    """Retorna a senha fornecida pelo usuario na sidebar (se houver)."""
     return st.session_state.get("senha_opencode", "").strip()
+
+
+def _auth_headers():
+    """Retorna headers de autenticação Basic Auth, se senha foi fornecida."""
+    senha = _senha_efetiva()
+    if senha:
+        credentials = f"{OPENCODE_USERNAME}:{senha}"
+        encoded = base64.b64encode(credentials.encode("utf-8")).decode("utf-8")
+        return {"Authorization": f"Basic {encoded}"}
+    return {}
+
+
+def servidor_opencode_ativo():
+    """Verifica se o servidor OpenCode está rodando em http://localhost:4096.
+    Tenta sem autenticação primeiro (servidor local), depois com senha se fornecida."""
+    try:
+        resp = requests.get(f"{OPENCODE_SERVER_URL}/global/health", timeout=3)
+        if resp.status_code == 200:
+            return True
+    except:
+        pass
+    # Fallback: tenta com autenticação
+    headers = _auth_headers()
+    if headers:
+        try:
+            resp = requests.get(f"{OPENCODE_SERVER_URL}/global/health", headers=headers, timeout=3)
+            return resp.status_code == 200
+        except:
+            pass
+    return False
 
 
 def iniciar_servidor_opencode():
     """Inicia opencode serve --port 4096 em background e aguarda ficar pronto."""
+    # Se já estiver rodando, retorna True
     if servidor_opencode_ativo():
+        logger.info("Servidor OpenCode já está ativo.")
         return True
+    
     exe = procurar_opencode()
     if not exe:
+        logger.warning("Executável OpenCode não encontrado.")
         return False
     try:
+        # Inicia servidor SEM senha (uso local)
         cmd = [exe, "serve", "--port", "4096"]
         proc = subprocess.Popen(
             cmd,
@@ -119,13 +165,17 @@ def iniciar_servidor_opencode():
             cwd=str(DIRETORIO_RAIZ)
         )
         st.session_state.opencode_server_proc = proc
+        logger.info("Iniciando servidor OpenCode...")
         for _ in range(15):
             if servidor_opencode_ativo():
+                logger.info("Servidor OpenCode iniciado com sucesso.")
                 return True
             time.sleep(1)
         proc.kill()
+        logger.warning("Timeout ao iniciar servidor OpenCode.")
         return False
-    except:
+    except Exception as e:
+        logger.error(f"Erro ao iniciar servidor OpenCode: {e}")
         return False
 
 
@@ -138,6 +188,203 @@ def _parar_servidor_opencode():
             pass
 
 atexit.register(_parar_servidor_opencode)
+
+
+def _check_zen_rate_limit():
+    """Verifica se há limite de uso excedido no Zen e retorna info sobre reset."""
+    try:
+        headers = _auth_headers()
+        status_resp = requests.get(f"{OPENCODE_SERVER_URL}/session/status", headers=headers, timeout=10)
+        if status_resp.status_code == 200:
+            status_data = status_resp.json()
+            for session_id, info in status_data.items():
+                if isinstance(info, dict) and info.get("type") == "retry":
+                    msg = info.get("message", "")
+                    next_ts = info.get("next", 0)
+                    if "Free usage exceeded" in msg or "rate limit" in msg.lower():
+                        reset_time = None
+                        if next_ts:
+                            reset_time = time.strftime("%H:%M:%S", time.localtime(next_ts / 1000))
+                        return {
+                            "limited": True,
+                            "message": msg,
+                            "reset_at": reset_time,
+                            "next_timestamp": next_ts
+                        }
+        return {"limited": False}
+    except:
+        return {"limited": False}
+
+
+MODELOS = {
+    "nemotron-3-super-free": "Nemotron 3 Super Free",
+    "big-pickle": "Big Pickle",
+    "deepseek-v4-flash-free": "DeepSeek V4 Flash Free",
+    "minimax-m2.5-free": "MiniMax M2.5 Free",
+    "qwen3.6-plus-free": "Qwen3.6 Plus Free",
+}
+
+
+def enviar_prompt_opencode(prompt, model_id="nemotron-3-super-free", timeout=300):
+    """
+    Envia prompt para o OpenCode via HTTP API com polling assíncrono.
+    
+    Args:
+        prompt: Texto do prompt
+        model_id: ID do modelo (ex: "minimax-m2.5-free", "big-pickle")
+        timeout: Timeout em segundos
+        
+    Returns:
+        dict: {"success": bool, "response": str, "error": str, "model": str, "rate_limit_info": dict}
+    """
+    if not servidor_opencode_ativo():
+        return {"success": False, "response": "", "error": "Servidor OpenCode não está ativo.", "model": model_id}
+    
+    url = f"{OPENCODE_SERVER_URL}/session"
+    headers = _auth_headers()
+    headers["Content-Type"] = "application/json"
+    
+    try:
+        # Step 1: Create session
+        logger.info(f"Criando sessão com modelo: {model_id}")
+        session_resp = requests.post(
+            url,
+            json={"message": "Analise de dados ENADE"},
+            headers=headers,
+            timeout=15
+        )
+        
+        if session_resp.status_code != 200:
+            return {
+                "success": False,
+                "response": "",
+                "error": f"Falha ao criar sessão: HTTP {session_resp.status_code}",
+                "model": model_id
+            }
+        
+        session_data = session_resp.json()
+        session_id = session_data.get("id")
+        if not session_id:
+            return {
+                "success": False,
+                "response": "",
+                "error": "Sessão criada sem ID válido.",
+                "model": model_id
+            }
+        
+        logger.info(f"Sessão criada: {session_id}")
+        
+        # Step 2: Send message asynchronously
+        msg_url = f"{OPENCODE_SERVER_URL}/session/{session_id}/prompt_async"
+        msg_body = {
+            "parts": [{"type": "text", "text": prompt}],
+            "model": {
+                "providerID": "opencode",
+                "modelID": model_id
+            }
+        }
+        
+        logger.info(f"Enviando mensagem assíncrona para modelo {model_id}...")
+        async_resp = requests.post(msg_url, json=msg_body, headers=headers, timeout=30)
+        
+        if async_resp.status_code != 204:
+            return {
+                "success": False,
+                "response": "",
+                "error": f"Falha ao enviar mensagem: HTTP {async_resp.status_code}",
+                "model": model_id
+            }
+        
+        # Step 3: Poll for response
+        logger.info("Aguardando resposta via polling...")
+        start_time = time.time()
+        
+        while time.time() - start_time < timeout:
+            time.sleep(3)
+            
+            # Check session status for rate limit errors
+            status_resp = requests.get(f"{OPENCODE_SERVER_URL}/session/status", headers=headers, timeout=10)
+            if status_resp.status_code == 200:
+                status_data = status_resp.json()
+                current_status = status_data.get(session_id, {})
+                status_type = current_status.get("type", "")
+                
+                if status_type == "retry":
+                    error_msg = current_status.get("message", "")
+                    if "Free usage exceeded" in error_msg or "rate limit" in error_msg.lower():
+                        next_ts = current_status.get("next", 0)
+                        reset_time = time.strftime("%H:%M:%S", time.localtime(next_ts / 1000)) if next_ts else "desconhecido"
+                        logger.warning(f"Rate limit detectado: {error_msg}")
+                        return {
+                            "success": False,
+                            "response": "",
+                            "error": f"Limite de uso gratuito excedido. Reset às {reset_time}. Tente outro modelo ou aguarde.",
+                            "model": model_id,
+                            "rate_limit_info": {"limited": True, "reset_at": reset_time}
+                        }
+            
+            # Get messages
+            msg_list_url = f"{OPENCODE_SERVER_URL}/session/{session_id}/message?limit=5"
+            msg_list_resp = requests.get(msg_list_url, headers=headers, timeout=10)
+            
+            if msg_list_resp.status_code != 200:
+                continue
+            
+            messages = msg_list_resp.json()
+            if not isinstance(messages, list):
+                continue
+            
+            # Look for assistant message with text content
+            for msg in messages:
+                info = msg.get("info", {})
+                if info.get("role") == "assistant":
+                    parts = msg.get("parts", [])
+                    for part in parts:
+                        if part.get("type") == "text":
+                            text = part.get("text", "")
+                            if text and len(text.strip()) > 10:
+                                elapsed = int(time.time() - start_time)
+                                logger.info(f"Resposta recebida em {elapsed}s: {len(text)} caracteres")
+                                return {
+                                    "success": True,
+                                    "response": text,
+                                    "error": "",
+                                    "model": model_id
+                                }
+            
+            # Timeout reached
+        logger.warning(f"Timeout após {timeout}s ao aguardar resposta do OpenCode.")
+        return {
+            "success": False,
+            "response": "",
+            "error": f"Timeout após {timeout}s. O modelo '{model_id}' pode estar sobrecarregado.",
+            "model": model_id
+        }
+            
+    except requests.exceptions.Timeout:
+        logger.error(f"Timeout ao comunicar com OpenCode.")
+        return {
+            "success": False,
+            "response": "",
+            "error": "Timeout na comunicação com o servidor OpenCode.",
+            "model": model_id
+        }
+    except requests.exceptions.ConnectionError as e:
+        logger.error(f"Erro de conexão com OpenCode: {e}")
+        return {
+            "success": False,
+            "response": "",
+            "error": f"Erro de conexão: {str(e)}",
+            "model": model_id
+        }
+    except Exception as e:
+        logger.error(f"Erro inesperado ao comunicar com OpenCode: {e}")
+        return {
+            "success": False,
+            "response": "",
+            "error": f"Erro: {str(e)}",
+            "model": model_id
+        }
 
 # =============================================================================
 
@@ -179,7 +426,7 @@ df_lca_geral = carregar_lca_geral()
 df_lca_classes = carregar_lca_classes()
 df_lca_crit = carregar_lca_criterios()
 
-st.title(" Painel de IA Educacional - ENADE 2023")
+st.title("PRISM-EDU - Painel de IA Educacional - ENADE 2023")
 st.markdown("**K-Means + LCA + OpenCode** — Análise de Perfis de Aprendizagem com Explicação em Linguagem Natural")
 st.markdown("---")
 
@@ -205,7 +452,7 @@ with st.sidebar:
         df_curso_nacional = df_base[df_base['CO_GRUPO'] == grupo_selecionado].copy()
 
     st.markdown("---")
-    st.markdown("### OpenCode")
+    st.markdown("###  OpenCode")
     senha_opencode = st.text_input(
         "Senha (opcional):",
         type="password",
@@ -213,9 +460,9 @@ with st.sidebar:
         help="Senha para conexão com servidor OpenCode remoto (opcional). Deixe vazio para usar o servidor local sem autenticação."
     )
     if senha_opencode:
-        os.environ["OPENCODE_SERVER_PASSWORD"] = senha_opencode
+        pass  # senha usada via _auth_headers() nas chamadas HTTP
     st.markdown("---")
-    if st.button(" Sair e Fechar", use_container_width=True):
+    if st.button("Sair e Fechar", use_container_width=True):
         st.success("A encerrar... Pode fechar a janela.")
         os._exit(0)
 
@@ -223,12 +470,12 @@ with st.sidebar:
 # 3. NAVEGAÇÃO PRINCIPAL (radio horizontal substitui st.tabs)
 # =============================================================================
 TABS = [
-    "Diagnóstico e Prescrição",
-    "Fatores de Sucesso (Preditivo)",
-    "Validação + Clustering",
-    "Plano de Ação por Perfil",
-    "LCA - Classes Latentes",
-    "OpenCode + IA Explicativa"
+    " Diagnóstico e Prescrição",
+    " Fatores de Sucesso (Preditivo)",
+    " Validação + Clustering",
+    " Plano de Ação por Perfil",
+    " LCA - Classes Latentes",
+    " OpenCode + IA Explicativa"
 ]
 
 tab_default = 0
@@ -265,7 +512,7 @@ if tab_selector == TABS[0]:
                 if pd.notna(linha.get(col)) and str(linha.get(col)).strip() != "" and str(linha.get(col)).lower() != "nan"]
             return " + ".join(lista_ocs) if lista_ocs else "Não especificado"
 
-        st.subheader(f" Top 5 Questões Críticas - IES {ies_selecionada}")
+        st.subheader(f"📍 Top 5 Questões Críticas - IES {ies_selecionada}")
         if 'QUESTAO' in df_final.columns and 'TAXA_DEFICIENCIA_%' in df_final.columns:
             agg_dict_ies = {'TAXA_DEFICIENCIA_%': 'mean'}
             for col in colunas_oc: agg_dict_ies[col] = 'first'
@@ -327,10 +574,10 @@ elif tab_selector == TABS[1]:
             df_metricas_pred = pd.read_csv(caminho_metricas_pred, sep=';')
             col_m1, col_m2 = st.columns([1, 2.5])
             with col_m1:
-                st.markdown("#### Qualidade da Predição")
+                st.markdown("####  Qualidade da Predição")
                 st.dataframe(df_metricas_pred[['Modelo', 'Acuracia', 'F1_Score']].set_index('Modelo'), use_container_width=True)
             with col_m2:
-                st.markdown("#### Top 10 Matérias que mais impactam")
+                st.markdown("####  Top 10 Matérias que mais impactam")
                 df_top_pesos = df_pesos.head(10).copy()
                 df_top_pesos['OC_CURTO'] = df_top_pesos['TODOS_OS_OCs'].str.wrap(50)
                 fig_pesos = px.bar(df_top_pesos, x='PESO_IMPORTANCIA_%', y='OC_CURTO',
@@ -349,7 +596,7 @@ elif tab_selector == TABS[2]:
     elif not km_disponivel or 'nome_curso_arquivo' not in dir():
         st.warning("Selecione IES/Curso no filtro lateral.")
     else:
-        st.header("🔬 Validação dos Agrupamentos (K-Means)")
+        st.header(" Validação dos Agrupamentos (K-Means)")
         caminho_img_val = pasta_agrupamentos / f"graficos_validacao_{nome_curso_arquivo}.png"
         caminho_metricas_agrup = pasta_agrupamentos / f"metricas_agrupamento_{nome_curso_arquivo}.csv"
         if caminho_img_val.exists():
@@ -426,7 +673,7 @@ elif tab_selector == TABS[3]:
 # ABA 5: LCA - CLASSES LATENTES
 # =============================================================================
 elif tab_selector == TABS[4]:
-    st.header("Análise de Classes Latentes (LCA)")
+    st.header(" Análise de Classes Latentes (LCA)")
     st.markdown("Identificação de perfis de aprendizagem via **Latent Class Analysis** — abordagem estatística robusta para dados categóricos binários.")
 
     if df_lca_geral is None:
@@ -437,7 +684,6 @@ elif tab_selector == TABS[4]:
         if not cursos_lca:
             st.warning("Nenhum curso encontrado nos dados LCA.")
         else:
-            # Usa o filtro global da sidebar como pre-seleção se disponível
             curso_default = cursos_lca[0]
             ies_default = None
             if km_disponivel and 'grupo_selecionado' in dir():
@@ -478,7 +724,7 @@ elif tab_selector == TABS[4]:
                 col_m4.metric("ARI (LCA vs K-Means)", f"{row['ari_lca_vs_kmeans_mca']:.3f}")
                 col_m5.metric("N alunos", str(int(row['n_alunos'])))
 
-                with st.expander("📋 Justificativa da seleção de k"):
+                with st.expander(" Justificativa da seleção de k"):
                     st.info(row['justificativa_k'])
                     st.caption(f"Log-verossimilhança: {row['log_lik']:.2f} | Convergiu: {row['convergiu']}")
 
@@ -551,13 +797,13 @@ elif tab_selector == TABS[4]:
                     df_crit_ies = df_lca_crit[(df_lca_crit['curso'] == curso_lca_sel) &
                                               (df_lca_crit['ies'] == ies_lca_sel)]
                     if not df_crit_ies.empty:
-                        st.subheader("📈 Critérios de Seleção de k")
+                        st.subheader(" Critérios de Seleção de k")
                         cols_crit = ['k', 'bic', 'aic', 'entropia', 'menor_classe_pct']
                         cols_crit = [c for c in cols_crit if c in df_crit_ies.columns]
                         st.dataframe(df_crit_ies[cols_crit].set_index('k').round(3), use_container_width=True)
 
                 st.markdown("---")
-                st.subheader("Figuras da Análise (Artigo SBIE)")
+                st.subheader(" Figuras da Análise (Artigo SBIE)")
                 st.caption("Figuras referentes aos cursos de **Medicina**, **Engenharia Civil** e **Enfermagem** — artigos publicados no SBIE.")
                 cursos_artigo = ['medicina', 'engenharia_civil', 'enfermagem']
                 figuras_exibidas = 0
@@ -588,9 +834,23 @@ elif tab_selector == TABS[5]:
     st.header(" OpenCode + IA Explicativa")
     st.markdown("""
     Selecione um arquivo CSV de resultados para gerar uma **explicação em linguagem natural**,
-    acessível para não-especialistas. O dashboard chama o **OpenCode.ai** via linha de comando
+    acessível para não-especialistas. O dashboard chama o **OpenCode.ai** via API HTTP
     para analisar os dados e produzir um texto explicativo.
     """)
+
+    # Status do servidor
+    server_online = servidor_opencode_ativo()
+    status_color = "🟢" if server_online else "🔴"
+    status_text = "Online" if server_online else "Offline"
+    
+    # Check rate limit
+    rate_info = _check_zen_rate_limit() if server_online else {"limited": False}
+    if rate_info.get("limited"):
+        reset_at = rate_info.get("reset_at", "desconhecido")
+        st.error(f" **Limite de uso gratuito Zen excedido** — Reset previsto para **{reset_at}**. [Adicionar créditos](https://opencode.ai/zen)")
+        status_text += " (⚠️ limite excedido)"
+    
+    st.caption(f"{status_color} Servidor OpenCode: {status_text} — {OPENCODE_SERVER_URL}")
 
     st.subheader("1. Selecione o CSV para análise")
 
@@ -612,7 +872,6 @@ elif tab_selector == TABS[5]:
         st.error("Nenhum arquivo CSV encontrado nas pastas de resultados.")
         st.info("Execute as fases de processamento para gerar dados.")
     else:
-        # Filtra CSVs com base no filtro global da sidebar (mesma abordagem da Aba 5 - LCA)
         csvs_filtrados = []
         if km_disponivel and 'nome_curso_arquivo' in dir():
             curso_lower = nome_curso_arquivo.lower()
@@ -621,11 +880,9 @@ elif tab_selector == TABS[5]:
                 p_path_lower = str(p).lower()
                 if curso_lower in p_stem_lower or curso_lower in p_path_lower:
                     csvs_filtrados.append(p)
-            # Sempre inclui o CSV consolidado principal (visão geral)
             caminho_consolidado = PASTA_RESULTADOS / 'analise_por_ies_curso_enade.csv'
             if caminho_consolidado in csvs_validos and caminho_consolidado not in csvs_filtrados:
                 csvs_filtrados.insert(0, caminho_consolidado)
-            # Se após o filtro ficar vazio, mostra todos (fallback)
             if not csvs_filtrados:
                 csvs_filtrados = csvs_validos
         else:
@@ -634,8 +891,6 @@ elif tab_selector == TABS[5]:
         csv_labels = {str(p.relative_to(p.parents[2]) if len(p.parents) > 2 else p.name): p
                       for p in sorted(set(csvs_filtrados))}
         labels_ordenados = sorted(csv_labels.keys())
-
-        # Pré-seleciona o primeiro CSV
         csv_default_idx = 0
 
         csv_selecionado = st.selectbox("Arquivo CSV:", labels_ordenados,
@@ -644,8 +899,6 @@ elif tab_selector == TABS[5]:
 
         if km_disponivel and 'nome_curso_final' in dir():
             st.caption(f" Filtrado pelo curso: {nome_curso_final} / IES {ies_selecionada}")
-            if len(csvs_filtrados) < len(csvs_validos):
-                st.caption(f" Mostrando {len(csvs_filtrados)} de {len(csvs_validos)} CSVs disponíveis (filtro ativo — apenas CSVs do curso)")
 
         st.subheader("2. Prévia dos Dados")
         try:
@@ -660,47 +913,72 @@ elif tab_selector == TABS[5]:
             st.stop()
 
         st.subheader("3. Personalize a Análise")
-        tom = st.selectbox("Tom da explicação:",
-            ["Didático e acessível (para leigos)",
-             "Técnico e detalhado (para coordenadores)",
-             "Resumo executivo (para diretores)",
-             "Crítico e propositivo (para melhoria)"],
-            key="tom_ia")
+        
+        col_model, col_tom = st.columns([1, 1])
+        with col_model:
+            modelo_id = st.selectbox(
+                "Modelo IA:",
+                options=list(MODELOS.keys()),
+                format_func=lambda x: MODELOS[x],
+                index=0,
+                key="modelo_opencode"
+            )
+        
+        with col_tom:
+            tom = st.selectbox("Tom da explicação:",
+                ["Didático e acessível (para leigos)",
+                 "Técnico e detalhado (para coordenadores)",
+                 "Resumo executivo (para diretores)",
+                 "Crítico e propositivo (para melhoria)"],
+                key="tom_ia")
 
         foco = st.text_area("Foco adicional (opcional):",
             placeholder="Ex: 'Destaque as principais deficiências em Matemática' ou 'Compare o desempenho desta IES com a média nacional'",
             key="foco_ia")
 
         st.subheader("4. Gerar Explicação")
-        col_btn, col_status = st.columns([1.5, 2])
-        with col_btn:
-            gerar = st.button(" Gerar Explicação com OpenCode", type="primary", use_container_width=True)
+        
+        gerar = st.button(
+            " Gerar Explicação com OpenCode",
+            type="primary",
+            use_container_width=True,
+            disabled=not server_online
+        )
+        
+        if not server_online:
+            st.warning(" Servidor OpenCode não está ativo. Clique no botão abaixo para iniciar.")
+            if st.button("🔌 Iniciar Servidor OpenCode", use_container_width=True):
+                with st.spinner("Iniciando servidor OpenCode..."):
+                    if iniciar_servidor_opencode():
+                        st.success(" Servidor iniciado!")
+                        st.rerun()
+                    else:
+                        st.error("❌ Falha ao iniciar servidor. Verifique se o OpenCode está instalado.")
 
         if gerar:
-            with st.status("Chamando OpenCode.ai para analisar os dados...", expanded=True) as status:
-                try:
-                    df_full = pd.read_csv(caminho_csv, sep=';', encoding='utf-8-sig', on_bad_lines='skip')
-                    resumo = {
-                        "arquivo": caminho_csv.name,
-                        "linhas": len(df_full),
-                        "colunas": list(df_full.columns),
-                        "colunas_numericas": [c for c in df_full.columns if pd.api.types.is_numeric_dtype(df_full[c])],
-                        "resumo_estatistico": {},
-                    }
-                    for c in resumo["colunas_numericas"][:10]:
-                        resumo["resumo_estatistico"][c] = {
-                            "media": round(float(df_full[c].mean()), 2),
-                            "min": round(float(df_full[c].min()), 2),
-                            "max": round(float(df_full[c].max()), 2),
-                        }
+            # Pré-processa dados
+            df_full = pd.read_csv(caminho_csv, sep=';', encoding='utf-8-sig', on_bad_lines='skip')
+            resumo = {
+                "arquivo": caminho_csv.name,
+                "linhas": len(df_full),
+                "colunas": list(df_full.columns),
+                "colunas_numericas": [c for c in df_full.columns if pd.api.types.is_numeric_dtype(df_full[c])],
+                "resumo_estatistico": {},
+            }
+            for c in resumo["colunas_numericas"][:10]:
+                resumo["resumo_estatistico"][c] = {
+                    "media": round(float(df_full[c].mean()), 2),
+                    "min": round(float(df_full[c].min()), 2),
+                    "max": round(float(df_full[c].max()), 2),
+                }
 
-                    amostra = df_full.head(5).to_string()
+            amostra = df_full.head(5).to_string()
 
-                    prompt = f"""Analise o seguinte conjunto de dados educacionais do ENADE e gere uma explicação em linguagem natural.
+            prompt = f"""Analise o seguinte conjunto de dados educacionais do ENADE e gere uma explicação em linguagem natural.
 
 ARQUIVO: {caminho_csv.name}
 TOM: {tom}
-{ f'FOCO ADICIONAL: {foco}' if foco else '' }
+{'FOCO ADICIONAL: ' + foco if foco else ''}
 
 RESUMO DOS DADOS:
 - {resumo['linhas']} linhas, {len(resumo['colunas'])} colunas
@@ -710,7 +988,7 @@ RESUMO DOS DADOS:
 ESTATÍSTICAS BÁSICAS:
 {json.dumps(resumo['resumo_estatistico'], indent=2, ensure_ascii=False)}
 
-AMOSTRA (primeiras 20 linhas):
+AMOSTRA (primeiras 5 linhas):
 {amostra}
 
 Com base nestes dados, produza uma explicação que:
@@ -722,81 +1000,98 @@ Com base nestes dados, produza uma explicação que:
 
 Formate a resposta em MARKDOWN, com seções claras e linguagem didática.
 """
-
-                    resposta = None
-                    server_ok = iniciar_servidor_opencode()
-
-                    if server_ok:
-                        status.update(label="OpenCode conectado. Processando dados...", state="running")
-                        try:
-                            exe = procurar_opencode()
-                            cmd = [exe, "run", "--attach", "http://localhost:4096"]
-                            sv_pass = obter_senha_opencode()
-                            if sv_pass:
-                                cmd += ["--password", sv_pass]
-                            cmd += [prompt]
-                            result = subprocess.run(
-                                cmd, capture_output=True, text=True, timeout=180,
-                                cwd=str(DIRETORIO_RAIZ),
-                                encoding='utf-8', errors='replace'
-                            )
-                            resposta = result.stdout if result.stdout else result.stderr
-                            if not resposta or len(resposta.strip()) < 20:
-                                resposta = None
-                        except subprocess.TimeoutExpired:
-                            st.warning("OpenCode excedeu o tempo limite (3 min).")
-                        except Exception as e:
-                            st.warning(f"Erro ao executar OpenCode: {e}")
-                    else:
-                        status.update(label="OpenCode não disponível.", state="error")
-                        st.warning("""
-                        **OpenCode CLI não encontrado ou servidor não iniciou.** Para gerar explicações com IA:
-
-                        1. Instale o OpenCode: `npm install -g opencode-ai` ou baixe em https://opencode.ai/download
-                        2. Certifique-se de que `opencode` está no PATH do sistema
-                        3. Reinicie o dashboard e tente novamente
-                        """)
-
-                    if resposta:
-                        status.update(label="✅ Explicação gerada com sucesso!", state="complete")
-                        st.markdown("### ✅ Explicação Gerada pelo OpenCode")
+            
+            # Mostra preview do prompt
+            prompt_preview = prompt[:75] + "..." if len(prompt) > 75 else prompt
+            st.info(f" Modelo: **{MODELOS[modelo_id]}** | Prompt: `{prompt_preview}`")
+            
+            # Container para streaming
+            response_container = st.empty()
+            timer_container = st.empty()
+            
+            # Timer thread
+            class TimerThread(threading.Thread):
+                def __init__(self):
+                    super().__init__(daemon=True)
+                    self.running = True
+                    self.elapsed = 0
+                
+                def run(self):
+                    while self.running:
+                        time.sleep(1)
+                        self.elapsed += 1
+                
+                def stop(self):
+                    self.running = False
+            
+            timer = TimerThread()
+            timer.start()
+            
+            try:
+                with st.status("Enviando prompt para OpenCode...", expanded=True) as status:
+                    status.update(label=f"Processando com {MODELOS[modelo_id]}... ⏱️ 0s", state="running")
+                    
+                    # Update timer display
+                    def update_timer():
+                        while timer.running:
+                            timer_container.caption(f"⏱️ Tempo decorrido: {timer.elapsed}s")
+                            time.sleep(1)
+                    
+                    timer_thread = threading.Thread(target=update_timer, daemon=True)
+                    timer_thread.start()
+                    
+                    # Send prompt
+                    resultado = enviar_prompt_opencode(prompt, model_id=modelo_id, timeout=300)
+                    
+                    timer.stop()
+                    timer_container.empty()
+                    
+                    if resultado["success"]:
+                        status.update(label=f" Explicação gerada em {timer.elapsed}s!", state="complete")
+                        st.markdown(f"###  Explicação Gerada — {MODELOS[modelo_id]}")
                         st.markdown("---")
-                        st.markdown(resposta)
-
-                        # Oferece download do .md gerado
+                        st.markdown(resultado["response"])
+                        
                         st.download_button(
-                            label="💾 Download da Explicação (.md)",
-                            data=resposta.encode('utf-8'),
+                            label=" Download da Explicação (.md)",
+                            data=resultado["response"].encode('utf-8'),
                             file_name=f"explicacao_opencode_{caminho_csv.stem}.md",
                             mime="text/markdown",
                             use_container_width=True
                         )
                     else:
-                        if server_ok:
-                            status.update(label="OpenCode não produziu resposta.", state="error")
+                        error_msg = resultado.get("error", "Erro desconhecido")
+                        is_rate_limit = "limite" in error_msg.lower() or "excedido" in error_msg.lower() or "usage exceeded" in error_msg.lower()
+                        
+                        if is_rate_limit:
+                            status.update(label=" Limite de uso Zen excedido", state="error")
+                            reset_at = resultado.get("rate_limit_info", {}).get("reset_at", "desconhecido")
+                            st.error(f" **Limite de uso gratuito do OpenCode Zen excedido.**")
+                            st.info(f" Reset previsto para **{reset_at}**. Você pode adicionar créditos em [opencode.ai/zen](https://opencode.ai/zen) para uso ilimitado.")
+                            st.warning(" Enquanto isso, use a **análise estatística automática** abaixo ou tente outro modelo quando o limite resetar.")
                         else:
-                            status.update(label="OpenCode indisponível.", state="complete")
-                        st.markdown("### Análise Estatística Automática")
+                            status.update(label=f" {error_msg[:50]}...", state="error")
+                            st.warning(f"**Erro OpenCode:** {error_msg}")
+                        
+                        # Fallback: statistical analysis
+                        st.markdown("###  Análise Estatística Automática (fallback)")
                         st.markdown("---")
-                        st.markdown(f"""
-                        **Arquivo:** `{caminho_csv.name}`
-                        **Dimensões:** {resumo['linhas']} linhas × {len(resumo['colunas'])} colunas
-                        ---
-                        **🔢 Colunas numéricas analisadas:**
-                        """)
+                        st.markdown(f"** Arquivo:** `{caminho_csv.name}`")
+                        st.markdown(f"** Dimensões:** {resumo['linhas']} linhas × {len(resumo['colunas'])} colunas")
+                        st.markdown("---")
+                        st.markdown("** Colunas numéricas analisadas:**")
                         for col, stats in resumo["resumo_estatistico"].items():
                             st.markdown(f"- **{col}**: média={stats['media']}, min={stats['min']}, max={stats['max']}")
                         st.markdown("---")
-                        st.markdown("""
-                        ** Para uma explicação mais rica e contextualizada:**
-                        Certifique-se de que o **OpenCode CLI** está instalado e acessível no PATH.
-                        """)
-
-                except Exception as e:
-                    status.update(label="Erro na geração.", state="error")
-                    st.error(f"Erro ao gerar explicação: {e}")
+                        if not is_rate_limit:
+                            st.info(" Dica: Tente outro modelo ou aguarde alguns minutos e tente novamente.")
+                        
+            except Exception as e:
+                timer.stop()
+                timer_container.empty()
+                st.error(f"Erro ao gerar explicação: {e}")
         else:
-            st.info("Selecione um CSV, personalize o tom e clique no botão para gerar a explicação com IA.")
+            st.info(" Selecione um CSV, personalize o tom e clique no botão para gerar a explicação com IA.")
 
         # =============================================================================
         # SEÇÃO 5: LEITOR DE RELATÓRIOS .md GERADOS
@@ -810,11 +1105,10 @@ Formate a resposta em MARKDOWN, com seções claras e linguagem didática.
 
         mds = sorted(list(pasta_md.glob("*.md"))) + sorted(list(pasta_md_old.glob("*.md")))
         if mds:
-            # Filtra .md pelo curso selecionado no filtro global (igual ao CSV acima)
             if km_disponivel and 'nome_curso_arquivo' in dir():
                 mds_filtrados = [m for m in mds if nome_curso_arquivo in m.stem.lower()]
                 if not mds_filtrados:
-                    mds_filtrados = mds  # fallback: mostra todos
+                    mds_filtrados = mds
             else:
                 mds_filtrados = mds
 

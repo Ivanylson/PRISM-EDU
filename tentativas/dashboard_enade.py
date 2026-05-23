@@ -39,11 +39,11 @@ def carregar_dados_resumidos():
 
 df_base = carregar_dados_resumidos()
 
-st.title("🎓 Painel Executivo de IA Educacional - ENADE")
+st.title("Painel Executivo de IA Educacional - ENADE")
 st.markdown("---")
 
 if df_base is None:
-    st.error(f"❌ ERRO: Base de dados consolidada não encontrada em: {caminho_base_consolidada}")
+    st.error(f" ERRO: Base de dados consolidada não encontrada em: {caminho_base_consolidada}")
     st.stop()
 
 cursos_map = {
@@ -83,7 +83,7 @@ with st.sidebar:
     df_curso_nacional = df_base[df_base['CO_GRUPO'] == grupo_selecionado].copy()
 
     st.markdown("---")
-    if st.button("🚪 Sair e Fechar Dashboard", use_container_width=True):
+    if st.button("Sair e Fechar Dashboard", use_container_width=True):
         st.success("A encerrar o sistema... Pode fechar esta janela e voltar ao terminal.")
         os._exit(0)
 
@@ -98,10 +98,10 @@ if df_final.empty:
 # 3. CRIAÇÃO DAS ABAS 
 # =============================================================================
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📊 Diagnóstico e Prescrição", 
-    "🎯 Fatores de Sucesso (Preditivo)", 
-    "🧪 Validação Científica (Algoritmos)",
-    "🤖 Clustering Pedagógico e Plano de Ação"
+    "Diagnóstico e Prescrição", 
+    "Fatores de Sucesso (Preditivo)", 
+    "Validação Científica (Algoritmos)",
+    "Clustering Pedagógico e Plano de Ação"
 ])
 
 # -----------------------------------------------------------------------------
@@ -175,7 +175,7 @@ with tab1:
 # ABA 2: INTELIGÊNCIA PREDITIVA 
 # -----------------------------------------------------------------------------
 with tab2:
-    st.header(f"🧠 Fatores Determinantes de Sucesso")
+    st.header(f"Fatores Determinantes de Sucesso")
     caminho_pesos = pasta_preditivos / f"importancia_variaveis_{nome_curso_arquivo}.csv"
     caminho_metricas_pred = pasta_preditivos / f"metricas_modelos_{nome_curso_arquivo}.csv"
     
@@ -195,7 +195,7 @@ with tab2:
             fig_pesos.update_layout(yaxis={'categoryorder':'total ascending'}, margin=dict(l=0, r=0, t=0, b=0), height=350)
             st.plotly_chart(fig_pesos, use_container_width=True)
     else:
-        st.warning("⚠️ Arquivos Preditivos não encontrados.")
+        st.warning("Arquivos Preditivos não encontrados.")
 
 # -----------------------------------------------------------------------------
 # ABA 3: VALIDAÇÃO CIENTÍFICA
@@ -210,17 +210,17 @@ with tab3:
         df_metricas_agrup = pd.read_csv(caminho_metricas_agrup, sep=';')
         st.dataframe(df_metricas_agrup.set_index('K_Grupos'), use_container_width=True)
     else:
-        st.warning("⚠️ Arquivos de Validação não encontrados.")
+        st.warning("Arquivos de Validação não encontrados.")
 # -----------------------------------------------------------------------------
 # ABA 4: CLUSTERING IA, ANÁLISE DE K E PLANOS DE AÇÃO
 # -----------------------------------------------------------------------------
 with tab4:
     col_titulo, col_param = st.columns([2, 1])
     with col_titulo:
-        st.header(f"🤖 Clustering Pedagógico e Plano de Ação: {nome_curso_final}")
+        st.header(f"Clustering Pedagógico e Plano de Ação: {nome_curso_final}")
     with col_param:
         limite_top_n = st.slider(
-            "⚙️ Quantidade de problemas a exibir (Top N):", 
+            "Quantidade de problemas a exibir (Top N):", 
             min_value=1, max_value=38, value=5
         )
     
@@ -231,7 +231,7 @@ with tab4:
     
     # --- EXPLICAÇÃO COMPLETA: ALGORITMOS, GRUPOS E INTERSECÇÃO ---
 
-    with st.expander("🔬 Resumo Analítico: Os Algoritmos, os Perfis e a Intersecção"):
+    with st.expander("Resumo Analítico: Os Algoritmos, os Perfis e a Intersecção"):
         st.markdown(r"""
         ### Entendendo o Motor por Trás da Aba 4: O Guia Definitivo e Matemático
         
@@ -393,7 +393,7 @@ with tab4:
             silhueta_livre = df_ia_filtrado.get('SILHUETA_LIVRE', pd.Series(['N/A'])).iloc[0]
             k_aplicado = df_ia_filtrado.get('K_APLICADO_PEDAGOGICO (Max 6)', pd.Series([len(df_ia_filtrado)])).iloc[0]
             
-            st.info("📊 **Justificativa do Algoritmo:**")
+            st.info("**Justificativa do Algoritmo:**")
             col1, col2 = st.columns(2)
             col1.metric("K Matemático (Puro)", f"{k_livre} grupos", f"Silhueta: {silhueta_livre}")
             col2.metric("K Pedagógico (Aplicado)", f"{k_aplicado} grupos", "Adaptado para a rotina docente")
@@ -407,14 +407,14 @@ with tab4:
                 if pd.notna(falha) and str(falha).strip() not in ["Nenhuma", "nan", ""]:
                     falha_cortada = limitar_lista_texto(str(falha), ',', limite_top_n)
                     st.error(f"""
-                    **🚨 ALERTA DE FALHA INSTITUCIONAL (INTERSECÇÃO COMPROVADA EM TODOS OS PERFIS)**
+                    **ALERTA DE FALHA INSTITUCIONAL (INTERSECÇÃO COMPROVADA EM TODOS OS PERFIS)**
                     As questões **[{falha_cortada}]** foram detetadas em todos os grupos estruturados pela IA (desde o Risco Crítico até à Excelência) com desempenhos negativos.
                     
                     *Diagnóstico:* Esta intersecção confirma que o problema não deriva do perfil cognitivo dos alunos. Recomenda-se auditoria urgente à matriz curricular, à abordagem didática desta disciplina ou ao alinhamento com os critérios do MEC.
                     """)
             
             # --- CABEÇALHO DOS PERFIS ---
-            st.subheader(f"👥 Perfis e Plano de Intervenção ({k_aplicado} grupos na IES {ies_filtro})")
+            st.subheader(f"Perfis e Plano de Intervenção ({k_aplicado} grupos na IES {ies_filtro})")
             
             # --- EXIBIÇÃO DOS GRUPOS E GAPS ---
             for _, row in df_ia_filtrado.iterrows():
@@ -438,7 +438,7 @@ with tab4:
                     materias_cortadas = limitar_lista_texto(row.get('MATERIAS_DEFICIENTES', 'Dados pendentes'), '|', limite_top_n)
                     competencias_cortadas = limitar_lista_texto(row.get('COMPETENCIAS_A_DESENVOLVER', 'Dados pendentes'), '|', limite_top_n)
 
-                    st.markdown(f"**📉 Principais GAPs Negativos do Cluster (Top {limite_top_n} Questões Críticas):** `{questoes_cortadas}`")
+                    st.markdown(f"** Principais GAPs Negativos do Cluster (Top {limite_top_n} Questões Críticas):** `{questoes_cortadas}`")
                     
                     c1, c2 = st.columns(2)
                     with c1:
