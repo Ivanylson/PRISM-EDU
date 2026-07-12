@@ -48,7 +48,7 @@ def abrir_dashboard(pasta="fase5_visualizacao", nome_arquivo="dashboard_completo
 def menu():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("\n PRISM")
+        print("\n SISTEMA DE IA EDUCACIONAL - ENADE")
         print("-" * 50)
         print("1. Fase 1: Pré-processamento (Microdados e PDFs)")
         print("2. Fase 2: Cruzamento de Dados (Geral e Benchmarks)")

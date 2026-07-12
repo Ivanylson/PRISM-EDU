@@ -7,6 +7,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
+
+# --- IMPORTAÇÕES ADICIONAIS DO ESTADO DA ARTE ---
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -73,11 +78,26 @@ for co_grupo in grupos_disponiveis:
     if not caminho_sintese.exists():
         continue
         
-    # CORREÇÃO: Alterado de sep=',' para sep=';' para ler os nossos ficheiros limpos
-    df_sintese = pd.read_csv(caminho_sintese, sep=';')
+    # --- LEITURA ROBUSTA BLINDADA CONTRA ERROS DO MEC ---
+    try:
+        # Tenta com ponto e vírgula primeiro, saltando linhas problemáticas
+        df_sintese = pd.read_csv(caminho_sintese, sep=';', on_bad_lines='skip', engine='python')
+        # Se ele colocar tudo na mesma coluna por erro de separador, força um erro para ir ao 'except'
+        if df_sintese.shape[1] == 1:
+            raise ValueError("Separador errado")
+    except:
+        # Se falhar, tenta usar a vírgula e salta as linhas defeituosas
+        df_sintese = pd.read_csv(caminho_sintese, sep=',', on_bad_lines='skip', engine='python')
+    # ----------------------------------------------------
     
     if 'POSIÇÃO' in df_sintese.columns:
         df_sintese.rename(columns={'POSIÇÃO': 'QUESTAO'}, inplace=True)
+    
+    # Previne erros se a coluna QUESTAO não existir no ficheiro de síntese lido
+    if 'QUESTAO' not in df_sintese.columns:
+        print(f"⚠️ Aviso: Coluna de Questões não encontrada na síntese de {nome_curso}. A saltar curso.")
+        continue
+        
     df_sintese['QUESTAO'] = 'Q' + df_sintese['QUESTAO'].astype(str).str.strip()
     
     colunas_oc = [col for col in df_sintese.columns if str(col).startswith('OC')]
@@ -113,9 +133,12 @@ for co_grupo in grupos_disponiveis:
     # Separação: 80% para Treino, 20% para Teste (Prova cega do modelo)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
     
-    # Define os Modelos
+    # --- MODELOS DE MACHINE LEARNING (AGORA COM OS 6 ALGORITMOS) ---
     modelos = {
         "Regressão Logística": LogisticRegression(max_iter=1000, random_state=42),
+        "Decision Tree": DecisionTreeClassifier(random_state=42),
+        "Naive Bayes": GaussianNB(),
+        "SVM": SVC(probability=True, random_state=42),
         "Random Forest": RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1),
         "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42, n_jobs=-1)
     }
@@ -183,7 +206,9 @@ for co_grupo in grupos_disponiveis:
     if 'COMPETÊNCIAS' in df_pesos_finais.columns: cols_para_salvar.append('COMPETÊNCIAS')
     elif 'COMPETENCIA' in df_pesos_finais.columns: cols_para_salvar.append('COMPETENCIA')
         
-    df_pesos_finais = df_pesos_finais[cols_para_salvar]
+    # Tenta salvar apenas as colunas desejadas, previne erro caso faltem colunas
+    cols_existentes = [c for c in cols_para_salvar if c in df_pesos_finais.columns]
+    df_pesos_finais = df_pesos_finais[cols_existentes]
     
     # Salva o arquivo 2: O peso das matérias
     caminho_pesos = pasta_analises_preditivas / f"importancia_variaveis_{nome_formatado}.csv"

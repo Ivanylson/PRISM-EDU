@@ -64,7 +64,7 @@ pasta_resultados = DIRETORIO_RAIZ / 'arquivosgerados' / 'RESULTADOS'
 pasta_resultados.mkdir(parents=True, exist_ok=True)
 
 if not caminho_microdados.exists():
-    print(f"\n ERRO: Ficheiro de microdados não encontrado em:\n{caminho_microdados}")
+    print(f"\n❌ ERRO: Ficheiro de microdados não encontrado em:\n{caminho_microdados}")
     print("Por favor, execute a Fase 1 (Pré-processamento) primeiro.")
     exit()
 

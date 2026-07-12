@@ -1,0 +1,625 @@
+2026-05-18 16:36:54 | INFO     | test:5 | Teste de log funcionando
+2026-05-18 16:36:54 | WARNING  | test:6 | Aviso de teste
+2026-05-18 16:38:58 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:38:58 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:38:58 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:38:58 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:38:59 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:38:59 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:38:59 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:38:59 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:38:59 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:38:59 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:38:59 | INFO     | dashboard:247 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:38:59 | INFO     | dashboard:247 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:38:59 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:38:59 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:38:59 | INFO     | dashboard:247 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 16:38:59 | INFO     | dashboard:247 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 16:39:03 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:39:03 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:39:03 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:39:03 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:39:03 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:39:03 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:39:03 | INFO     | dashboard:247 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:39:03 | INFO     | dashboard:247 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:39:11 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:39:11 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:39:11 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:39:11 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:39:11 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:39:11 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:39:11 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:39:11 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:39:11 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:39:11 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:39:11 | INFO     | dashboard:247 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:39:11 | INFO     | dashboard:247 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:39:11 | INFO     | dashboard:743 | Verificando servidor OpenCode em http://localhost:4096
+2026-05-18 16:39:11 | INFO     | dashboard:743 | Verificando servidor OpenCode em http://localhost:4096
+2026-05-18 16:39:15 | ERROR    | dashboard:747 | Servidor não responde em http://localhost:4096
+2026-05-18 16:39:15 | ERROR    | dashboard:747 | Servidor não responde em http://localhost:4096
+2026-05-18 16:40:46 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:40:46 | INFO     | dashboard:62 | Dashboard iniciado
+2026-05-18 16:40:46 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:40:46 | INFO     | dashboard:175 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:40:46 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:40:46 | INFO     | dashboard:203 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:40:46 | INFO     | dashboard:247 | Aba selecionada: 🧠 LCA - Classes Latentes
+2026-05-18 16:40:46 | INFO     | dashboard:247 | Aba selecionada: 🧠 LCA - Classes Latentes
+2026-05-18 16:41:48 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 16:41:49 | INFO     | dashboard:236 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:41:50 | INFO     | dashboard:264 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:41:50 | INFO     | dashboard:308 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 16:41:51 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 16:41:51 | INFO     | dashboard:236 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:41:51 | INFO     | dashboard:264 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:41:51 | INFO     | dashboard:308 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:41:56 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 16:41:56 | INFO     | dashboard:236 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:41:56 | INFO     | dashboard:264 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:41:56 | INFO     | dashboard:308 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:41:56 | INFO     | dashboard:804 | Verificando servidor OpenCode em http://localhost:4096
+2026-05-18 16:42:00 | WARNING  | dashboard:808 | Servidor não responde. Tentando iniciar em http://localhost:4096...
+2026-05-18 16:42:04 | INFO     | dashboard:153 | Tentando iniciar servidor OpenCode...
+2026-05-18 16:42:04 | WARNING  | dashboard:160 | opencode CLI não encontrado no PATH
+2026-05-18 16:42:09 | ERROR    | dashboard:835 | Não foi possível conectar ao servidor em http://localhost:4096
+2026-05-18 16:49:50 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 16:49:50 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:49:50 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:49:50 | INFO     | dashboard:330 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:49:55 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 16:49:55 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:49:55 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:49:55 | INFO     | dashboard:330 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:49:56 | INFO     | dashboard:826 | Verificando servidor OpenCode em http://localhost:4096
+2026-05-18 16:49:58 | WARNING  | dashboard:830 | Servidor não responde. Tentando iniciar em http://localhost:4096...
+2026-05-18 16:50:00 | INFO     | dashboard:178 | Tentando encontrar executável OpenCode...
+2026-05-18 16:50:00 | INFO     | dashboard:184 | OpenCode encontrado: C:\Users\usuario\AppData\Local\OpenCode\opencode-cli.exe
+2026-05-18 16:50:46 | WARNING  | dashboard:199 | Servidor OpenCode não ficou pronto na porta 4096
+2026-05-18 16:50:48 | ERROR    | dashboard:857 | Não foi possível conectar ao servidor em http://localhost:4096
+2026-05-18 16:54:19 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 16:54:19 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 16:54:19 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 16:54:19 | INFO     | dashboard:330 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 16:54:20 | INFO     | dashboard:826 | Verificando servidor OpenCode em http://localhost:4096
+2026-05-18 16:54:22 | WARNING  | dashboard:830 | Servidor não responde. Tentando iniciar em http://localhost:4096...
+2026-05-18 16:54:24 | INFO     | dashboard:178 | Tentando encontrar executável OpenCode...
+2026-05-18 16:54:24 | INFO     | dashboard:184 | OpenCode encontrado: C:\Users\usuario\AppData\Local\OpenCode\opencode-cli.exe
+2026-05-18 16:55:09 | WARNING  | dashboard:199 | Servidor OpenCode não ficou pronto na porta 4096
+2026-05-18 16:55:11 | ERROR    | dashboard:857 | Não foi possível conectar ao servidor em http://localhost:4096
+2026-05-18 17:03:17 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 17:03:18 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:03:18 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:03:18 | INFO     | dashboard:330 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:03:26 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 17:03:26 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:03:26 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:03:26 | INFO     | dashboard:330 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:07:16 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 17:07:16 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:07:16 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:07:16 | INFO     | dashboard:330 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:07:20 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 17:07:20 | INFO     | dashboard:258 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:07:20 | INFO     | dashboard:286 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:07:20 | INFO     | dashboard:330 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:07:20 | INFO     | dashboard:826 | Verificando servidor OpenCode em http://localhost:4096
+2026-05-18 17:07:22 | WARNING  | dashboard:830 | Servidor não responde. Tentando iniciar em http://localhost:4096...
+2026-05-18 17:07:25 | INFO     | dashboard:178 | Tentando encontrar executável OpenCode...
+2026-05-18 17:07:25 | INFO     | dashboard:184 | OpenCode encontrado: C:\Users\usuario\AppData\Local\OpenCode\opencode-cli.exe
+2026-05-18 17:08:10 | WARNING  | dashboard:199 | Servidor OpenCode não ficou pronto na porta 4096
+2026-05-18 17:08:12 | ERROR    | dashboard:857 | Não foi possível conectar ao servidor em http://localhost:4096
+2026-05-18 17:14:04 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:14:05 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:14:05 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:14:05 | INFO     | dashboard:229 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:14:06 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:14:06 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:14:06 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:14:06 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:14:11 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:14:11 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:14:11 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:14:11 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:14:11 | INFO     | dashboard:725 | Enviando prompt via CLI opencode run...
+2026-05-18 17:14:11 | INFO     | dashboard:112 | Executando: opencode run ...
+2026-05-18 17:14:12 | INFO     | dashboard:731 | Explicação gerada: 37 caracteres
+2026-05-18 17:14:25 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:14:25 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:14:25 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:14:25 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:14:25 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:14:25 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:14:25 | INFO     | dashboard:725 | Enviando prompt via CLI opencode run...
+2026-05-18 17:14:25 | INFO     | dashboard:112 | Executando: opencode run ...
+2026-05-18 17:14:26 | INFO     | dashboard:731 | Explicação gerada: 37 caracteres
+2026-05-18 17:23:48 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:23:49 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:23:49 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:23:49 | INFO     | dashboard:229 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:23:50 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:23:50 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:23:50 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:23:50 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:24:06 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:24:06 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:24:06 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:24:06 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:24:06 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:24:06 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:24:06 | INFO     | dashboard:725 | Enviando prompt via CLI opencode run...
+2026-05-18 17:24:07 | INFO     | dashboard:112 | Executando: opencode run ...
+2026-05-18 17:24:07 | INFO     | dashboard:731 | Explicação gerada: 37 caracteres
+2026-05-18 17:38:38 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:38:39 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:38:40 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:38:40 | INFO     | dashboard:229 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:38:41 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:38:42 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:38:42 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:38:42 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:38:45 | INFO     | dashboard:63 | Dashboard iniciado
+2026-05-18 17:38:45 | INFO     | dashboard:164 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:38:45 | INFO     | dashboard:192 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:38:45 | INFO     | dashboard:229 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:38:45 | INFO     | dashboard:725 | Enviando prompt via CLI opencode run...
+2026-05-18 17:38:46 | INFO     | dashboard:112 | Executando: opencode run ...
+2026-05-18 17:38:46 | INFO     | dashboard:731 | Explicação gerada: 37 caracteres
+2026-05-18 17:42:50 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:42:51 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:42:51 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:42:51 | INFO     | dashboard:309 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:42:52 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:42:52 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:42:52 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:42:52 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:42:54 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:42:55 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:42:55 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:42:55 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:42:55 | INFO     | dashboard:805 | Iniciando servidor OpenCode...
+2026-05-18 17:42:59 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 17:43:03 | INFO     | dashboard:147 | Servidor OpenCode pronto
+2026-05-18 17:43:03 | INFO     | dashboard:166 | Criando sessão OpenCode...
+2026-05-18 17:43:05 | INFO     | dashboard:178 | Sessão criada: ses_1c32c04e7ffe2HnYUcODYVZDVb
+2026-05-18 17:43:05 | INFO     | dashboard:181 | Enviando prompt...
+2026-05-18 17:48:56 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:48:56 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:48:56 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:48:56 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:48:56 | INFO     | dashboard:805 | Iniciando servidor OpenCode...
+2026-05-18 17:48:58 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 17:48:58 | INFO     | dashboard:166 | Criando sessão OpenCode...
+2026-05-18 17:49:00 | INFO     | dashboard:178 | Sessão criada: ses_1c3269a13ffeXCJ4TV5l7u3cAn
+2026-05-18 17:49:00 | INFO     | dashboard:181 | Enviando prompt...
+2026-05-18 17:49:05 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:49:05 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:49:05 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:49:05 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:49:05 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:49:05 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:49:05 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:49:05 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:49:06 | INFO     | dashboard:805 | Iniciando servidor OpenCode...
+2026-05-18 17:49:08 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 17:49:08 | INFO     | dashboard:166 | Criando sessão OpenCode...
+2026-05-18 17:49:10 | INFO     | dashboard:178 | Sessão criada: ses_1c326755dffeLrOhejlWKTzO3X
+2026-05-18 17:49:10 | INFO     | dashboard:181 | Enviando prompt...
+2026-05-18 17:50:41 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:41 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:41 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:41 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:50:45 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:45 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:45 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:45 | INFO     | dashboard:302 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:50:49 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:49 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:49 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:56 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:56 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:56 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:56 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:57 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:57 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:57 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:57 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:57 | INFO     | dashboard:302 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:50:57 | INFO     | dashboard:302 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:50:59 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:59 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:50:59 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:59 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:50:59 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:59 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:50:59 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:50:59 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:51:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:51:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:51:20 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:51:20 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:51:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:51:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:51:20 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:51:20 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:51:20 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:51:20 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:51:20 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:51:20 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:51:20 | INFO     | dashboard:798 | Iniciando servidor OpenCode...
+2026-05-18 17:51:20 | INFO     | dashboard:798 | Iniciando servidor OpenCode...
+2026-05-18 17:51:22 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 17:51:22 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 17:51:23 | ERROR    | dashboard:816 | Erro ao processar com OpenCode
+Traceback (most recent call last):
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 806, in <module>
+    resposta = enviar_prompt_opencode(prompt, senha)
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 178, in enviar_prompt_opencode
+    raise RuntimeError("OpenCode CLI não encontrado")
+RuntimeError: OpenCode CLI não encontrado
+2026-05-18 17:51:23 | ERROR    | dashboard:816 | Erro ao processar com OpenCode
+Traceback (most recent call last):
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 806, in <module>
+    resposta = enviar_prompt_opencode(prompt, senha)
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 178, in enviar_prompt_opencode
+    raise RuntimeError("OpenCode CLI não encontrado")
+RuntimeError: OpenCode CLI não encontrado
+2026-05-18 17:51:30 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:51:30 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:51:30 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:51:30 | INFO     | dashboard:237 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:51:30 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:51:30 | INFO     | dashboard:265 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:51:30 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:51:30 | INFO     | dashboard:302 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:51:31 | INFO     | dashboard:798 | Iniciando servidor OpenCode...
+2026-05-18 17:51:31 | INFO     | dashboard:798 | Iniciando servidor OpenCode...
+2026-05-18 17:51:33 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 17:51:33 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 17:51:33 | ERROR    | dashboard:816 | Erro ao processar com OpenCode
+Traceback (most recent call last):
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 806, in <module>
+    resposta = enviar_prompt_opencode(prompt, senha)
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 178, in enviar_prompt_opencode
+    raise RuntimeError("OpenCode CLI não encontrado")
+RuntimeError: OpenCode CLI não encontrado
+2026-05-18 17:51:33 | ERROR    | dashboard:816 | Erro ao processar com OpenCode
+Traceback (most recent call last):
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 806, in <module>
+    resposta = enviar_prompt_opencode(prompt, senha)
+  File "C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\fase5_visualizacao\dashboard_completo.py", line 178, in enviar_prompt_opencode
+    raise RuntimeError("OpenCode CLI não encontrado")
+RuntimeError: OpenCode CLI não encontrado
+2026-05-18 17:53:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:53:21 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:53:21 | INFO     | dashboard:249 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:53:21 | INFO     | dashboard:286 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:53:23 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:53:23 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:53:23 | INFO     | dashboard:249 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:53:23 | INFO     | dashboard:286 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:53:30 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:53:30 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:53:30 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:53:30 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:53:30 | INFO     | dashboard:249 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:53:30 | INFO     | dashboard:286 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:53:30 | INFO     | dashboard:782 | Iniciando servidor OpenCode...
+2026-05-18 17:53:34 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 17:53:39 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 17:53:39 | INFO     | dashboard:169 | Executando: opencode run --attach ...
+2026-05-18 17:56:39 | ERROR    | dashboard:796 | Timeout na execução do OpenCode
+2026-05-18 17:59:04 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:05 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:06 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:59:06 | INFO     | dashboard:303 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 17:59:10 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:10 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:10 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:59:10 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:59:15 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:15 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:16 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:16 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:16 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:59:16 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:59:20 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 17:59:24 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 17:59:25 | INFO     | dashboard:179 | Processo OpenCode iniciado em terminal. Saída -> C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\arquivosgerados\EXPLICACOES_OPENCODE\explicacao_metricas_agrupamento_engenharia_florestal.md
+2026-05-18 17:59:43 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:44 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:44 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:59:44 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:59:50 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:50 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:50 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:59:50 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 17:59:57 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 17:59:57 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 17:59:57 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 17:59:57 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:00:49 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:00:49 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:00:49 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:00:49 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:00:54 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:00:54 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:00:54 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:00:54 | INFO     | dashboard:303 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:00:56 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:00:56 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:00:56 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:00:56 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:01:01 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:01:01 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:01:01 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:01:01 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:01:01 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:01:01 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:01:01 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:01:01 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:01:04 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 18:01:04 | INFO     | dashboard:179 | Processo OpenCode iniciado em terminal. Saída -> C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\arquivosgerados\EXPLICACOES_OPENCODE\explicacao_metricas_agrupamento_engenharia_florestal.md
+2026-05-18 18:06:58 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:06:59 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:06:59 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:06:59 | INFO     | dashboard:303 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:07:14 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:07:14 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:07:14 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:07:14 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:07:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:07:20 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:07:20 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:07:20 | INFO     | dashboard:238 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:07:20 | INFO     | dashboard:266 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:07:20 | INFO     | dashboard:303 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:07:24 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 18:07:29 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 18:07:29 | INFO     | dashboard:179 | OpenCode iniciado em nova janela -> C:\Users\usuario\Downloads\olds\projetoENADE\projetoENADE\arquivosgerados\EXPLICACOES_OPENCODE\explicacao_metricas_agrupamento_engenharia_florestal.md
+2026-05-18 18:13:43 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:13:44 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:13:44 | INFO     | dashboard:249 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:13:44 | INFO     | dashboard:286 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:13:48 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:13:48 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:13:48 | INFO     | dashboard:249 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:13:48 | INFO     | dashboard:286 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:13:50 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:13:50 | INFO     | dashboard:221 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:13:50 | INFO     | dashboard:249 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:13:50 | INFO     | dashboard:286 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:13:55 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 18:13:59 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 18:13:59 | INFO     | dashboard:169 | Executando opencode run --attach (timeout 600s)...
+2026-05-18 18:17:19 | INFO     | dashboard:788 | Explicação gerada: 30 caracteres
+2026-05-18 18:18:00 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:01 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:01 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:02 | INFO     | dashboard:309 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:18:09 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:09 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:09 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:09 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:10 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:10 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:10 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:10 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:10 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:10 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:10 | INFO     | dashboard:309 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:18:10 | INFO     | dashboard:309 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:18:10 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:10 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:10 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:18:10 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:18:12 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:12 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:12 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:12 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:12 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:12 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:12 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:18:12 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:18:14 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:14 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:18:14 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:14 | INFO     | dashboard:244 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:18:14 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:14 | INFO     | dashboard:272 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:18:14 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:18:14 | INFO     | dashboard:309 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:18:19 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 18:18:19 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 18:18:23 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 18:18:23 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 18:18:23 | INFO     | dashboard:166 | Criando sessão OpenCode...
+2026-05-18 18:18:23 | INFO     | dashboard:166 | Criando sessão OpenCode...
+2026-05-18 18:18:25 | INFO     | dashboard:178 | Sessão criada: ses_1c30bac92ffeGKYVVHrlF45Y7G
+2026-05-18 18:18:25 | INFO     | dashboard:178 | Sessão criada: ses_1c30bac92ffeGKYVVHrlF45Y7G
+2026-05-18 18:18:25 | INFO     | dashboard:181 | Enviando prompt (timeout 1200s)...
+2026-05-18 18:18:25 | INFO     | dashboard:181 | Enviando prompt (timeout 1200s)...
+2026-05-18 18:21:36 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:21:36 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:21:36 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:21:36 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:21:36 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:21:36 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:21:36 | INFO     | dashboard:368 | Aba selecionada: 🧪 Validação + Clustering
+2026-05-18 18:21:36 | INFO     | dashboard:368 | Aba selecionada: 🧪 Validação + Clustering
+2026-05-18 18:21:43 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:21:43 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:21:43 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:21:43 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:21:43 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:21:43 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:21:43 | INFO     | dashboard:368 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:21:43 | INFO     | dashboard:368 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:22:02 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:02 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:03 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:03 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:03 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:22:03 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:22:03 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:03 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:09 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:09 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:09 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:09 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:09 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:22:09 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:22:09 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:09 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:13 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:13 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:13 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:13 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:13 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Engenharia Elétrica (5806)
+2026-05-18 18:22:13 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Engenharia Elétrica (5806)
+2026-05-18 18:22:13 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:13 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:17 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:17 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:17 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:17 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:17 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Medicina (12)
+2026-05-18 18:22:17 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Medicina (12)
+2026-05-18 18:22:17 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:17 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:50 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:50 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:22:50 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:50 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:22:50 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Nutrição (28)
+2026-05-18 18:22:50 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Nutrição (28)
+2026-05-18 18:22:50 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:22:50 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:23:43 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:23:43 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:23:43 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:23:43 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:23:43 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Nutrição (28)
+2026-05-18 18:23:43 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Nutrição (28)
+2026-05-18 18:24:06 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:06 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:06 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:06 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:07 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:07 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:07 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:07 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:07 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Nutrição (28)
+2026-05-18 18:24:07 | INFO     | dashboard:331 | Filtro: IES=576, Curso=Nutrição (28)
+2026-05-18 18:24:07 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:24:07 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:24:07 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:24:07 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:24:07 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:24:07 | INFO     | dashboard:368 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:24:10 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:10 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:10 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:10 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:10 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:24:10 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:24:10 | INFO     | dashboard:368 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:24:10 | INFO     | dashboard:368 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:24:13 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:13 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:24:13 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:13 | INFO     | dashboard:303 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:24:13 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:24:13 | INFO     | dashboard:331 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:24:13 | INFO     | dashboard:368 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:24:13 | INFO     | dashboard:368 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:24:15 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 18:24:15 | INFO     | dashboard:88 | Servidor OpenCode já está ativo
+2026-05-18 18:24:15 | INFO     | dashboard:167 | Criando sessão OpenCode...
+2026-05-18 18:24:15 | INFO     | dashboard:167 | Criando sessão OpenCode...
+2026-05-18 18:24:17 | INFO     | dashboard:179 | Sessão criada: ses_1c3064de8ffeZbXvH6J089poAu
+2026-05-18 18:24:17 | INFO     | dashboard:179 | Sessão criada: ses_1c3064de8ffeZbXvH6J089poAu
+2026-05-18 18:24:17 | INFO     | dashboard:183 | Enviando prompt (streaming)...
+2026-05-18 18:24:17 | INFO     | dashboard:183 | Enviando prompt (streaming)...
+2026-05-18 18:36:07 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:07 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:07 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:07 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:08 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:36:08 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:36:08 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:36:08 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:36:08 | INFO     | dashboard:360 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:36:08 | INFO     | dashboard:360 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:36:12 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:12 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:12 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:36:12 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:36:12 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:36:12 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:36:12 | INFO     | dashboard:360 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:36:12 | INFO     | dashboard:360 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:36:19 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:19 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:36:19 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:36:19 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:36:19 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:36:19 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:36:19 | INFO     | dashboard:360 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:36:19 | INFO     | dashboard:360 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:36:23 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 18:36:23 | INFO     | dashboard:91 | Iniciando servidor OpenCode...
+2026-05-18 18:36:28 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 18:36:28 | INFO     | dashboard:119 | Servidor OpenCode pronto
+2026-05-18 18:39:02 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:39:02 | INFO     | dashboard:64 | Dashboard iniciado
+2026-05-18 18:39:02 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:39:02 | INFO     | dashboard:295 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:39:02 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:39:02 | INFO     | dashboard:323 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:39:02 | INFO     | dashboard:360 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:39:02 | INFO     | dashboard:360 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:41:03 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:03 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:03 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:03 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:04 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:04 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:04 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:04 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:04 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:04 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:04 | INFO     | dashboard:354 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:41:04 | INFO     | dashboard:354 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:41:05 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:05 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:05 | INFO     | dashboard:354 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:41:05 | INFO     | dashboard:354 | Aba selecionada: 📊 Diagnóstico e Prescrição
+2026-05-18 18:41:08 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:08 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:08 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:08 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:08 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:08 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:08 | INFO     | dashboard:354 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:41:08 | INFO     | dashboard:354 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:41:12 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:12 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-18 18:41:12 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:12 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-18 18:41:12 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:12 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-18 18:41:12 | INFO     | dashboard:354 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:41:12 | INFO     | dashboard:354 | Aba selecionada: 🤖 OpenCode + IA Explicativa
+2026-05-18 18:41:17 | INFO     | dashboard:92 | Iniciando servidor OpenCode...
+2026-05-18 18:41:17 | INFO     | dashboard:92 | Iniciando servidor OpenCode...
+2026-05-18 18:41:21 | INFO     | dashboard:120 | Servidor OpenCode pronto
+2026-05-18 18:41:21 | INFO     | dashboard:120 | Servidor OpenCode pronto
+2026-05-19 09:41:01 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-19 09:41:01 | INFO     | dashboard:65 | Dashboard iniciado
+2026-05-19 09:41:01 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-19 09:41:01 | INFO     | dashboard:289 | Base consolidada carregada: (364382, 16)
+2026-05-19 09:41:01 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
+2026-05-19 09:41:01 | INFO     | dashboard:317 | Filtro: IES=1, Curso=Engenharia Florestal (6405)
