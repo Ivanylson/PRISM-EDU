@@ -1,3 +1,16 @@
+<div align="center"> 
+
+# PRISM-EDU: Mining ENADE Microdata to Diagnose Learning Deficiencies in Brazilian Higher Education
+
+### Ivanylson Honorio Gonçalves, Victor Stroele, Regina Braga, José Maria David
+
+### 1Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF)
+
+### XXXVII Simpósio Brasileiro de Informática na Educação *(S B I E 2026)* - Goiânia/GO                                                                             
+
+</div>
+
+
 ## Abstract PRISM-EDU
 
 PRISM-EDU is an intelligent educational data analysis platform focused on processing, cross-referencing, and visualizing academic performance indicators (such as ENADE Microdata). The project uses AI techniques for validation and generation of strategic insights.
