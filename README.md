@@ -4,7 +4,7 @@
 
 ### Ivanylson Honorio Gonçalves, Victor Stroele, Regina Braga, José Maria David
 
-### 1Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF)
+### Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF)
 
 ### XXXVII Simpósio Brasileiro de Informática na Educação *(S B I E 2026)* - Goiânia/GO                                                                             
 
