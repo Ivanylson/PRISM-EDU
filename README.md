@@ -7,6 +7,7 @@
 ### Postgraduate Program in Computer Science – Federal University of Juiz de Fora (UFJF)
 
 ### XXXVII Simpósio Brasileiro de Informática na Educação *(S B I E 2026)* - Goiânia/GO                                                                             
+[![DOI](https://zenodo.org/badge/1237140208.svg)](https://doi.org/10.5281/zenodo.21361208)
 
 </div>
 
