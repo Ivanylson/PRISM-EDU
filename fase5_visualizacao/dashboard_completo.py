@@ -436,6 +436,35 @@ def carregar_dados_diagnostico(nome_curso):
         return pd.read_excel(caminho_arq, engine='openpyxl')
     return None
 
+@st.cache_data
+def carregar_reanalise_resumo():
+    path = PASTA_LCA / 'reanalise_resumo.csv'
+    if not path.exists(): return None
+    return pd.read_csv(path, sep=';', decimal=',')
+
+@st.cache_data
+def carregar_reanalise_por_ies():
+    path = PASTA_LCA / 'reanalise_por_ies.csv'
+    if not path.exists(): return None
+    return pd.read_csv(path, sep=';', decimal=',', dtype={'ies': str})
+
+@st.cache_data
+def carregar_robustez_item():
+    path = PASTA_LCA / 'robustez_brancos_por_item.csv'
+    if not path.exists(): return None
+    return pd.read_csv(path, sep=';', decimal=',')
+
+@st.cache_data
+def carregar_robustez_oc():
+    path = PASTA_LCA / 'robustez_brancos_por_oc.csv'
+    if not path.exists(): return None
+    return pd.read_csv(path, sep=';', decimal=',')
+
+# Carregando os DataFrames na memória
+df_reanalise_resumo = carregar_reanalise_resumo()
+df_reanalise_ies = carregar_reanalise_por_ies()
+df_robustez_item = carregar_robustez_item()
+df_robustez_oc = carregar_robustez_oc()
 
 df_base = carregar_dados_resumidos()
 df_lca_geral = carregar_lca_geral()
@@ -825,6 +854,50 @@ elif tab_selector == TABS[4]:
                         cols_crit = ['k', 'bic', 'aic', 'entropia', 'menor_classe_pct']
                         cols_crit = [c for c in cols_crit if c in df_crit_ies.columns]
                         st.dataframe(df_crit_ies[cols_crit].set_index('k').round(3), use_container_width=True)
+
+                # ==========================================
+                # NOVA SEÇÃO: REANÁLISE E ROBUSTEZ
+                # ==========================================
+                st.markdown("---")
+                st.subheader(" Reanálise de Horizontalidade e Robustez (Brancos)")
+                
+                tab_reanalise, tab_robustez_item, tab_robustez_oc = st.tabs([
+                    "Resumo Horizontalidade", 
+                    "Robustez por Item", 
+                    "Robustez por OC"
+                ])
+                
+                with tab_reanalise:
+                    if df_reanalise_resumo is not None:
+                        st.dataframe(df_reanalise_resumo, use_container_width=True)
+                    else:
+                        st.info("Arquivo reanalise_resumo.csv não encontrado.")
+                        
+                    if df_reanalise_ies is not None:
+                        st.markdown("**Detalhamento por IES:**")
+                        df_reanalise_filtrado = df_reanalise_ies[df_reanalise_ies['ies'] == ies_lca_sel]
+                        if not df_reanalise_filtrado.empty:
+                            st.dataframe(df_reanalise_filtrado, use_container_width=True)
+                        else:
+                            st.warning("Sem dados de reanálise para esta IES específica.")
+                
+                with tab_robustez_item:
+                    if df_robustez_item is not None:
+                        st.dataframe(df_robustez_item, use_container_width=True)
+                    else:
+                        st.info("Arquivo robustez_brancos_por_item.csv não encontrado.")
+
+                with tab_robustez_oc:
+                    if df_robustez_oc is not None:
+                        st.dataframe(df_robustez_oc, use_container_width=True)
+                    else:
+                        st.info("Arquivo robustez_brancos_por_oc.csv não encontrado.")
+
+                # Exibindo a figura específica
+                caminho_figura5 = PASTA_LCA_FIGURAS / 'figura5_corrigida.jpg'
+                if caminho_figura5.exists():
+                    st.markdown("#### Impacto Gráfico da Reanálise")
+                    st.image(str(caminho_figura5), use_container_width=True, caption="Figura 5 - Correção de Horizontalidade")
 
                 st.markdown("---")
                 st.subheader(" Figuras da Análise (Artigo SBIE)")
